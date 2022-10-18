@@ -24,8 +24,7 @@ Beesline Apitherapy is a website that provides cosmetics, and body and skin care
   3. Install `high charts` by run this command line `npm i highcharts-angular --save` with the help of [highcharts-angular npm](https://www.npmjs.com/package/highcharts-angular) and run this command `npm i highcharts --save` with the help of [Highcharts npm](https://www.npmjs.com/package/highcharts).
   4. Install `Flex Layout` Packages by run this command line `npm i @angular/flex-layout @angular/cdk --save` with the help of [angular flex-layout npm](https://www.npmjs.com/package/@angular/flex-layout) and [Angular cdk npm](https://www.npmjs.com/package/@angular/cdk).
   5. In `app.module.ts` add `MatButtonModule` in imports :) with `import {MatButtonModule} from '@angular/material/button'`
-  6. add `mat-raised-button` for testing in `app.component.html` as in:
-   ![image](src/assets/imagesInReadme/testMatButton.jpg)
+  6. add `mat-raised-button` for testing in `app.component.html`.
   7. remove the previous matButton and its' imports :) and complete :).
   8. Create The first Layout by run this command line `ng g c layouts/default` and create its' module by `ng g m layouts/default`
   9. Create a component for the Dashboard Page by run this command line `ng g c modules/dashboard`.
