@@ -1,0 +1,120 @@
+h4, h3 {
+    width: 100%;
+    text-align: center;
+    border-bottom: 3.5px solid #C59630;
+    line-height: 0.1em;
+    margin: 10px 0 20px;
+    letter-spacing: 2px;
+}
+
+h4 span {
+    background: #fff;
+    padding: 0 10px;
+    color: #C59630;
+    font-style: italic;
+    font-family: "Amasis MT";
+    font-weight: 500;
+}
+
+h3 span {
+    background: #fff;
+    padding: 0 10px;
+}
+
+h2 {
+    letter-spacing: 3px;
+    font-weight: 600;
+}
+
+.icon {
+    color: #C59630;
+    font-style: italic;
+    font-family: "Amasis MT";
+    font-size: larger;
+}
+
+.add-btn {
+    background: #FFCD25;
+    border: none;
+    font-weight: 500;
+    font-size: larger;
+}
+
+.add-btn:hover {
+    background: white;
+    border: 1px solid #C59630;
+    color: #C59630;
+}
+
+.prod-btn {
+    background: #FFCD25;
+    border: none;
+    font-weight: 500;
+}
+
+.deta-btn {
+    background: white;
+    border: 1px solid;
+    font-weight: 500;
+    color: black;
+}
+
+.prod-btn:hover {
+    background: white;
+    border: 1px solid #C59630;
+    color: #C59630;
+}
+
+.deta-btn:hover {
+    background-color: black;
+    color: white;
+}
+
+@media (max-width: 575.98px) {
+    #imageDiv {
+        margin-bottom: 5%;
+    }
+
+    #textDiv {
+        padding-left: 2% !important;
+        padding-right: 2% !important;
+    }
+
+    #secTitle {
+        font-size: medium;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    #imageDiv {
+        margin-bottom: 5%;
+    }
+
+    #textDiv {
+        padding-left: 2% !important;
+        padding-right: 2% !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    #buttons-group, #product-details {
+        flex-direction: column;
+    }
+
+    #imageDiv {
+        margin-bottom: 5%;
+    }
+
+    #textDiv {
+        padding-left: 2% !important;
+        padding-right: 2% !important;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    #buttons-group {
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 1200px) {}
