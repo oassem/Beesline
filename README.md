@@ -80,17 +80,17 @@ Beesline Apitherapy is a website that provides cosmetics, and body and skin care
    - `ng g c shared/widgets/pie` to draw a pie chart alongside table :) create new service to handle data in all charts `ng g s modules/dashboard` add this service in providers of `default.module.ts`.
     
   31. Now we need to make Table of users and all types in the dashboard by default :) as in: 
-    ![image](../Beesline/src/assets/DashboardFinish.png)
+    ![image](./src/assets/DashboardFinish.png)
   
   32. Start with build Product Table :) first create table component for products :) `ng g c shared/widgets/PrdouctsTable`
 
   33. finish products Page structure as in:
-   ![image](../Beesline/src/assets/ProductsPage.png)
+   ![image](./src/assets/ProductsPage.png)
 
   34. Orders page Structure by create component for table :) `ng g c shared/widgets/OrdersTable`.
 
   35. finish orders page structure :)  as in:
-   ![image](../Beesline/src/assets/OrdersStructure.png)
+   ![image](./src/assets/OrdersStructure.png)
 
 
 
