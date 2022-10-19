@@ -20,6 +20,11 @@ import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './shared/components/admin-header/header.component';
 import { FooterComponent } from './shared/components/admin-footer/footer.component';
 import { SidebarComponent } from './shared/components/admin-sidebar/sidebar.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+
+
 
 
 
@@ -30,7 +35,10 @@ import { SidebarComponent } from './shared/components/admin-sidebar/sidebar.comp
     DefaultComponent,
     HeaderComponent,
     FooterComponent,
-    SidebarComponent
+    SidebarComponent,
+  
+    
+ 
     
   ],
   imports: [
@@ -47,6 +55,10 @@ FlexLayoutModule,
 MatMenuModule,
 MatListModule,
 RouterModule,
+MatFormFieldModule,
+MatTableModule,
+MatPaginatorModule
+
 
 ],
 exports:[

@@ -16,12 +16,35 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatListModule} from '@angular/material/list';
 import { AreaComponent } from 'src/app/shared/widgets/area/area.component';
 import { HighchartsChartModule } from 'highcharts-angular';
+import { CardComponent } from '../../shared/widgets/card/card.component';
+import { PieComponent } from '../../shared/widgets/pie/pie.component';
+import { DashboardService } from '../../modules/dashboard.service';
+import{MatCardModule} from '@angular/material/card';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatTableModule} from '@angular/material/table';
+import { AllUsersTableComponent } from '../../shared/widgets/all-users-table/all-users-table.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { HttpClientModule } from '@angular/common/http';
+import {MatSortModule} from '@angular/material/sort';
+import { PrdouctsTableComponent } from 'src/app/shared/widgets/prdoucts-table/prdoucts-table.component';
+import { AddProductComponent } from 'src/app/shared/widgets/add-product/add-product.component';
+import { OrdersTableComponent } from '../../shared/widgets/orders-table/orders-table.component';
+
+
 @NgModule({
   declarations: [
     DashboardComponent,
     ProductsComponent,
     OrdersComponent,
-    AreaComponent
+    AreaComponent,
+    CardComponent,
+    PieComponent,
+    AllUsersTableComponent,
+    PrdouctsTableComponent,
+    AddProductComponent,
+    OrdersTableComponent
+    
+
   ],
   imports: [
     CommonModule,
@@ -35,10 +58,25 @@ import { HighchartsChartModule } from 'highcharts-angular';
     MatMenuModule,
     MatListModule,
     RouterModule,
-    HighchartsChartModule
- ],
+    HighchartsChartModule,
+    MatCardModule,
+    MatPaginatorModule,
+    MatTableModule,
+    MatFormFieldModule,
+    
+    HttpClientModule,
+    MatSortModule
+    
+  ],
  exports:[
-  AreaComponent
+  AreaComponent,
+  CardComponent,
+  PieComponent,
+  AllUsersTableComponent,
+
+ ],
+ providers:[
+  DashboardService
  ]
 })
 export class DefaultModule { }

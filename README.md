@@ -72,10 +72,25 @@ Beesline Apitherapy is a website that provides cosmetics, and body and skin care
    - finally , make side bar dynamic open and closed when someone click on menu icon :)).
  
  30. Design Dashboard and its charts :) 
-   - `ng g c shared/widgets/area` and draw charts as in:
+   - `ng g c shared/widgets/area` and draw area chart as in:
      ![image](src/assets/AreaCharts.png)
+   - Make the area chart Exporting by `HC_exporting` , Export as image,pdf,svg or print :)).
+   - `ng g c shared/widgets/card` to draw states as in:
+     ![image](src/assets/StatsCards.png)
+   - `ng g c shared/widgets/pie` to draw a pie chart alongside table :) create new service to handle data in all charts `ng g s modules/dashboard` add this service in providers of `default.module.ts`.
+    
+  31. Now we need to make Table of users and all types in the dashboard by default :) as in: 
+    ![image](../Beesline/src/assets/DashboardFinish.png)
   
+  32. Start with build Product Table :) first create table component for products :) `ng g c shared/widgets/PrdouctsTable`
 
+  33. finish products Page structure as in:
+   ![image](../Beesline/src/assets/ProductsPage.png)
+
+  34. Orders page Structure by create component for table :) `ng g c shared/widgets/OrdersTable`.
+
+  35. finish orders page structure :)  as in:
+   ![image](../Beesline/src/assets/OrdersStructure.png)
 
 
 
