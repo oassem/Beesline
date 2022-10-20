@@ -8,9 +8,12 @@
     letter-spacing: 3px;
     outline: medium none;
      padding: 14px 5px 1px ; 
-    text-transform: uppercase;
     color: #ffcd25;
  
+}
+#login_in{
+   background-color: transparent;
+   border: none;
 }
 nav{
     margin-left: 150px;
@@ -18,6 +21,8 @@ nav{
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color:  #ffcd25;
     opacity: 1; /* Firefox */
+    font-family: 'Avenir Next LT Pro' !important;
+
   }
   p.text_header{
 
@@ -59,27 +64,41 @@ nav{
  .navbar ul li { 
 	padding: 0px 60px; 
  }
+ .custom_dropdown{
+   
+   width: max-content;
+   font-family: 'Avenir Next LT Pro' !important;
+   font-size: 15px;
+   font-weight: normal;
+   color: #000000;
+
+}
+.dropdown_arrow{
+   display: none;
+}
+.dropdown:hover .dropdown_arrow{
+   display: flex;
+   
+
+}
  .custom_dropdown:hover{
     color: #eac06c;
+    width: max-content;
    
  }
  .custom_dropdown:active{
  background-color: aliceblue;
- }
- .custom_dropdown{
-    padding: 10px  ; 
-    font-family: 'Avenir Next LT Pro' !important;
-    font-size: 18px;
-    font-weight: normal;
-    color: #000000;
-
- }
- .dropdown_arrow{
-    display: none;
- }
- .dropdown:hover .dropdown_arrow{
-    display: flex;
-    max-width: auto;
-
+ 
  }
  
+ .h2-heading{
+   color: #c59630;
+    font-family: "Amasis MT";
+    font-size: 22px;
+    line-height: 18px;
+    text-align: center;
+    font-style: italic;
+    text-transform: lowercase;
+    top: -10px;
+    letter-spacing: normal;
+ }
