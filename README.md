@@ -92,6 +92,14 @@ Beesline Apitherapy is a website that provides cosmetics, and body and skin care
   35. finish orders page structure :)  as in:
    ![image](./src/assets/OrdersStructure.png)
 
+  36. start add product by creating `ng g c shared/widgets/addProduct` and adjust routing for this component and import in default module `ReactiveFormsModule` 
+
+  37. edit product form `ng g c shared/widgets/editProduct`
+
+  38. Show product Details `ng g c shared/widgets/productDetails`
+
+  39. remove product by splicing element from array.
+
 
 
  

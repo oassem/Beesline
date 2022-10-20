@@ -1,4 +1,7 @@
-import { Component, ViewChild, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable, observable } from 'rxjs';
+import { DashboardService } from '../dashboard.service';
 
 
 @Component({
@@ -7,16 +10,17 @@ import { Component, ViewChild, OnInit } from '@angular/core';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit{
- 
-  constructor() {
-   
-   }
-
-  ngOnInit(): void {
-  }
-  
-  
+  data:any;
+  constructor(private activatedRoute:ActivatedRoute,private dashboardservice:DashboardService) {
+    if(this.activatedRoute.snapshot.params!=undefined){
+    this.data=this.activatedRoute.snapshot.params;
+      if(this.data != undefined){
+          dashboardservice.AddProduct(this.data);
+       }
+    }
     
-   
+
+   }
+   ngOnInit(): void {}
 
 }

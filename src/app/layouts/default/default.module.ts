@@ -29,6 +29,9 @@ import {MatSortModule} from '@angular/material/sort';
 import { PrdouctsTableComponent } from 'src/app/shared/widgets/prdoucts-table/prdoucts-table.component';
 import { AddProductComponent } from 'src/app/shared/widgets/add-product/add-product.component';
 import { OrdersTableComponent } from '../../shared/widgets/orders-table/orders-table.component';
+import { ReactiveFormsModule } from '@angular/forms';  
+import { ProductDetailsComponent } from '../../shared/widgets/product-details/product-details.component';
+import { EditProductComponent } from 'src/app/shared/widgets/edit-product/edit-product.component';
 
 
 @NgModule({
@@ -42,7 +45,9 @@ import { OrdersTableComponent } from '../../shared/widgets/orders-table/orders-t
     AllUsersTableComponent,
     PrdouctsTableComponent,
     AddProductComponent,
-    OrdersTableComponent
+    OrdersTableComponent,
+    ProductDetailsComponent,
+    EditProductComponent
     
 
   ],
@@ -65,7 +70,8 @@ import { OrdersTableComponent } from '../../shared/widgets/orders-table/orders-t
     MatFormFieldModule,
     
     HttpClientModule,
-    MatSortModule
+    MatSortModule,
+    ReactiveFormsModule
     
   ],
  exports:[
@@ -73,6 +79,11 @@ import { OrdersTableComponent } from '../../shared/widgets/orders-table/orders-t
   CardComponent,
   PieComponent,
   AllUsersTableComponent,
+  PrdouctsTableComponent,
+  AddProductComponent,
+  OrdersTableComponent,
+  ProductDetailsComponent,
+  EditProductComponent
 
  ],
  providers:[

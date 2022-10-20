@@ -4,13 +4,21 @@ import { DefaultComponent } from './layouts/default/default.component';
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { ProductsComponent } from './modules/products/products.component';
 import { OrdersComponent } from './modules/orders/orders.component';
+import { AddProductComponent } from './shared/widgets/add-product/add-product.component';
+import { ProductDetailsComponent } from './shared/widgets/product-details/product-details.component';
+import { EditProductComponent } from './shared/widgets/edit-product/edit-product.component';
 
 const routes: Routes = [
   { path:'',component:DefaultComponent,
   children:[
-    {path:'',component:DashboardComponent,loadChildren: () => import('./layouts/default/default.module').then(m => m.DefaultModule)},
-    {path:'products',component:ProductsComponent,loadChildren:()=>import('./layouts/default/default.module').then(m=>m.DefaultModule)},
-    {path:'orders',component:OrdersComponent,loadChildren:()=>import('./layouts/default/default.module').then(m=>m.DefaultModule)}
+    {path:'',component:DashboardComponent,loadChildren: () => import('./layouts/default/default.module').then(m => m.DefaultModule),pathMatch: 'full'},
+    {path:'products',component:ProductsComponent,loadChildren:()=>import('./layouts/default/default.module').then(m=>m.DefaultModule),pathMatch: 'full'},
+    {path:'products:?data',component:ProductsComponent,loadChildren:()=>import('./layouts/default/default.module').then(m=>m.DefaultModule),pathMatch: 'full'},
+    {path:'orders',component:OrdersComponent,loadChildren:()=>import('./layouts/default/default.module').then(m=>m.DefaultModule),pathMatch: 'full'},
+    {path:'products/addProduct',component:AddProductComponent,loadChildren:()=>import('./layouts/default/default.module').then(m=>m.DefaultModule),pathMatch: 'full'},
+    {path:'productDetails:?element',component:ProductDetailsComponent,loadChildren:()=>import('./layouts/default/default.module').then(m=>m.DefaultModule)},
+    {path:'editProduct:?item',component:EditProductComponent,loadChildren:()=>import('./layouts/default/default.module').then(m=>m.DefaultModule)}
+
   ]}
 ];
 

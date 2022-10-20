@@ -59,5 +59,14 @@ export class DashboardService {
       name: 'Other',
       y: 2.61
     }];}
+    data:any;
+   AddProduct(data:any){
+    this.data=data;
+   }
+   getAddedProduct(){
+    if(this.data !=undefined){
+    return this.data;
+    }
+   }
    
 }

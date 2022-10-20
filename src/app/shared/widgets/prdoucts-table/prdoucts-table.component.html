@@ -2,7 +2,7 @@
 
 <br>
 <p>
-    <a mat-raised-button routerLink="" color="primary">Add New Product</a>
+    <a mat-raised-button  routerLinkActive="list-item-active" routerLink="/products/addProduct" color="primary">Add New Product</a>
 </p>
 
 <div class="example-container mat-elevation-z8">
@@ -45,9 +45,9 @@
     <ng-container matColumnDef="action">
         <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
         <mat-cell *matCellDef="let element">
-            <button mat-raised-button  color="primary"><mat-icon>remove_red_eye</mat-icon></button>
-            <button mat-raised-button color="accent"><mat-icon>edit</mat-icon></button>
-            <button mat-raised-button  color="warn"><mat-icon>delete</mat-icon></button>
+            <button mat-raised-button  color="primary" (click)="showProduct(element)"><mat-icon>remove_red_eye</mat-icon></button>
+            <button mat-raised-button color="accent" (click)="editProduct(element)"><mat-icon>edit</mat-icon></button>
+            <button mat-raised-button  color="warn" (click)="deleteProduct(element)"><mat-icon>delete</mat-icon></button>
         </mat-cell>
 
     </ng-container>
