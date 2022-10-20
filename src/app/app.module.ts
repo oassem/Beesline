@@ -29,6 +29,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +37,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     HeaderComponent,
     FooterComponent,
     SidebarComponent,
-   
+  
   
     
  

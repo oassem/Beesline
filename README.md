@@ -100,6 +100,8 @@ Beesline Apitherapy is a website that provides cosmetics, and body and skin care
 
   39. remove product by splicing element from array.
 
+  40. Show order details `ng g c shared/widgets/orderDetails` and change order status `ng g c shared/widgets/changeStatus`.
+
 
 
  

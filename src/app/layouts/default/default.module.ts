@@ -32,6 +32,8 @@ import { OrdersTableComponent } from '../../shared/widgets/orders-table/orders-t
 import { ReactiveFormsModule } from '@angular/forms';  
 import { ProductDetailsComponent } from '../../shared/widgets/product-details/product-details.component';
 import { EditProductComponent } from 'src/app/shared/widgets/edit-product/edit-product.component';
+import { OrderDetailsComponent } from '../../shared/widgets/order-details/order-details.component';
+import { ChangeStatusComponent } from '../../shared/widgets/change-status/change-status.component';
 
 
 @NgModule({
@@ -47,7 +49,8 @@ import { EditProductComponent } from 'src/app/shared/widgets/edit-product/edit-p
     AddProductComponent,
     OrdersTableComponent,
     ProductDetailsComponent,
-    EditProductComponent
+    EditProductComponent,
+  OrderDetailsComponent,ChangeStatusComponent
     
 
   ],
@@ -83,7 +86,10 @@ import { EditProductComponent } from 'src/app/shared/widgets/edit-product/edit-p
   AddProductComponent,
   OrdersTableComponent,
   ProductDetailsComponent,
-  EditProductComponent
+  EditProductComponent,
+  OrderDetailsComponent,
+  ChangeStatusComponent
+
 
  ],
  providers:[
