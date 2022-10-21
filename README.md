@@ -7,7 +7,7 @@ Beesline Apitherapy is a website that provides cosmetics, and body and skin care
  1. Design Of Dashboard including Header, Footer, SideBar :).
  2. Dashboard -> Prdoucts (CRUD): Create New Product, Read All Products, Show Prdouct Details, Update Product, Delete Product.
  3. Orders: Show all Orders, Show the details of any order(username,date,totalPrice,Product Titles only), change the status of any order (Pending (Default), Accepted, Rejected).
- 4. Admin can login with pre-registered (Email & Password).
+ 4. Admin can login with pre-registered (Email & Password) in website and click on button `dashboard` to get in to his Dashboard.
  5. Search Bar By Product Name :).
  6. There is Profile for admin as User :) , and he can edit it also :).
  
@@ -118,9 +118,22 @@ Beesline Apitherapy is a website that provides cosmetics, and body and skin care
    - `changeStatus` order page as in: 
      ![image](./src/assets/ChangeOrderStatusPage.jpg)
 
+  41. add search products in `products` page by `ng2-search-filter` package.
+    - Install ng2-search-filter Package `npm i ng2-search-filter`
+    - Import Ng2SearchPipeModule in `defaultModule` by `import { Ng2SearchPipeModule } from 'ng2-search-filter`.
+    - Implementing Search Filter in Angular Component `Products-Table`.
+    - Run Development Server
 
+  42. Product Search Bar Work as in:
+   ![image](./src/assets/SearchBarWork.jpg)
 
+  43. Edit Profile icon `setting icon` ,and build component for edit profile data `ng g c shared/widgets/editProfile` and make routing path for edit Profile .
+   
+  44. when user click on edit profile button in header, he will redirect to `editprofile` page with old data :) as in:
+    ![image](./src/assets/EditProfilewithOldData.jpg)
 
+  45. after edit Name as example :) it will deal with dashboard service to handle the new data and pass to the dashboard again and show it in the sidebar :)
+  
 
  
 

@@ -35,6 +35,11 @@ import { EditProductComponent } from '../../shared/widgets/edit-product/edit-pro
 import { OrderDetailsComponent } from '../../shared/widgets/order-details/order-details.component';
 import { ChangeStatusComponent } from '../../shared/widgets/change-status/change-status.component';
 import { MatSelectModule} from '@angular/material/select';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { FormsModule } from '@angular/forms';
+import { EditProfileComponent } from '../../shared/widgets/edit-profile/edit-profile.component';
+
+
 
 
 @NgModule({
@@ -52,7 +57,9 @@ import { MatSelectModule} from '@angular/material/select';
     ProductDetailsComponent,
     EditProductComponent,
   OrderDetailsComponent,
-  ChangeStatusComponent
+  ChangeStatusComponent,
+  EditProfileComponent
+  
     
 
   ],
@@ -77,7 +84,9 @@ import { MatSelectModule} from '@angular/material/select';
     HttpClientModule,
     MatSortModule,
     ReactiveFormsModule,
-    MatSelectModule
+    MatSelectModule,
+    Ng2SearchPipeModule,
+    FormsModule
     
   ],
  exports:[

@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-header',
@@ -7,7 +8,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
  @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
     setTimeout(()=>{
@@ -17,5 +18,8 @@ export class HeaderComponent implements OnInit {
 
   toggleSideBar(){
      this.toggleSideBarForMe.emit();
+  }
+  editProfile(){
+    this.router.navigateByUrl('/editProfile');
   }
 }

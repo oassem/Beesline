@@ -1,48 +1,77 @@
+<div class="hos">
+
+
 <mat-card>{{name}}</mat-card>
 
 <br>
 <p>
     <a mat-raised-button  routerLinkActive="list-item-active" routerLink="/products/addProduct" color="primary">Add New Product</a>
 </p>
-
+<div class="search-hero">
+  <input class="form-control" type="text" name="search" [(ngModel)]="searchTerm" autocomplete="off" placeholder="&#61442;  Start searching for a Product by name or price">
+</div>
 <div class="example-container mat-elevation-z8">
-  <mat-table #table [dataSource]="dataSource">
-
+  <table class="table table-striped" >
+    <!--  <mat-table #table [dataSource]="dataSource"> -->
+    <!-- [dataSource]="dataSource" -->
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
 
     <!-- Position Column -->
-    <ng-container matColumnDef="id">
+    <thead>
+      <tr>
+        <th>No.</th>
+        <th>Product Image</th>
+        <th>Product Name</th>
+        <th>Price</th>
+        <th>Description</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let element of ELEMENT_DATA | filter: searchTerm">
+        <td>{{element.id}}</td>
+        <td><img src="{{element.image}}" style="width:100px;height:100px;" class="p-1" ></td>
+        <td>{{element.name}}</td>
+        <td>{{element.price}}</td>
+        
+        <td>{{element.description}}</td>
+        <td> <button mat-raised-button  color="primary" (click)="showProduct(element)"><mat-icon>remove_red_eye</mat-icon></button>
+          <button mat-raised-button color="accent" (click)="editProduct(element)"><mat-icon>edit</mat-icon></button>
+          <button mat-raised-button  color="warn" (click)="deleteProduct(element)"><mat-icon>delete</mat-icon></button></td>
+      </tr>
+    </tbody>
+    <!-- <ng-container matColumnDef="id">
       <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
-    </ng-container>
+    </ng-container> -->
 
      <!-- Name Column -->
-     <ng-container matColumnDef="image">
+     <!-- <ng-container matColumnDef="image" >
         <mat-header-cell *matHeaderCellDef> Product Image</mat-header-cell>
         <mat-cell *matCellDef="let element"><img src="{{element.image}}" style="width:100px;height:100px;" class="p-1" alt=""> </mat-cell>
-      </ng-container>
+      </ng-container> -->
   
     <!-- Name Column -->
-    <ng-container matColumnDef="name">
+    <!-- <ng-container matColumnDef="name" >
       <mat-header-cell *matHeaderCellDef> Product Name </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
-    </ng-container>
+    </ng-container> -->
 
     <!-- Weight Column -->
-    <ng-container matColumnDef="price">
+    <!-- <ng-container matColumnDef="price" >
       <mat-header-cell *matHeaderCellDef>Price </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.price}} </mat-cell>
-    </ng-container>
+    </ng-container> -->
 
     <!-- Symbol Column -->
-    <ng-container matColumnDef="description">
+    <!-- <ng-container matColumnDef="description" >
       <mat-header-cell *matHeaderCellDef>Description </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
-    </ng-container>
+    </ng-container> -->
 
     <!-- Action Column -->
-    <ng-container matColumnDef="action">
+    <!-- <ng-container matColumnDef="action" >
         <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
         <mat-cell *matCellDef="let element">
             <button mat-raised-button  color="primary" (click)="showProduct(element)"><mat-icon>remove_red_eye</mat-icon></button>
@@ -50,12 +79,12 @@
             <button mat-raised-button  color="warn" (click)="deleteProduct(element)"><mat-icon>delete</mat-icon></button>
         </mat-cell>
 
-    </ng-container>
-
+    </ng-container> -->
+<!-- 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-  </mat-table>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row> -->
+  </table>
 </div>
 
-
+</div>
   

@@ -7,13 +7,23 @@
        <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
          <ul fxLayout="row" fxLayoutGap="20px">
            <li>
-             <button mat-icon-button>
+             <button mat-button [matMenuTriggerFor]="editProfile" >
                 <mat-icon>settings</mat-icon>
              </button>
+             
+             <mat-menu #editProfile="matMenu">
+           
+                <mat-icon>exit_to_app</mat-icon>
+                <a routerLink="/editProfile">Edit Profile</a> 
+              
+           
+          </mat-menu>
+       
+             
            </li>
            <li>
             <button mat-icon-button>
-                <mat-icon>help_outline</mat-icon>
+                <mat-icon>home</mat-icon>
              </button>
            </li>
            <li>

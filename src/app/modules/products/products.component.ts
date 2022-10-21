@@ -14,8 +14,10 @@ export class ProductsComponent implements OnInit{
   constructor(private activatedRoute:ActivatedRoute,private dashboardservice:DashboardService) {
     if(this.activatedRoute.snapshot.params!=undefined){
     this.data=this.activatedRoute.snapshot.params;
+    console.log(this.data);
       if(this.data != undefined){
           dashboardservice.AddProduct(this.data);
+          console.log(this.data);
        }
     }
     

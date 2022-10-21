@@ -11,7 +11,9 @@ import { Router } from '@angular/router';
 })
 export class PrdouctsTableComponent implements OnInit{
  constructor(private activatedRoute:ActivatedRoute,private dashboardService:DashboardService,private router:Router){
+  
  }
+ searchTerm:string|number| any;// search key word 
  ngOnInit() {
  this.add();
 }

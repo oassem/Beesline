@@ -9,6 +9,7 @@ import { ProductDetailsComponent } from './shared/widgets/product-details/produc
 import { EditProductComponent } from './shared/widgets/edit-product/edit-product.component';
 import { OrderDetailsComponent } from './shared/widgets/order-details/order-details.component';
 import { ChangeStatusComponent } from './shared/widgets/change-status/change-status.component';
+import { EditProfileComponent } from './shared/widgets/edit-profile/edit-profile.component';
 
 const routes: Routes = [
   {
@@ -27,7 +28,8 @@ const routes: Routes = [
     {path:'products/editProduct',component:EditProductComponent,loadChildren:()=>import('./layouts/default/default.module').then(m=>m.DefaultModule),pathMatch: 'full'},
     {path:'orders',component:OrdersComponent,loadChildren:()=>import('./layouts/default/default.module').then(m=>m.DefaultModule),pathMatch: 'full'},
     {path:'orders/orderDetails',component:OrderDetailsComponent,loadChildren:()=>import('./layouts/default/default.module').then(m=>m.DefaultModule),pathMatch: 'full'},
-    {path:'orders/changeStatus',component:ChangeStatusComponent,loadChildren:()=>import('./layouts/default/default.module').then(m=>m.DefaultModule),pathMatch: 'full'}
+    {path:'orders/changeStatus',component:ChangeStatusComponent,loadChildren:()=>import('./layouts/default/default.module').then(m=>m.DefaultModule),pathMatch: 'full'},
+    {path:'editProfile',component:EditProfileComponent,loadChildren:()=>import('./layouts/default/default.module').then(m=>m.DefaultModule),pathMatch:'full'}
 
   ]}
 ];

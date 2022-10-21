@@ -1,0 +1,56 @@
+<div class="container mt-5 border border-black bg-light " >
+    <div class="row">
+       <!-- Add Product Form start -->
+    <form [formGroup] ="myFormValidation" class="form" (ngSubmit)="SendData()">
+      <div class="form-group mt-3">
+         <label for="exampleInputName">Name</label>
+         <input formControlName="name" [ngClass]="!NameValid ?'red' :'green'" type="text" class="form-control" id="exampleInputName"  placeholder="Enter Name.." value="{{name}}">
+       </div>
+       <div *ngIf="!NameValid">
+        <p class="alert alert-danger">* Name Required</p>
+      </div>
+      <div *ngIf="NameValid">
+        <p class="alert alert-success">* Name Valid</p>
+      </div>
+     
+       <div class="form-group mt-3">
+         <label for="exampleInputEmail">Email</label>
+         <input formControlName="price"  [ngClass]="!emailValid ?'red' :'green'"  type="text" class="form-control" id="exampleInputEmail"  placeholder="Enter Your Email.." value="{{email}}">
+       </div>
+       <div *ngIf="!emailValid">
+        <p class="alert alert-danger">* Email Required </p>
+      </div>
+      <div *ngIf="emailValid">
+        <p class="alert alert-success">* Email Valid </p>
+      </div>
+     
+       <div class="form-group mt-3">
+         <label for="exampleInputpassword">Password</label>
+         <input formControlName="password"   [ngClass]="!passValid ?'red' :'green'" type="text" class="form-control" id="exampleInputpassword"  placeholder="Enter Your Description.." value="{{password}}">
+       </div>
+       <div *ngIf="!passValid">
+        <p class="alert alert-danger">* Description Required</p>
+      </div>
+      <div *ngIf="passValid">
+         <p class="alert alert-success">*Description Valid</p>
+       </div>
+
+        <div class="form-group mt-3">
+            <label for="exampleInputImg">Image</label>
+            <input formControlName="image"  [ngClass]="!ImgValid ?'red' :'green'" type="file" class="form-control" id="exampleInputImg"  placeholder="Enter Your Image.." value="{{image}}">
+          </div>
+          <div *ngIf="!ImgValid">
+            <p class="alert alert-danger">* Image Required</p>
+          </div>
+          <div *ngIf="ImgValid">
+             <p class="alert alert-success">*Image Valid</p>
+           </div>
+          <div class="form-group mt-3">
+            <img src="{{image}}" style="width:100px;height:100px" alt="">
+          </div>
+        
+       <button type="submit" class="btn btn-primary mt-3 mb-3" >Submit</button>
+      </form>
+     <!-- Register Form End -->
+    </div>
+  </div>

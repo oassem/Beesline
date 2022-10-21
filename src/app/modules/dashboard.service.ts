@@ -1,3 +1,4 @@
+import { identifierName } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -59,6 +60,7 @@ export class DashboardService {
       name: 'Other',
       y: 2.61
     }];}
+    pdata:{id:number,name:string,email:string,image:string,password:string}={id:1,name:'Laila Ibrahim',email:'lailaibrahim798@gmail.com',image:'../../../../assets/profileImage.png',password:'1234'};
     data:any;
     order:any;
    AddProduct(data:any){
@@ -75,8 +77,22 @@ export class DashboardService {
    getChangedStatus(){
     if(this.order !=undefined){
       return this.order;
+    }}
+    // id:number=0;
+// name:string='';
+// email:string='';
+// image:string='';
+// password:string='';
+getProfileData(d:any){
+  this.pdata=d;
+  
+}
+    getProfile(){
+     return this.pdata;
     }
    }
  
    
-}
+
+
+
