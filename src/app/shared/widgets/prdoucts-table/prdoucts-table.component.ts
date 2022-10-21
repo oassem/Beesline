@@ -32,12 +32,12 @@ add(){
 showProduct(element:{}){
    console.log(element);
 
-   this.router.navigate(['/productDetails/',element]);
+   this.router.navigate(['/products/productDetails/',element]);
 
 }
 editProduct(element:any){
   console.log(element);
-  this.router.navigate(['/editProduct/',element]);
+  this.router.navigate(['/products/editProduct/',element]);
 }
 deleteProduct(element:any){
   console.log(element);

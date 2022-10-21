@@ -9,16 +9,21 @@ import { ProductDetailsComponent } from './shared/widgets/product-details/produc
 import { EditProductComponent } from './shared/widgets/edit-product/edit-product.component';
 
 const routes: Routes = [
+  {
+    path: '',
+    redirectTo: 'dashboard',
+    pathMatch: 'full'
+  },
   { path:'',component:DefaultComponent,
   children:[
-    {path:'',component:DashboardComponent,loadChildren: () => import('./layouts/default/default.module').then(m => m.DefaultModule),pathMatch: 'full'},
+    {path:'dashboard',component:DashboardComponent,loadChildren: () => import('./layouts/default/default.module').then(m => m.DefaultModule),pathMatch: 'full'},
     {path:'products',component:ProductsComponent,loadChildren:()=>import('./layouts/default/default.module').then(m=>m.DefaultModule),pathMatch: 'full'},
     {path:'products:?data',component:ProductsComponent,loadChildren:()=>import('./layouts/default/default.module').then(m=>m.DefaultModule),pathMatch: 'full'},
-    {path:'orders',component:OrdersComponent,loadChildren:()=>import('./layouts/default/default.module').then(m=>m.DefaultModule),pathMatch: 'full'},
+  
     {path:'products/addProduct',component:AddProductComponent,loadChildren:()=>import('./layouts/default/default.module').then(m=>m.DefaultModule),pathMatch: 'full'},
-    {path:'productDetails:?element',component:ProductDetailsComponent,loadChildren:()=>import('./layouts/default/default.module').then(m=>m.DefaultModule)},
-    {path:'editProduct:?item',component:EditProductComponent,loadChildren:()=>import('./layouts/default/default.module').then(m=>m.DefaultModule)}
-
+    {path:'products/productDetails',component:ProductDetailsComponent,loadChildren:()=>import('./layouts/default/default.module').then(m=>m.DefaultModule),pathMatch: 'full'},
+    {path:'products/editProduct',component:EditProductComponent,loadChildren:()=>import('./layouts/default/default.module').then(m=>m.DefaultModule),pathMatch: 'full'},
+    {path:'orders',component:OrdersComponent,loadChildren:()=>import('./layouts/default/default.module').then(m=>m.DefaultModule),pathMatch: 'full'}
   ]}
 ];
 

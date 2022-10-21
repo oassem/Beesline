@@ -14,7 +14,7 @@ import{MatIconModule} from '@angular/material/icon';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatListModule} from '@angular/material/list';
-import { AreaComponent } from 'src/app/shared/widgets/area/area.component';
+import { AreaComponent } from '../../shared/widgets/area/area.component';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { CardComponent } from '../../shared/widgets/card/card.component';
 import { PieComponent } from '../../shared/widgets/pie/pie.component';
@@ -26,12 +26,12 @@ import { AllUsersTableComponent } from '../../shared/widgets/all-users-table/all
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { HttpClientModule } from '@angular/common/http';
 import {MatSortModule} from '@angular/material/sort';
-import { PrdouctsTableComponent } from 'src/app/shared/widgets/prdoucts-table/prdoucts-table.component';
-import { AddProductComponent } from 'src/app/shared/widgets/add-product/add-product.component';
+import { PrdouctsTableComponent } from '../../shared/widgets/prdoucts-table/prdoucts-table.component';
+import { AddProductComponent } from '../../shared/widgets/add-product/add-product.component';
 import { OrdersTableComponent } from '../../shared/widgets/orders-table/orders-table.component';
 import { ReactiveFormsModule } from '@angular/forms';  
 import { ProductDetailsComponent } from '../../shared/widgets/product-details/product-details.component';
-import { EditProductComponent } from 'src/app/shared/widgets/edit-product/edit-product.component';
+import { EditProductComponent } from '../../shared/widgets/edit-product/edit-product.component';
 import { OrderDetailsComponent } from '../../shared/widgets/order-details/order-details.component';
 import { ChangeStatusComponent } from '../../shared/widgets/change-status/change-status.component';
 

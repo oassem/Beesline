@@ -92,11 +92,22 @@ Beesline Apitherapy is a website that provides cosmetics, and body and skin care
   35. finish orders page structure :)  as in:
    ![image](./src/assets/OrdersStructure.png)
 
-  36. start add product by creating `ng g c shared/widgets/addProduct` and adjust routing for this component and import in default module `ReactiveFormsModule` 
+  36. start add product by creating `ng g c shared/widgets/addProduct` and adjust routing for this component and import in default module `ReactiveFormsModule`.
+    - when user click on `add product` button in `products` page, page redirect directly to `addProduct` page as in:
+    ![image](./src/assets/AddProductPage.jpg)
+    - when user enter valid data, as in: 
+    ![image](./src/assets/AddProductValidData.jpg)
+    - when user click on submit button the data will be showing in the products table :)
 
-  37. edit product form `ng g c shared/widgets/editProduct`
+  37. edit product form `ng g c shared/widgets/editProduct`.
+    - if you click on `pin` button to `edit` product,it will redirect to `edit page` to edit product with the previous data as in:
+     ![image](./src/assets/editProductwithThePreviousValue.jpg)
+    
 
-  38. Show product Details `ng g c shared/widgets/productDetails`
+  38. Show product Details `ng g c shared/widgets/productDetails`.
+    - if user click on any `eye` button,it will redirect to `product details ` page as in:
+     ![image](./src/assets/ProductDetailsPage.jpg)
+    - After edit Product Data, it will redirect to products Page with the new Data and insert it in products Table :)
 
   39. remove product by splicing element from array.
 
