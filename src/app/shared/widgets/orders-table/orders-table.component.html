@@ -45,11 +45,11 @@
       </ng-container>
     <!-- Action Column -->
     <ng-container matColumnDef="action">
-        <mat-header-cell *matHeaderCellDef>Update Status</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
         <mat-cell *matCellDef="let element">
             
-            <button mat-raised-button color="accent">EditStatus</button>
-            <button mat-raised-button color="primary"><mat-icon>remove_red_eye</mat-icon></button>
+            <button mat-raised-button color="accent" (click)="changeStatus(element)">EditStatus</button>
+            <button mat-raised-button color="primary" (click)="showOrder(element)"><mat-icon>remove_red_eye</mat-icon></button>
             
         </mat-cell>
 

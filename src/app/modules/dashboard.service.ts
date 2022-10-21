@@ -60,6 +60,7 @@ export class DashboardService {
       y: 2.61
     }];}
     data:any;
+    order:any;
    AddProduct(data:any){
     this.data=data;
    }
@@ -68,5 +69,14 @@ export class DashboardService {
     return this.data;
     }
    }
+   changeStatus(order:any){
+    this.order;
+   }
+   getChangedStatus(){
+    if(this.order !=undefined){
+      return this.order;
+    }
+   }
+ 
    
 }

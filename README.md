@@ -112,6 +112,13 @@ Beesline Apitherapy is a website that provides cosmetics, and body and skin care
   39. remove product by splicing element from array.
 
   40. Show order details `ng g c shared/widgets/orderDetails` and change order status `ng g c shared/widgets/changeStatus`.
+   - when user click on `eye` button to show any order Details, it will redirect to `order Details` page as in:
+    ![image](./src/assets/OrderDetailesPage.jpg).
+   - when user click on `edit status` button to change the status of order, after the user change status. it will redirect to `orders` page and insert the new order status. 
+   - `changeStatus` order page as in: 
+     ![image](./src/assets/ChangeOrderStatusPage.jpg)
+
+
 
 
 

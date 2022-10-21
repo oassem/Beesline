@@ -1,1 +1,50 @@
-<p>order-details works!</p>
+<div class="d-flex flex-column align-items-center">
+    <mat-card class="example-card">
+        <mat-card-title-group>
+            <!-- // {id: '1', image: 'https://www.shopbeesline.com/pub/media/catalog/pro…37b090f6ba61d9740b0415d76/5/2/5281018003237_2.jpg', name: 'Hydrogen', price: '1.0079', description: 'H', …} -->
+            <!-- <mat-divider></mat-divider> -->
+          <mat-card-title><h2 class="text-muted d-inline">Order Id:</h2> <h4 class="d-inline">{{id}}</h4></mat-card-title>
+    
+          <!-- <mat-card-subtitle class="text-muted">Product Number: {{id}}</mat-card-subtitle> -->
+          <!-- <img mat-card-xl-image src="{{image}}" > -->
+        </mat-card-title-group>
+        <mat-card-content>
+            <h2 class="text-muted d-inline">Order Status:</h2> <h4 class="d-inline">{{orderStatus}}</h4> <br>
+        </mat-card-content>
+        <mat-card-content>
+            <h2 class="text-muted d-inline">Order Date:</h2> <h4 class="d-inline">{{date}}</h4> <br>
+        </mat-card-content>
+        <mat-card-content>
+            <h2 class="text-muted d-inline">Order UserName:</h2> <h4 class="d-inline">{{username}} </h4><br>
+        </mat-card-content>
+        <mat-card-content>
+            <h2 class="text-muted d-inline">Total Price:</h2> <h4 class="d-inline">{{totalprice}} </h4><br>
+        </mat-card-content>
+        <mat-card-content>
+            <h2 class="text-muted d-inline">Products of this Order:</h2> <h4 class="d-inline">{{producttitles}} </h4><br>
+        
+          </mat-card-content>
+          
+          <mat-card-content> 
+            <button mat-raised-button color="warn" (click)="redirect()">Orders Page</button>   
+            <!-- <div class="example-flex-container">
+                <div class="example-button-container">
+                    
+                  <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                  <button mat-fab color="accent" aria-label="Example icon button with a bookmark icon">
+                    <mat-icon>bookmark</mat-icon>
+                  </button>
+                  <button mat-fab color="warn" aria-label="Example icon button with a home icon">
+                    <mat-icon>home</mat-icon>
+                  </button>
+
+                </div>
+                </div> -->
+           
+
+          </mat-card-content>
+          
+      </mat-card>
+</div>

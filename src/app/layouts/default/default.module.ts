@@ -34,6 +34,7 @@ import { ProductDetailsComponent } from '../../shared/widgets/product-details/pr
 import { EditProductComponent } from '../../shared/widgets/edit-product/edit-product.component';
 import { OrderDetailsComponent } from '../../shared/widgets/order-details/order-details.component';
 import { ChangeStatusComponent } from '../../shared/widgets/change-status/change-status.component';
+import { MatSelectModule} from '@angular/material/select';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { ChangeStatusComponent } from '../../shared/widgets/change-status/change
     OrdersTableComponent,
     ProductDetailsComponent,
     EditProductComponent,
-  OrderDetailsComponent,ChangeStatusComponent
+  OrderDetailsComponent,
+  ChangeStatusComponent
     
 
   ],
@@ -74,7 +76,8 @@ import { ChangeStatusComponent } from '../../shared/widgets/change-status/change
     
     HttpClientModule,
     MatSortModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSelectModule
     
   ],
  exports:[

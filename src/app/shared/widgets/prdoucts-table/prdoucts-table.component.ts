@@ -11,8 +11,6 @@ import { Router } from '@angular/router';
 })
 export class PrdouctsTableComponent implements OnInit{
  constructor(private activatedRoute:ActivatedRoute,private dashboardService:DashboardService,private router:Router){
-
-  
  }
  ngOnInit() {
  this.add();
