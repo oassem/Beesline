@@ -18,7 +18,7 @@ Beesline Apitherapy is a website that provides cosmetics, and body and skin care
  4. install Node Packages ` npm install`.
  5. run the angular project by `ng serve -o`.
  
-> Phase (1) - Design :)
+> Phase (1) - Design the structure of pages :)
   1. start to Empty `app.component.html` file but keep `outer-outlet` tag :).
   2. Install `angular material`by run this command line `ng add @angular/material`with choose `Indigo/Pink` Theme with `angular Animations Module`with Global Angular Material Typography styles `html, body { height: 100%; }body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }`
   3. Install `high charts` by run this command line `npm i highcharts-angular --save` with the help of [highcharts-angular npm](https://www.npmjs.com/package/highcharts-angular) and run this command `npm i highcharts --save` with the help of [Highcharts npm](https://www.npmjs.com/package/highcharts).
