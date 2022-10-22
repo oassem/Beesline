@@ -132,8 +132,7 @@ Beesline Apitherapy is a website that provides cosmetics, and body and skin care
   44. when user click on edit profile button in header, he will redirect to `editprofile` page with old data :) as in:
     ![image](./src/assets/EditProfilewithOldData.jpg)
 
-  45. after edit Name as example :) it will deal with dashboard service to handle the new data and pass to the dashboard again and show it in the sidebar :)
-  
+  45. after edit Name as example :) it will deal with dashboard service to handle the new data and pass to the dashboard again and show it in the sidebar.
 
  
 

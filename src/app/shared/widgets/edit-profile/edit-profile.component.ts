@@ -72,7 +72,7 @@ myFormValidation:any;
         password:this.myFormValidation.value.password,
         image:this.myFormValidation.value.image};
      this.dashboardService.getProfileData(this.data);
-      this.router.navigate(['/dashboard/',data]);
+      this.router.navigateByUrl('/dashboard/');
       
     
      
