@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\UserResource;
-use Illuminate\Http\Request;
+use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
         $request->merge(['password' => Hash::make($request->password)]);
         User::Create($request->all());
@@ -31,7 +31,7 @@ class UserController extends Controller
         }
     }
 
-    public function update($id, Request $request)
+    public function update($id, UserRequest $request)
     {
         $user = User::find($id);
         if (Hash::check($request->password, $user->password)) {
