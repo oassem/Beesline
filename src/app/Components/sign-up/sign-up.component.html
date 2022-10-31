@@ -1,20 +1,35 @@
 <div class="container">
 <h3 ><span>&nbsp;create  Acccont&nbsp;</span></h3>
 <div class="p-5">
-    <form action="">
+    <form  [formGroup]="signUpForm" action="">
  
         <h1 style="font-weight: 300;">Personal Informations</h1>
         <hr>
         <div class="form-group mb-4">
           <label >First Name</label> <span style="color:red;">&nbsp;*</span>
-          <input type="text" class="form-control" placeholder="Enter First Name">
+          <input type="text" class="form-control" placeholder="Enter First Name" formControlName="firstName" minlength="3">
+         <div *ngIf="FirstName?.touched &&  FirstName?.invalid" class="alert alert-danger">
+          <div *ngIf="FirstName?.errors?.['required']">First Name is required</div>
+          <div *ngIf="FirstName?.errors?.['minlength']">First Name minimum lenght is 3</div> 
+        </div>
         </div>
         <div class="form-group mb-4">
           <label >Last Name</label><span style="color:red;">&nbsp;*</span>
-          <input type="text" class="form-control"  placeholder="text">
+          <input type="text" class="form-control"  placeholder="Enter Last Name" formControlName="lastName"  minlength="3">
+          <div *ngIf="lastName?.touched &&  lastName?.invalid" class="alert alert-danger">
+            <div *ngIf="lastName?.errors?.['required']">Last Name is required</div>
+            <div *ngIf="lastName?.errors?.['minlength']">Last Name minimum lenght is 3</div>
+          </div>
+
+        </div>
+        <div class="form-group mb-4">
+          <label >Address</label><span style="color:red;">&nbsp;*</span>
+          <textarea  class="form-control"  rows="3" style="width: 400px;" formControlName="address"></textarea>
+          <div *ngIf="address?.touched &&  address?.invalid" class="alert alert-danger">Address is Required </div>
+
         </div>
         <div class="form-group form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1" >
           <label class="form-check-label" for="exampleCheck1"><span style="color:#c59630ed; font-size: smaller;"> Sign up for Newletter</span></label>
         </div>
         <div class="m-4"></div>
@@ -22,15 +37,21 @@
         <hr>
         <div class="form-group mb-4" >
           <label >Email</label><span style="color:red;">&nbsp;*</span>
-          <input type="email" class="form-control" placeholder="Enter Email">
+          <input type="email" class="form-control" placeholder="Enter Email" formControlName="email">
+          <div *ngIf="email?.touched &&  email?.invalid" class="alert alert-danger">Email is Required </div>
+
         </div>
         <div class="form-group mb-4">
           <label >Password</label><span style="color:red;">&nbsp;*</span>
-          <input type="password" class="form-control"  placeholder="Enter Password">
+          <input type="password" class="form-control"  placeholder="Enter Password" formControlName="password">
+
         </div>
         <div class="form-group mb-4">
             <label >confirm password</label><span style="color:red;">&nbsp;*</span>
-            <input type="password" class="form-control"  placeholder="Enter Password">
+            <input type="password" class="form-control"  placeholder="Enter Password" formControlName="confirmPass">
+            <div  class="alert alert-danger" *ngIf="passwordMatchError">
+              Password does not match
+            </div>
           </div>
       
         <button type="submit" class="btn btn-warning">Create An Acccount</button>

@@ -5,7 +5,7 @@
 .popoup_heading{
     color: #b48b32;
     font-size: 22px;
-    line-height: 18px;
+    /* line-height: 18px; */
     text-align: center;
     font-style: italic;
     text-transform: lowercase;
