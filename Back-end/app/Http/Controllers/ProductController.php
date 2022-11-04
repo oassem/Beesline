@@ -6,6 +6,7 @@ use App\Http\Resources\ProductResource;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Services\ProductQuery;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -24,6 +25,16 @@ class ProductController extends Controller
         } else {
             return ProductResource::collection(Product::where($filterItems)->get());
         }
+    }
+
+    public function category()
+    {
+        $categories =  DB::table('products')->pluck('category')->unique();
+        $catArray = [];
+        foreach ($categories as $category) {
+            array_push($catArray, $category);
+        }
+        return $catArray;
     }
 
     public function show($id)

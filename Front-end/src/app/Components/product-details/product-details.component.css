@@ -46,6 +46,10 @@ h2 {
     color: #C59630;
 }
 
+.add-btn:focus {
+    box-shadow: none;
+}
+
 .prod-btn {
     background: #FFCD25;
     border: none;
@@ -65,9 +69,17 @@ h2 {
     color: #C59630;
 }
 
+.prod-btn:focus {
+    box-shadow: none;
+}
+
 .deta-btn:hover {
     background-color: black;
     color: white;
+}
+
+.disable {
+    display: none;
 }
 
 @media (max-width: 575.98px) {

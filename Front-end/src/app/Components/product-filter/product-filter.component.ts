@@ -1,27 +1,25 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { APIService } from 'src/app/Services/api.service';
 
 @Component({
-  selector: 'app-products',
-  templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css']
+  selector: 'app-product-filter',
+  templateUrl: './product-filter.component.html',
+  styleUrls: ['./product-filter.component.css']
 })
-export class ProductsComponent implements OnInit {
+export class ProductFilterComponent implements OnInit {
   products: any;
-  categories: any;
   offers: any;
   items: any;
+  param: any;
 
-  constructor(private myService: APIService) { }
+  constructor(myRoute: ActivatedRoute, private myService: APIService) {
+    this.param = myRoute.snapshot.params['name'];
+  }
 
   ngOnInit(): void {
     this.myService.getAllProducts().subscribe({
       next: (data) => this.products = data,
-      error: (err) => console.error(err)
-    });
-
-    this.myService.getAllCategories().subscribe({
-      next: (data) => this.categories = data,
       error: (err) => console.error(err)
     });
 
@@ -51,4 +49,5 @@ export class ProductsComponent implements OnInit {
       error: (err) => console.error(err)
     });
   }
+
 }

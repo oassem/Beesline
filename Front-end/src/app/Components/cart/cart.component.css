@@ -47,6 +47,10 @@
     .checkout {
         width: 70% !important;
     }
+
+    #mainDiv {
+        overflow-x: auto;
+    }
 }
 
 @media (min-width: 576px) and (max-width: 767.98px) {

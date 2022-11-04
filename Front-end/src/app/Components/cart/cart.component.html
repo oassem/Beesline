@@ -1,11 +1,11 @@
-<div class="mx-auto mt-5" style="width: 90%; text-align: center;">
+<div id="mainDiv" class="mx-auto mt-5" style="width: 90%; text-align: center;">
     <h1 style="letter-spacing: 2px">MY CART</h1>
-    <h5 class="my-5" style="font-weight:400">2 ITEMS SELECTED</h5>
-    <div style="overflow-x:auto">
+    <h5 class="my-5" style="font-weight:400">{{counter}} ITEM(S) SELECTED</h5>
+    <div>
         <table class="table">
             <thead>
                 <tr>
-                    <th style="width: 150px;" scope="col" class="imageCol"></th>
+                    <th style="width: 150px" scope="col" class="imageCol"></th>
                     <th scope="col">PRODUCT</th>
                     <th scope="col">QUANTITY</th>
                     <th scope="col">PER UNIT</th>
@@ -15,25 +15,19 @@
             </thead>
             <tbody>
                 <tr style="visibility:hidden">hidden row</tr>
-                <tr style="font-weight:bold">
-                    <td class="imageCol"><img class="rounded" src="assets/images/d2.jpg" width="100%" /></td>
-                    <td class="golder productName" style="letter-spacing: 2px">DEO WHITENING - ELDER ROSE</td>
-                    <td><i class="bi bi-dash-lg golder mx-lg-3 mx-2"></i>1<i class="bi bi-plus-lg golder mx-lg-3 mx-2"></i></td>
-                    <td>EGP180.00</td>
-                    <td>EGP180.00</td>
-                    <td><i class="bi bi-trash golder" style="font-size: larger"></i></td>
-                </tr>
-                <tr style="font-weight:bold">
-                    <td class="imageCol"><img class="rounded" src="assets/images/d1.jpg" width="100%" /></td>
-                    <td class="golder productName" style="letter-spacing: 2px">DEO WHITENING - SPORTS MODE</td>
-                    <td><i class="bi bi-dash-lg golder mx-lg-3 mx-2"></i>2<i class="bi bi-plus-lg golder mx-lg-3 mx-2"></i></td>
-                    <td>EGP200.00</td>
-                    <td>EGP400.00</td>
-                    <td><i class="bi bi-trash golder" style="font-size: larger"></i></td>
+                <tr *ngFor="let item of items.data" style="font-weight:bold">
+                    <td class="imageCol"><img class="rounded" src="assets/images/{{item['product info'].image}}" width="100%" /></td>
+                    <td class="golder productName" style="letter-spacing: 2px">{{item['product info'].name}}</td>
+                    <td><i (click)="dec(item.id, item.product_id, item.quantity)" class="bi bi-dash-lg golder mx-lg-3 mx-2"></i>{{item.quantity}}<i (click)="inc(item.id, item.product_id, item.quantity)" class="bi bi-plus-lg golder mx-lg-3 mx-2"></i></td>
+                    <td *ngIf="item['product info']['offer info'] == null">EGP {{item['product info'].price | number:'1.2-2'}}</td>
+                    <td *ngIf="item['product info']['offer info'] != null">EGP {{(item['product info']['offer info'].oldPrice - (item['product info']['offer info'].oldPrice * (item['product info']['offer info'].discount/100))) | number:'1.2-2'}}</td>
+                    <td *ngIf="item['product info']['offer info'] == null">EGP {{(item['product info'].price * item.quantity) | number:'1.2-2'}}</td>
+                    <td *ngIf="item['product info']['offer info'] != null">EGP {{((item['product info']['offer info'].oldPrice - (item['product info']['offer info'].oldPrice * (item['product info']['offer info'].discount/100))) * item.quantity) | number:'1.2-2'}}</td>
+                    <td><i (click)="delete(item.id)" class="bi bi-trash golder" style="font-size: larger"></i></td>
                 </tr>
             </tbody>
         </table>
         <div class="row" id="end" style="margin-top: 2.5%"></div>
     </div>
-    <a href="#" class="btn btn-primary add-btn my-5 w-25 checkout">GO TO CHECKOUT</a>
+    <a routerLink="/checkout" class="btn btn-primary add-btn my-5 w-25 checkout">GO TO CHECKOUT</a>
 </div>
