@@ -1,0 +1,31 @@
+<div class="hos">
+    <mat-card>Products</mat-card>
+ <br>
+ <div class="example-container mat-elevation-z8">
+   <table class="table table-striped" >
+     <thead>
+       <tr>
+         <th>No.</th>
+         <th>Product Name</th>
+         <th>Product Image</th>
+         <th>Product Old Price</th>
+         <th>Discount</th>
+         <th>Price After Discount</th>
+         <th>Action</th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr *ngFor="let o of Alloffers">
+         <td>{{o.id}}</td>
+         <td>{{o.productInfo.name}}</td>
+         <td><img src="{{dashboardService.imageUrl}}{{o.productInfo.image}}" style="width:100px;height:100px;"  alt=""></td>
+         <td>{{o.oldPrice}} EGP</td>
+         <td>{{o.discount}} EGP</td> 
+         <td>{{o.oldPrice - o.discount}} EGP</td>
+         <td><button mat-raised-button  color="warn" (click)="deleteOffer(o.id)"><mat-icon>delete</mat-icon></button>
+         </td>
+      </tr>
+     </tbody>
+   </table>
+ </div>
+ </div>

@@ -1,0 +1,39 @@
+<div class="hos">
+   <mat-card>Products</mat-card>
+<br>
+<p>
+   <a mat-raised-button  routerLinkActive="list-item-active" routerLink="/products/addProduct" color="primary">Add New Product</a>
+</p>
+<div class="search-hero">
+     <input class="form-control" type="text" name="search" [(ngModel)]="searchTerm" autocomplete="off" placeholder="&#61442;  Start searching for a Product by name or price">
+</div>
+
+<div class="example-container mat-elevation-z8">
+  <table class="table table-striped" >
+    <thead>
+      <tr>
+        <th>No.</th>
+        <th>Product Image</th>
+        <th>Product Name</th>
+        <th>Price</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of AllProducts | filter: searchTerm">
+        <td>{{p.id}}</td>
+        <td><img src="{{dashboardService.imageUrl}}{{p.image}}" style="width:100px;height:100px;"  alt=""></td>
+        <td>{{p.name}}</td>
+        <td>{{p.price}}</td>
+        <td>
+          <button mat-raised-button  color="primary" routerLink="/products/productDetails/{{p.id}}"><mat-icon>remove_red_eye</mat-icon></button>
+          <button mat-raised-button color="accent" routerLink="/products/editProduct/{{p.id}}"><mat-icon>edit</mat-icon></button>
+          <button mat-raised-button  color="warn" (click)="deleteProduct(p.id)"><mat-icon>delete</mat-icon></button>
+          <button mat-raised-button  color="warn" routerLink="/offers/{{p.id}}">make Offer</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+  

@@ -1,0 +1,83 @@
+<div class="container mt-5 border border-black bg-light " >
+    <div class="row">
+       <!-- Add Product Form start -->
+    <form #myFormValidation="ngForm" class="form" (ngSubmit)="SendData(myFormValidation)" enctype="multipart/form-data">
+      <div class="form-group mt-3">
+         <label for="exampleInputName">First Name</label>
+         <input  type="text" name="firstname" [value]="prev.firstname" minlength="3" required [(ngModel)]="prev.firstname" #firstname="ngModel" class="form-control" id="exampleInputName"  placeholder="Enter First Name" >
+         <div class="alert alert-danger" *ngIf="firstname?.invalid && (firstname?.touched)">
+          <p *ngIf="firstname?.errors?.['required']">required</p>
+          <p *ngIf="firstname?.errors?.['minlength']">Name length must be more than 3 characters</p>
+        </div>
+       </div>
+       <div class="form-group mt-3">
+        <label for="exampleInputName">Last Name</label>
+        <input  type="text" name="lastname" [value]="prev.lastname" minlength="3" required [(ngModel)]="prev.lastname" #lastname="ngModel" class="form-control" id="exampleInputName"  placeholder="Enter Last Name" >
+        <div class="alert alert-danger" *ngIf="lastname?.invalid && (lastname?.touched)">
+         <p *ngIf="lastname?.errors?.['required']">required</p>
+         <p *ngIf="lastname?.errors?.['minlength']">Name length must be more than 3 characters</p>
+       </div>
+      </div>
+       
+     
+       <div class="form-group mt-3">
+         <label for="exampleInputEmail">Email</label>
+         <input  type="email" name="email" [value]="prev.email" required [(ngModel)]="prev.email" #email="ngModel" class="form-control" id="exampleInputEmail"  placeholder="Enter Your Email..">
+         <div class="alert alert-danger" *ngIf="email?.invalid && (email?.touched)">
+          <p *ngIf="email?.errors?.['required']">required</p>
+          <p *ngIf="email?.errors?.['email']">email</p>
+      </div>
+       </div>
+
+       <div class="form-group mt-3">
+        <label for="exampleInputEmail">Mobile Number</label>
+        <input  type="text" name="mobile" [value]="prev.mobile" required [(ngModel)]="prev.mobile" #mobile="ngModel" class="form-control" id="exampleInputEmail"  placeholder="Enter Your Mobile Number..">
+        <div class="alert alert-danger" *ngIf="mobile?.invalid && (mobile?.touched)">
+         <p *ngIf="mobile?.errors?.['required']">required</p>
+     </div>
+      </div>
+
+     
+     
+       <div class="form-group mt-3">
+         <label for="exampleInputpassword">Password</label>
+         <input  type="text" name="password" [value]="prev.password" required [(ngModel)]="prev.password" #password="ngModel" class="form-control" id="exampleInputpassword"  placeholder="Enter Your Password.." >
+         <div class="alert alert-danger" *ngIf="password?.invalid && (password?.touched)">
+          <p *ngIf="password?.errors?.['required']">required</p>
+      </div>
+       </div>
+
+       <div class="form-group mt-3">
+        <label for="exampleInputpassword">Address</label>
+        <input  type="text" name="address" [value]="prev.address" required [(ngModel)]="prev.address" #address="ngModel" class="form-control" id="exampleInputpassword"  placeholder="Enter Your Address.." >
+        <div class="alert alert-danger" *ngIf="address?.invalid && (address?.touched)">
+         <p *ngIf="address?.errors?.['required']">required</p>
+     </div>
+      </div>
+
+      <div class="form-group mt-3">
+        <label for="exampleInputpassword">City</label>
+        <input  type="text" name="city" [value]="prev.city" required [(ngModel)]="prev.city" #city="ngModel" class="form-control" id="exampleInputpassword"  placeholder="Enter Your City.." >
+        <div class="alert alert-danger" *ngIf="city?.invalid && (city?.touched)">
+         <p *ngIf="city?.errors?.['required']">required</p>
+     </div>
+      </div>
+
+       <div class="form-group mt-3">
+        <label for="exampleInputImg">Image</label>
+        <input  type="file" class="form-control" [value]="prev.image" required name="image" [(ngModel)]="prev.image"   (change)="onChange($event)" #image="ngModel" id="exampleInputImg"  placeholder="Enter Your Image.." >
+        <div class="alert alert-danger" *ngIf="image?.invalid && (image?.touched)">
+          <p *ngIf="image?.errors?.['required']">required</p>
+        </div>
+        <div class="form-group mt-3">
+          <img src="{{dashboardService.imageUrl}}{{prev.image}}" style="width:100px;height:100px" alt="">
+        </div>
+      </div>
+         
+         
+        
+       <button type="submit" class="btn btn-primary mt-3 mb-3" >Submit</button>
+      </form>
+     <!-- Register Form End -->
+    </div>
+  </div>

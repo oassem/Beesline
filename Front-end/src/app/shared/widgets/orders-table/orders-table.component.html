@@ -1,0 +1,39 @@
+<div class="hos">
+  <mat-card>Orders Control</mat-card>
+<br>
+<div class="example-container mat-elevation-z8">
+ <table class="table table-striped" >
+   <thead>
+     <tr>
+       <th>Order No.</th>
+       <th>User Name</th>
+
+       <th>Product Name</th>
+       <th>Quantity</th>
+       <th>Order Status</th>
+       <th>Total Price</th>
+       <th>Action</th>
+     </tr>
+   </thead>
+   <tbody >
+     <tr *ngFor="let o of AllOrders">
+       <td>{{o.id}}</td>
+       <td>{{o.userInfo.firstname}} {{o.userInfo.lastname}}</td>
+       <td>{{o.productInfo.name}}</td>
+       <td>{{o.quantity}}</td>
+       <td [ngClass]="{
+        'text-primary':o.orderStatus === 'pending',
+        'text-success':o.orderStatus === 'accepted',
+        'text-danger':o.orderStatus === 'rejected'
+      }"><b>{{o.orderStatus}}</b></td>
+       <td>{{o.productInfo.price * o.quantity}}</td>
+       
+       <td>
+         <button mat-raised-button  color="primary" routerLink="/orders/orderDetails/{{o.id}}"><mat-icon>remove_red_eye</mat-icon></button>
+         <button mat-raised-button color="accent" routerLink="/orders/changeStatus/{{o.id}}"><mat-icon>edit</mat-icon>Edit status</button>
+       </td>
+     </tr>
+   </tbody>
+ </table>
+</div>
+</div>

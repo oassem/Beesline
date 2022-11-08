@@ -1,0 +1,18 @@
+<div  id="offer" class="container mt-5 border border-black bg-light">
+    <div class="row">
+      <mat-card><h2>Add New Product</h2></mat-card>
+    <form [formGroup] = "myFormValidation" class="form" (ngSubmit)="SendData(myFormValidation)" enctype="multipart/form-data">
+
+      <div class="form-group mt-3">
+         <label for="exampleInputName">Discount</label>
+         <input formControlName="discount"  type="number" required class="form-control" id="exampleInputName" name="discount" placeholder="Enter discount amount..">
+         <div class="alert alert-danger" *ngIf="discount?.invalid && (discount?.touched)">
+          <p *ngIf="discount?.errors?.['required']">required</p>
+         </div>
+       </div>
+    
+      
+       <button type="submit" class="btn btn-primary mt-3 mb-3" >Submit</button>
+      </form>
+    </div>
+  </div>
