@@ -1,0 +1,84 @@
+h3 {
+  width: 100%;
+  text-align: center;
+  border-bottom: 3.5px solid #C59630;
+  line-height: 0.1em;
+  margin: 10px 0 20px;
+  letter-spacing: 2px;
+}
+h3 span {
+  background: #fff;
+  padding: 0 10px;
+}
+.gold{
+  color: #C59630;
+}
+.title{
+  color: #C59630;
+  font-size: 25px;
+  font-weight: 20px;
+}
+
+
+
+.panel {
+  margin-bottom: 21px;
+  background-color: #fff;
+  border: 0 none;
+}
+
+.panel-image-preview {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+
+
+.panel-image {
+  height: auto;
+  margin-bottom: 10px;
+}
+.myImg {
+    position: relative;
+        border: 0 none;
+        box-shadow: none;
+        margin:0;
+        padding:0;
+}
+.caption {
+    /* width: inherit; */
+    position: absolute;
+    float: right;
+    left: 50%;
+    bottom: 40%;
+}
+
+.fontz-text {
+  font-family: 'Avenir Next LT Pro';
+  font-weight: 300px;
+  color: #fff;
+  font-size: 30px;
+}
+
+
+
+
+
+
+@media (max-width: 575.98px) {}
+
+@media (min-width: 576px) and (max-width: 767.98px) {}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    #buttons-group {
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    #buttons-group {
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 1200px) {}

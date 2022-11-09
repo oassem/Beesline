@@ -1,0 +1,108 @@
+<div class="container">
+  <h3><span>&nbsp; Edit Profile &nbsp;</span></h3>
+  <div class="p-5">
+    <form #signUpForm="ngForm" (ngSubmit)="upload(signUpForm)" enctype="multipart/form-data">
+      <h1 style="font-weight: 300;">Personal Information</h1>
+      <hr>
+      <div class="form-group mb-4">
+        <label class="btn btn-default p-0"> Enter Your image</label>
+          <input type="file" class="form-control" [value]="prev.image" name="image" [(ngModel)]="prev.image"   #image="ngModel" (change)="selectFile($event)"/>
+          <div class="alert alert-danger" *ngIf="image?.invalid && (image?.touched)">
+            <p *ngIf="image?.errors?.['required']">required</p>
+          </div>
+
+        <div><img src="http://127.0.0.1:8000/public/{{prev.image}}" class="preview w-50"></div>
+      </div>
+      <div class="form-group mb-4">
+        <label>First Name</label> <span style="color:red;">&nbsp;*</span>
+        <input type="text" class="form-control" placeholder="Enter First Name" [(ngModel)]="prev.firstname" required [value]="prev.firstname" #firstname="ngModel" name="firstname"  minlength="3">
+        <div *ngIf="firstname?.touched &&  firstname?.invalid" class="alert alert-danger">
+          <div *ngIf="firstname?.errors?.['required']">First name is required</div>
+          <div *ngIf="firstname?.errors?.['minlength']">First name minimum length is 3</div>
+        </div>
+      </div>
+      <div class="form-group mb-4">
+        <label>Last Name</label><span style="color:red;">&nbsp;*</span>
+        <input type="text" class="form-control" placeholder="Enter Last Name" [(ngModel)]="prev.lastname" required [value]="prev.lastname" #lastname="ngModel"  name="lastname" minlength="3">
+        <div *ngIf="lastname?.touched &&  lastname?.invalid" class="alert alert-danger">
+          <div *ngIf="lastname?.errors?.['required']">Last name is required</div>
+          <div *ngIf="lastname?.errors?.['minlength']">Last name minimum length is 3</div>
+        </div>
+      </div>
+      <div class="form-group mb-4">
+        <label>Address</label><span style="color:red;">&nbsp;*</span>
+        <textarea class="form-control" rows="3" style="width: 400px;" [(ngModel)]="prev.address" name="address" [value]="prev.address" #address="ngModel" required minlength="3"></textarea>
+        <div *ngIf="address?.touched &&  address?.invalid" class="alert alert-danger">
+           <div *ngIf="address?.errors?.['required']"> Address is required </div>
+           <div *ngIf="address?.errors?.['minlength']">address minimum length is 3</div>
+        </div>
+      </div>
+      <div class="form-group mb-4">
+        <label>Phone Number</label><span style="color:red;">&nbsp;*</span>
+        <input type="text" class="form-control" placeholder="Enter Phone number" name="mobile" [value]="prev.mobile" [(ngModel)]="prev.mobile" #mobile="ngModel" required >
+        <div *ngIf="mobile?.touched &&  mobile?.invalid" class="alert alert-danger">
+          <div *ngIf="mobile?.errors?.['required']">Phone number is required</div>
+        </div>
+      </div>
+      <div class="form-group mb-4">
+        <label>City<span style="color:red;">&nbsp;*</span></label><br>
+         <select name="city" class="form-control" [value]="prev.city"  required [(ngModel)]="prev.city" #city="ngModel" style="width:39%">
+          <option>Choose your city</option>
+          <option value="cairo">Cairo</option>
+          <option value="alex">Alexandria</option>
+          <option value="giza">Giza</option>
+          <option value="portSaid">Port Said</option>
+          <option value="suez">Suez</option>
+          <option value="luxor">Luxor</option>
+          <option value="mansoura">Mansoura</option>
+          <option value="tanta">Tanta</option>
+          <option value="asyut">Asyut</option>
+          <option value="ismailia">Ismailia</option>
+          <option value="faiyum">Faiyum</option>
+          <option value="zagazig">Zagazig</option>
+          <option value="damietta">Damietta</option>
+          <option value="aswan">Aswan</option>
+          <option value="minya">Minya</option>
+          <option value="damanhur">Damanhur</option>
+          <option value="beniSuef">Beni Suef</option>
+          <option value="qena">Qena</option>
+          <option value="sohag">Sohag</option>
+          <option value="banha">Banha</option>
+          <option value="arish">Arish</option>
+        </select>
+        <div *ngIf="city?.touched &&  city?.invalid" class="alert alert-danger">
+          <div *ngIf="city?.errors?.['required']">City is required</div>
+        </div>
+      </div>
+      <div class="form-group form-check">
+        <input type="checkbox"  name="newsletter" [value]="prev.newsletter" #newsletter="ngModel" [(ngModel)]="prev.newsletter" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1"><span style="color:#c59630ed; font-size: smaller;">  Subscription For Newsletter</span>
+        </label>
+
+      </div>
+      <div class="m-4"></div>
+      <h1 style="font-weight:300;">sign-in Information</h1><hr>
+      <div class="form-group mb-4">
+        <label>Email</label><span style="color:red;">&nbsp;*</span>
+        <input type="email" class="form-control" placeholder="Enter Email"  name="email" [value]="prev.email" [(ngModel)]="prev.email" #email="ngModel" required email>
+        <div *ngIf="email?.touched &&  email?.invalid" class="alert alert-danger">
+          <div *ngIf="email?.errors?.['required']">Email is required</div>
+          <div *ngIf="email?.errors?.['email']">Invalid email</div>
+        </div>
+      </div>
+      <div class="form-group mb-4">
+        <label>Password</label><span style="color:red;">&nbsp;*</span>
+        <input #password="ngModel" name="password" [value]="prev.password" [(ngModel)]="prev.password" required   type="password" class="form-control" placeholder="Enter Password" >
+        <!-- <input #pswd type="password" class="form-control" placeholder="Enter Password" formControlName="password"> -->
+      </div>
+      <div class="form-group mb-4">
+        <!-- <label>confirm password</label><span style="color:red;">&nbsp;*</span> -->
+        <!-- <input type="password" class="form-control" placeholder="Enter Password" name="confirmPass" [value]="prev.password"  [(ngModel)]="password" #confirmPass="ngModel" required > -->
+
+        <!-- <div class="alert alert-danger" *ngIf="passwordMatchError">Password doesn't match</div> -->
+      </div>
+      <a type="submit" class="btn btn-warning save">Save</a>
+      <!--<a type="submit" class="btn btn-warning save" (click)="edit(pswd.value)" routerLink="/profile">Save</a>-->
+    </form>
+  </div>
+</div>

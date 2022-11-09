@@ -1,0 +1,86 @@
+h3 {
+  width: 100%;
+  text-align: center;
+  border-bottom: 3.5px solid #C59630;
+  line-height: 0.1em;
+  margin: 10px 0 20px;
+  letter-spacing: 2px;
+}
+h3 span {
+  background: #fff;
+  padding: 0 10px;
+}
+
+
+
+#end {
+  border-bottom: 3px solid #C59630;
+}
+
+ .gold {
+  color: #FFCD25;
+}
+
+
+
+.add-btn {
+  background: #FFCD25;
+  border: none;
+  font-size: 20px;
+
+}
+
+.add-btn:hover {
+  background: white;
+  color: #C59630;
+}
+
+table{
+  border: 1px solid #C59630;
+
+}
+
+.table thead th {
+  border-bottom: 1px solid #C59630;
+  padding-bottom: 2%;
+  font-weight: 500;
+}
+
+.table tbody td {
+  border: none;
+  vertical-align: middle;
+}
+
+@media (max-width: 575.98px) {
+  .productName {
+      font-size: small;
+  }
+
+  .imageCol {
+      display: none;
+  }
+
+  .checkout {
+      width: 70% !important;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .productName {
+      font-size: small;
+  }
+
+  .imageCol {
+      display: none;
+  }
+
+  .checkout {
+      width: 40% !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {}
+
+@media (min-width: 1200px) {}
