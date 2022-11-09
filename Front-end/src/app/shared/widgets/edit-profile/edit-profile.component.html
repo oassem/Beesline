@@ -4,18 +4,18 @@
     <form #myFormValidation="ngForm" class="form" (ngSubmit)="SendData(myFormValidation)" enctype="multipart/form-data">
       <div class="form-group mt-3">
          <label for="exampleInputName">First Name</label>
-         <input  type="text" name="firstname" [value]="prev.firstname" minlength="3" required [(ngModel)]="prev.firstname" #firstname="ngModel" class="form-control" id="exampleInputName"  placeholder="Enter First Name" >
+         <input  type="text" name="firstname" [value]="prev.firstname" minlength="5" required [(ngModel)]="prev.firstname" #firstname="ngModel" class="form-control" id="exampleInputName"  placeholder="Enter First Name" >
          <div class="alert alert-danger" *ngIf="firstname?.invalid && (firstname?.touched)">
           <p *ngIf="firstname?.errors?.['required']">required</p>
-          <p *ngIf="firstname?.errors?.['minlength']">Name length must be more than 3 characters</p>
+          <p *ngIf="firstname?.errors?.['minlength']">Name length must be more than 5 characters</p>
         </div>
        </div>
        <div class="form-group mt-3">
         <label for="exampleInputName">Last Name</label>
-        <input  type="text" name="lastname" [value]="prev.lastname" minlength="3" required [(ngModel)]="prev.lastname" #lastname="ngModel" class="form-control" id="exampleInputName"  placeholder="Enter Last Name" >
+        <input  type="text" name="lastname" [value]="prev.lastname" minlength="5" required [(ngModel)]="prev.lastname" #lastname="ngModel" class="form-control" id="exampleInputName"  placeholder="Enter Last Name" >
         <div class="alert alert-danger" *ngIf="lastname?.invalid && (lastname?.touched)">
          <p *ngIf="lastname?.errors?.['required']">required</p>
-         <p *ngIf="lastname?.errors?.['minlength']">Name length must be more than 3 characters</p>
+         <p *ngIf="lastname?.errors?.['minlength']">Name length must be more than 5 characters</p>
        </div>
       </div>
        
@@ -49,15 +49,16 @@
 
        <div class="form-group mt-3">
         <label for="exampleInputpassword">Address</label>
-        <input  type="text" name="address" [value]="prev.address" required [(ngModel)]="prev.address" #address="ngModel" class="form-control" id="exampleInputpassword"  placeholder="Enter Your Address.." >
+        <input  type="text" name="address" [value]="prev.address" required [(ngModel)]="prev.address" minlength="10" #address="ngModel" class="form-control" id="exampleInputpassword"  placeholder="Enter Your Address.." >
         <div class="alert alert-danger" *ngIf="address?.invalid && (address?.touched)">
          <p *ngIf="address?.errors?.['required']">required</p>
+         <p *ngIf="address?.errors?.['minlength']">Address must be more than 10</p>
      </div>
       </div>
 
       <div class="form-group mt-3">
         <label for="exampleInputpassword">City</label>
-        <input  type="text" name="city" [value]="prev.city" required [(ngModel)]="prev.city" #city="ngModel" class="form-control" id="exampleInputpassword"  placeholder="Enter Your City.." >
+        <input  type="text" name="city" [value]="prev.city" required [(ngModel)]="prev.city" minlength="5" #city="ngModel" class="form-control" id="exampleInputpassword"  placeholder="Enter Your City.." >
         <div class="alert alert-danger" *ngIf="city?.invalid && (city?.touched)">
          <p *ngIf="city?.errors?.['required']">required</p>
      </div>

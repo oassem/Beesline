@@ -9,16 +9,18 @@ import { DashboardService } from '../../../modules/dashboard.service';
 })
 export class SidebarComponent implements OnInit {
   data:any;
- constructor(public dashboardService:DashboardService,private router:Router) { }
+ constructor(public dashboardService:DashboardService,private router:Router) { 
+
+ }
 
   
   ngOnInit(): void {
+   
       this.dashboardService.ShowOneUser(1).subscribe(data=>{
         console.log(data.data);
         this.data=data.data;
       },(e)=>{console.log(e)},
       ()=>{
-
       })
  
   }

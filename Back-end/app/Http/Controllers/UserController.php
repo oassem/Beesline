@@ -14,6 +14,7 @@ class UserController extends Controller
     public function store(UserRequest $request)
     {
         $request->merge(['password' => Hash::make($request->password)]);
+       
         $image=time().'.'.$request->image->extension();  
            User::create([
                 'firstname' => request()->firstname,
@@ -44,7 +45,7 @@ class UserController extends Controller
         }
     }
 
-    public function update($id,Request $request)
+    public function update($id,UserRequest $request)
     {
         $user = User::find($id);
         if (Hash::check($request->password, $user->password)) {
@@ -60,17 +61,16 @@ class UserController extends Controller
         }else{
             $imageName=$user->image;
         }
-         $user->update([
-                'firstname' => request()->firstname,
-                'lastname'=>request()->lastname,
-                'email'=>request()->email,
+             $user->update([
+                'firstname' => $request->firstname,
+                'lastname'=>$request->lastname,
+                'email'=>$request->email,
                 'password' => $request->password,
                 'city' => $request->city,
                 'address'=>$request->address,
                 'mobile'=>$request->mobile,
                'image'=>$imageName
         ]);  
-        $user->update($request->all());
     }
 
     public function destroy($id)

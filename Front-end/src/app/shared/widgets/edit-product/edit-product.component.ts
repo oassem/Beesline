@@ -56,6 +56,7 @@ export class EditProductComponent implements OnInit {
          var formData = new FormData();
          console.log(this.prev);
         if(this.file){
+        
           formData.append('image',this.file,this.file.name); 
           formData.append('name',this.prev.name);
           formData.append('description',this.prev.description);

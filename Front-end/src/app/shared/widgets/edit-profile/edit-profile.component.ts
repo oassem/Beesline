@@ -52,9 +52,10 @@ export class EditProfileComponent implements OnInit {
     this.file=event.target.files[0];
     console.log(this.file);
   }
+  id=1;
 // email,name,image,password
   ngOnInit(): void {
-    this.dashboardService.ShowOneUser(1).subscribe(data=>{
+    this.dashboardService.ShowOneUser(this.id).subscribe(data=>{
       console.log(data.data);
       this.prev=data.data;
     })
@@ -64,7 +65,9 @@ export class EditProfileComponent implements OnInit {
     //Add Data To DB
     var formData=new FormData();
     console.log(this.prev);
+
     if(this.file){
+   
       formData.append('image',this.file,this.file.name); 
       formData.append('firstname',this.prev.firstname);
       formData.append('lastname',this.prev.lastname);
@@ -88,9 +91,9 @@ export class EditProfileComponent implements OnInit {
       console.log(formData);
     }
     this.dashboardService.UpdateOneUser(1,formData).subscribe(data=>{
-      console.log(data);
+      console.log(data.data);
     },(e)=>{console.log(e)}
     ,()=>{
-      this.router.navigateByUrl('/dashboard/')})
+      this.router.navigateByUrl('')})
     }
  }
