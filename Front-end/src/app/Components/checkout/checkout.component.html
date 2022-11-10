@@ -1,165 +1,110 @@
 <!-- {{items.data[0]['product info'].name}} -->
 
-
 <div class="mx-auto container" style="width: 85%">
   <h3 class="mb-5 me-2 ms-2 mt-5"><span>&nbsp;ONE STEP CHECKOUT&nbsp;</span></h3>
-
-    <!--  Shipping Address  -->
-
+  <!--  Shipping Address  -->
   <div class="row row-cols-1 row-cols-md-3 g-4">
-
     <div class="col-lg-4 col-md-6 col-sm-12">
       <div class="card h-100">
         <div class="card-body">
           <h5 class="card-title"> <img src="assets/icons/i1.jpg"> Shipping Address</h5>
           <h2 class="mb-5 me-2 "></h2>
-
-          <form>
-            <div class="row mb-2">
-              <div class="col-6">
-                <label for="fname" style="font-size: 10px;">First Name <span style="color: red;">  * </span></label>
-              </div>
-              <div class="col-6">
-                <label for="lname" style="font-size: 10px;">Last Name <span style="color: red;">  * </span></label>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-6">
-                <input type="text" class="form-control" id="fname">
-              </div>
-              <div class="col-6">
-                <input type="text" class="form-control" id="lname">
-              </div>
-            </div>
-
-            <div class="row mb-2">
-              <div class="col-12">
-                <label for="pnumber" style="font-size: 10px;"> Phone Number <span style="color: red;">  * </span></label>
-              </div>
-              </div>
-
+          <!-- user details  -->
+          <div class="card mb-3">
+            <div class="card-body">
               <div class="row">
-                <div class="col-12">
-                  <input type="text" class="form-control" id="pnumber">
+                <div class="col-sm-3"><h6 class="mb-0">First Name</h6></div>
+                <div class="col-sm-9 text-secondary">{{info.data.firstname}}</div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Last Name</h6>
                 </div>
+                <div class="col-sm-9 text-secondary">
+                  {{info.data.lastname}}
                 </div>
-
-                <div class="row mb-2">
-                  <div class="col-6">
-                    <label for="State" style="font-size: 10px;"> State/Province  </label>
-                  </div>
-                  <div class="col-6">
-                    <label for="lname" style="font-size: 10px;"> City  <span style="color: red;">  * </span></label>
-                  </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Email</h6>
                 </div>
-
-                <div class="row">
-                  <div class="col-6">
-                    <input type="text" class="form-control" id="State">
-                  </div>
-                  <div class="col-6">
-                    <input type="text" class="form-control" id="City ">
-                  </div>
+                <div class="col-sm-9 text-secondary">
+                  {{info.data.email}}
                 </div>
-
-                <div class="row mb-2">
-                  <div class="col-12">
-                    <label for="adress" style="font-size: 10px;">  Street Address <span style="color: red;">  * </span> </label>
-                  </div>
-                  </div>
-
-                  <div class="row mb-3">
-                    <div class="col-12">
-                      <input type="text" class="form-control" id="adress">
-                    </div>
-                    </div>
-
-                    <div class="row">
-                      <div class="col-12">
-                        <input type="text" class="form-control">
-                      </div>
-                      </div>
-
-                      <div class="row mb-2">
-                        <div class="col-12">
-                          <label for="country" style="font-size: 10px;"> Country  <span style="color: red;">  * </span></label>
-                        </div>
-                        </div>
-
-                        <div class="row">
-                          <div class="col-12">
-                            <input type="text" class="form-control" id="country">
-                          </div>
-                          </div>
-          </form>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">City</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  {{info.data.city}}
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Mobile</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  {{info.data.mobile}}
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <h6 class="text-left">Address</h6>
+                <div class="ms-1 text-secondary">{{info.data.address}}</div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-12">
+                  <a class="btn btn-dark" routerLink="/edit-profile/{{info.data.id}}">Edit Details</a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-
-                <!--  Shipping Address  -->
-
-                            <!--   Shipping Methods   -->
-
-
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                  <div class="card ">
-                    <div class="card-body">
-                      <h5 class="card-title"> <img src="assets/icons/i2.jpg"> Shipping Methods</h5>
-                      <h2 class="mb-5 me-2 "></h2>
-
-                      <div class="row ">
-                        <div class="col-4">
-                          <input type="radio" class="form-check-input me-3" id="rad" checked>
-                          <label for="rad" style="font-size: 14px;"> <b> EGP0 </b> </label>
-                        </div>
-
-                        <div class="col-4  ">
-                          <span style="font-size: 14px;"> Free </span>
-                        </div>
-
-                        <div class="col-4 " >
-                          <span style="font-size: 14px;" > FREE Shipping </span>
-                        </div>
-
-                      </div>
-                      <div class="row mt-2">
-                        <div class="col-12">
-                          <div class="form-outline">
-                            <label class="form-label" for="comments">Comments</label>
-                            <textarea class="form-control" id="comments" rows="4"></textarea>
-                          </div>
-                        </div>
-                      </div>
-
-                      </div>
-                      </div>
-                    </div>
-
-
-
-                            <!--   Shipping Methods   -->
-
-
-                            <div class="col-lg-4 col-md-6 col-sm-12">
-                              <div class="card ">
-                                <div class="card-body">
-                                  <h5 class="card-title"> <img src="assets/icons/i3.jpg">  Payment Methods </h5>
-                                  <h2 class="mb-5 me-2 "></h2>
-                                  <div class="col-12 text-center">
-                                    <span>Cash On Delievry</span>
-                                    <hr>
-                                    <div class="row">
-                                      <div class="col-sm-12">
-                                        <a class="btn btn-dark " routerLink="/">Place Order</a>
-                                      </div>
-                                  </div>
-                                  </div>
-                                  </div>
-                                </div>
-
-                                    <!--   Shipping Methods   -->
-
-
-  </div>
+    <!--   Shipping Methods   -->
+    <div class="col-lg-4 col-md-6 col-sm-12">
+      <div class="card ">
+        <div class="card-body">
+          <h5 class="card-title"> <img src="assets/icons/i2.jpg">Shipping Methods</h5>
+          <h2 class="mb-5 me-2 "></h2>
+          <div class="row ">
+            <div class="col-4">
+              <input type="radio" class="form-check-input me-3" id="rad" checked>
+              <label for="rad" style="font-size: 14px;"> <b> EGP 0.00 </b> </label>
+            </div>
+            <div class="col-4  ">
+              <span style="font-size: 14px;"> Free </span>
+            </div>
+            <div class="col-4 mb-5">
+              <span style="font-size: 14px;"> FREE Shipping </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--   Payment Methods   -->
+    <div class="col-lg-4 col-md-6 col-sm-12">
+      <div class="card ">
+        <div class="card-body">
+          <h5 class="card-title"> <img src="assets/icons/i3.jpg"> Payment Methods </h5>
+          <h2 class="mb-4 me-2 "></h2>
+          <div class="col-12 text-center">
+            <span>Cash On Delievry</span>
+            <hr>
+            <div class="row">
+              <div class="col-sm-12">
+                <a class="btn btn-warning place" (click)="order()" routerLink="/orders/{{userID}}">Place Order</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>

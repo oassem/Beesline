@@ -12,10 +12,13 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         Order::Create($request->all());
-        $user_order = new User_Order();
-        $user_order->user_id = $request->user_id;
-        $user_order->order_id = $request->id;
-        $user_order->save();
+        $temp = User_Order::where('order_id', $request->id)->first();
+        if ($temp == null) {
+            $user_order = new User_Order();
+            $user_order->user_id = $request->user_id;
+            $user_order->order_id = $request->id;
+            $user_order->save();
+        }
     }
 
     public function index()

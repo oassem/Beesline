@@ -16,6 +16,12 @@ class Order extends Model
         'user_id',
         'quantity',
         'orderStatus'
+        // 3 cart
+        // id=time();
+        // data= {id:this.id,product_id:,user_id:,quantity:2}
+        // this.service.createOrder(data).subscribe(data=>{
+        // console.log(data);
+        // })
     ];
 
     public function product()

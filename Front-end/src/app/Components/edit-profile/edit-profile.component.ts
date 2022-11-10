@@ -1,14 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { PasswordValidators } from './password.validators';
-import { FormsModule } from '@angular/forms';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import {
-  HttpEventType,
-  HttpResponse,
-  HttpClientModule,
-} from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { FileUploadService } from 'src/app/Services/file-upload.service';
 import { APIServiceService } from 'src/app/Services/apiservice.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -18,17 +8,17 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./edit-profile.component.css'],
 })
 export class EditProfileComponent implements OnInit {
-id = this.activatedRoute.snapshot.params['id'];
-  prev:any={
-    email:"",
-    password:"",
-    mobile:"",
-    firstname:"",
-    lastname:"",
-    image:'',
-    address:'',
-    city:'',
-    newsletter:''
+  id = this.activatedRoute.snapshot.params['id'];
+  prev: any = {
+    email: '',
+    password: '',
+    mobile: '',
+    firstname: '',
+    lastname: '',
+    image: '',
+    address: '',
+    city: '',
+    newsletter: '',
   };
   // selectedFiles?: FileList;
   // currentFile?: File;
@@ -55,18 +45,21 @@ id = this.activatedRoute.snapshot.params['id'];
   // );
 
   constructor(
-
     private myService: APIServiceService,
-    private router:Router,
-    private activatedRoute:ActivatedRoute
+    private router: Router,
+    private activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    this.myService.getUserInfo(this.id).subscribe(data=>{
-      console.log(data.data);
-      this.prev=data.data;
-    },(e)=>{console.log(e)},
-    ()=>{})
+    this.myService.getUserInfo(this.id).subscribe(
+      data => {
+        this.prev = data.data;
+        console.log(data.data);
+      },
+      (e) => {
+        console.log(e);
+      }
+    );
     // this.imageInfos = this.uploadService.getFiles();
     // this.myService
     //   .updateUser(1, {
@@ -100,22 +93,22 @@ id = this.activatedRoute.snapshot.params['id'];
   get address() {
     return this.prev.get('address');
   }
-  get newsletter(){
+  get newsletter() {
     return this.prev.get('newsletter');
   }
-  get city(){
+  get city() {
     return this.prev.get('city');
   }
-  get image(){
-    return this.prev.get('image');
-  }
+  // get image() {
+  //   return this.prev.get('image');
+  // }
 
-get password(){
-  return this.prev.get('password');
-}
-// get passwordMatchError(){
-//   return this.prev.get('password');
-// }
+  get password() {
+    return this.prev.get('password');
+  }
+  // get passwordMatchError(){
+  //   return this.prev.get('password');
+  // }
   // get passwordMatchError() {
   //   return (
   //     this.prev.getError('mismatch') &&
@@ -147,74 +140,83 @@ get password(){
   //     }
   //   }
   // }
-  file:any;
-  selectFile(event:any){
-    this.file=event.target.files[0];
-
+  file!:File;
+  selectFile(event: any) {
+    this.file = event.target.files[0];
   }
 
-  upload(data:any) {
-    var formData=new FormData();
-    console.log(this.prev);
-    if(this.file){
-      formData.append('image',this.file,this.file.name);
-      formData.append('firstname',this.prev.firstname);
-      formData.append('lastname',this.prev.lastname);
-      formData.append('email',this.prev.email);
-      formData.append('password',this.prev.password);
-      formData.append('mobile',this.prev.mobile);
-      formData.append('city',this.prev.city);
-      formData.append('address',this.prev.address);
-      formData.append('newsletter',this.prev.newsletter);
-      formData.append('_method','put');
-      console.log(formData);
-    }else{
-      // formData.append('image', this.prev.image);
-      formData.append('firstname',this.prev.firstname);
-      formData.append('lastname',this.prev.lastname);
-      formData.append('email',this.prev.email);
-      formData.append('password',this.prev.password);
-      formData.append('mobile',this.prev.mobile);
-      formData.append('city',this.prev.city);
-      formData.append('newsletter',this.prev.newsletter);
-      formData.append('address',this.prev.address);
-      formData.append('_method','put');
-      console.log(formData);
+  upload(data: any) {
+    console.log(data.value);
+    var formData = new FormData();
+    if(data.value.newsletter==true){
+      data.value.newsletter=1;
     }
-    this.myService.updateUser(this.id,formData).subscribe(data=>{
-      console.log(data);
-    },(e)=>{console.log(e)}
-    ,()=>{
-      this.router.navigateByUrl('/profile')})
+    if(data.value.newsletter==false){
+      data.value.newsletter=0;
     }
-    // this.progress = 0;
+    if (this.file) {
+      formData.append('image', this.file, this.file.name);
+      formData.append('firstname', data.value.firstname);
+      formData.append('lastname', data.value.lastname);
+      formData.append('email', data.value.email);
+      formData.append('password', data.value.password);
+      formData.append('mobile', data.value.mobile);
+      formData.append('city', data.value.city);
+      formData.append('address', data.value.address);
+      formData.append('newsletter', data.value.newsletter);
+      formData.append('_method', 'put');
+    } else {
+      // formData.append('image', data.value.image);
+      formData.append('firstname', data.value.firstname);
+      formData.append('lastname', data.value.lastname);
+      formData.append('email', data.value.email);
+      formData.append('password', data.value.password);
+      formData.append('mobile', data.value.mobile);
+      formData.append('city', data.value.city);
+      formData.append('newsletter', data.value.newsletter);
+      formData.append('address', data.value.address);
+      formData.append('_method', 'put');
+    }
 
-    // if (this.selectedFiles) {
-    //   const file: File | null = this.selectedFiles.item(0);
-    //   if (file) {
-    //     this.currentFile = file;
-    //     this.uploadService.upload(this.currentFile).subscribe({
-    //       next: (event: any) => {
-    //         if (event.type === HttpEventType.UploadProgress) {
-    //           this.progress = Math.round((100 * event.loaded) / event.total);
-    //         } else if (event instanceof HttpResponse) {
-    //           this.message = event.body.message;
-    //           this.imageInfos = this.uploadService.getFiles();
-    //         }
-    //       },
-    //       error: (err: any) => {
-    //         console.log(err);
-    //         this.progress = 0;
-    //         if (err.error && err.error.message) {
-    //           this.message = err.error.message;
-    //         } else {
-    //           this.message = 'Could not upload the image!';
-    //         }
-    //         this.currentFile = undefined;
-    //       },
-    //     });
-    //   }
-    //   this.selectedFiles = undefined;
-    // }
+    this.myService.updateUser(this.id, formData).subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (e) => {
+        console.log(e);
+      },
+      () => {
+        this.router.navigateByUrl('/profile');
+      }
+    );
   }
+  // this.progress = 0;
 
+  // if (this.selectedFiles) {
+  //   const file: File | null = this.selectedFiles.item(0);
+  //   if (file) {
+  //     this.currentFile = file;
+  //     this.uploadService.upload(this.currentFile).subscribe({
+  //       next: (event: any) => {
+  //         if (event.type === HttpEventType.UploadProgress) {
+  //           this.progress = Math.round((100 * event.loaded) / event.total);
+  //         } else if (event instanceof HttpResponse) {
+  //           this.message = event.body.message;
+  //           this.imageInfos = this.uploadService.getFiles();
+  //         }
+  //       },
+  //       error: (err: any) => {
+  //         console.log(err);
+  //         this.progress = 0;
+  //         if (err.error && err.error.message) {
+  //           this.message = err.error.message;
+  //         } else {
+  //           this.message = 'Could not upload the image!';
+  //         }
+  //         this.currentFile = undefined;
+  //       },
+  //     });
+  //   }
+  //   this.selectedFiles = undefined;
+  // }
+}

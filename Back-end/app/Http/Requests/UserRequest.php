@@ -23,15 +23,31 @@ class UserRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'firstname' => 'required|min:5|max:255',
-            'lastname' => 'required|min:5|max:255',
-            'image' => 'image|mimes:jpg,jpeg,png|required',
-            'mobile' => 'required|numeric',
-            'email' => 'required|email|unique:users,email,'.$this->user,
-            'password' => 'required',
-            'address' => 'required|min:10|max:255',
-            'city' => 'required|min:5|max:255',
-        ];
+        if($this->method()=='PUT'){
+            return [
+                'firstname' => 'sometimes|required|min:5|max:255',
+                'lastname' => 'sometimes|required|min:5|max:255',
+                'image' => 'image|mimes:jpg,jpeg,png|sometimes|required',
+                'mobile' => 'sometimes|required|numeric',
+                'email' => 'sometimes|required|email|unique:users,email,'.$this->user,
+                'password' => 'sometimes|required',
+                'address' => 'sometimes|required|min:10|max:255',
+                'city' => 'sometimes|required',
+                'newsletter'=>'required'
+            ];
+        }else{
+          return [
+        'firstname' => 'required|min:5|max:255',
+        'lastname' => 'required|min:5|max:255',
+        'image' => 'image|mimes:jpg,jpeg,png|required',
+        'mobile' => 'required|numeric',
+        'email' => 'required|email|unique:users,email,'.$this->user,
+        'password' => 'required',
+        'address' => 'required|min:10|max:255',
+        'city' => 'required|min:5|max:255',
+        'newsletter'=>'sometimes|required'
+           ];
+       }
+
     }
 }

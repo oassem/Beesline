@@ -1,7 +1,7 @@
 h3 {
   width: 100%;
   text-align: center;
-  border-bottom: 3.5px solid #C59630;
+  border-bottom: 3.5px solid #c59630;
   line-height: 0.1em;
   margin: 10px 0 20px;
   letter-spacing: 2px;
@@ -18,4 +18,13 @@ h2 {
   line-height: 0.1em;
   margin: 10px 0 20px;
   letter-spacing: 2px;
+}
+
+.place {
+  color: white;
+}
+
+.place:hover {
+  background-color: white;
+  color:#c59630;
 }

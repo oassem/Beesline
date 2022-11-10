@@ -1,7 +1,7 @@
 h3 {
   width: 100%;
   text-align: center;
-  border-bottom: 3.5px solid #C59630;
+  border-bottom: 3.5px solid #c59630;
   line-height: 0.1em;
   margin: 10px 0 20px;
   letter-spacing: 2px;
@@ -11,37 +11,26 @@ h3 span {
   padding: 0 10px;
 }
 
-
-
 #end {
-  border-bottom: 3px solid #C59630;
+  border-bottom: 3px solid #c59630;
 }
 #all {
-  border: 1px solid #C59630;
+  border: 1px solid #c59630;
 }
 
-
-
-
-
-
 .add-btn {
-  background: #FFCD25;
+  background: #ffcd25;
   border: none;
   font-size: 20px;
-
 }
 
 .add-btn:hover {
   background: white;
-  color: #C59630;
+  color: #c59630;
 }
 
-
-
-
-body{
-  margin-top:20px;
+body {
+  margin-top: 20px;
   color: #1a202c;
   text-align: left;
   background-color: #e2e8f0;
@@ -50,7 +39,7 @@ body{
   padding: 15px;
 }
 .card {
-  box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
 
 .card {
@@ -61,8 +50,8 @@ body{
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
-  border: 0 solid rgba(0,0,0,.125);
-  border-radius: .25rem;
+  border: 0 solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
 }
 
 .card-body {
@@ -76,26 +65,31 @@ body{
   margin-left: -8px;
 }
 
-.gutters-sm>.col, .gutters-sm>[class*=col-] {
+.gutters-sm > .col,
+.gutters-sm > [class*="col-"] {
   padding-right: 8px;
   padding-left: 8px;
 }
-.mb-3, .my-3 {
-  margin-bottom: 1rem!important;
+.mb-3,
+.my-3 {
+  margin-bottom: 1rem !important;
 }
 
 .bg-gray-300 {
   background-color: #e2e8f0;
 }
 .h-100 {
-  height: 100%!important;
+  height: 100% !important;
 }
 .shadow-none {
-  box-shadow: none!important;
+  box-shadow: none !important;
 }
 
-@media (min-width: 768px) and (max-width: 991.98px) {}
+@media (min-width: 768px) and (max-width: 991.98px) {
+}
 
-@media (min-width: 992px) and (max-width: 1199.98px) {}
+@media (min-width: 992px) and (max-width: 1199.98px) {
+}
 
-@media (min-width: 1200px) {}
+@media (min-width: 1200px) {
+}

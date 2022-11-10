@@ -10,23 +10,21 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
         $request->merge(['password' => Hash::make($request->password)]);
-        $image=time().'.'.$request->image->extension();
+        $image = time() . '.' . $request->image->extension();
         User::create([
-             'firstname' => request()->firstname,
-             'lastname'=>request()->lastname,
-             'email'=>request()->email,
-             'password' => $request->password,
-             'city' => $request->city,
-             'address'=>$request->address,
-             'mobile'=>$request->mobile,
-             'image'=>$image
-         ]);
-         $request->image->move(public_path('public/'), $image);
-        // User::Create($request->all());
-
+            'firstname' => request()->firstname,
+            'lastname' => request()->lastname,
+            'email' => request()->email,
+            'password' => $request->password,
+            'city' => $request->city,
+            'address' => $request->address,
+            'mobile' => $request->mobile,
+            'image' => $image
+        ]);
+        $request->image->move(public_path('public/'), $image);
     }
 
     public function index()
@@ -52,29 +50,27 @@ class UserController extends Controller
             $request->merge(['password' => Hash::make($request->password)]);
         }
         if ($request->image) {
-            // $path=public_path('public/').$user->image;
-            // if(file_exists($path)){
-            //     @unlink($path);
-            // }
-            // $imageName = time() . '.' . $request->image->extension();
-            $imageName=$request->image;
-            $request->image->move(public_path('public/'), $request->image);
+            $path = public_path('public/') . $user->image;
+            if (file_exists($path)) {
+                @unlink($path);
+            }
+            $imageName = time() . '.' . $request->image->extension();
 
-        }else{
-            $imageName=$user->image;
+            $request->image->move(public_path('public/'), $imageName);
+        } else {
+            $imageName = $user->image;
         }
-         $user->update([
-                'firstname' => request()->firstname,
-                'lastname'=>request()->lastname,
-                'email'=>request()->email,
-                'password' => $request->password,
-                'city' => $request->city,
-                'address'=>$request->address,
-                'mobile'=>$request->mobile,
-                'newsletter'=>$request->newsletter,
-               'image'=>$imageName
+        $user->update([
+            'firstname' => request()->firstname,
+            'lastname' => request()->lastname,
+            'email' => request()->email,
+            'password' => $request->password,
+            'city' => $request->city,
+            'address' => $request->address,
+            'mobile' => $request->mobile,
+            'newsletter' => $request->newsletter,
+            'image' => $imageName
         ]);
-        // $user->update($request->all());
     }
 
     public function destroy($id)

@@ -8,18 +8,33 @@ export class APIServiceService {
   constructor(private myClient: HttpClient) {}
 
   BASE_URL = 'http://127.0.0.1:8000/api';
+  IMG_URL = 'http://127.0.0.1:8000/public';
 
-  getCartItems(id: number):Observable<any>{
+  getCartItems(id: number): Observable<any> {
     return this.myClient.get(this.BASE_URL + `/carts/${id}`);
   }
 
-  getUserInfo(id: number):Observable<any>{
+  getUserInfo(id: number): Observable<any> {
     return this.myClient.get(this.BASE_URL + `/users/${id}`);
   }
 
-  updateUser(id: number, data: any):Observable<any> {
+  updateUser(id: number, data: any): Observable<any> {
     return this.myClient.post(this.BASE_URL + `/users/${id}`, data);
   }
 
+  addOrderItems(data: any) {
+    return this.myClient.post(this.BASE_URL + '/orders', data);
+  }
 
+  deleteCartItem(id: number) {
+    return this.myClient.delete(this.BASE_URL + `/carts/${id}`);
+  }
+
+  getUserOrders(id: number) {
+    return this.myClient.get(this.BASE_URL + `/user_orders/${id}`);
+  }
+
+  getOrders(id: number) {
+    return this.myClient.get(this.BASE_URL + `/orders/${id}`);
+  }
 }

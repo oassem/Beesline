@@ -20,7 +20,7 @@ class OfferResource extends JsonResource
             'oldPrice' => $this->oldPrice,
             'discount' => $this->discount,
             'productId' => $this->productId,
-            'product info' => new ProductResource($this->product)
+            'productInfo' => new ProductResource($this->product)
         ];
     }
 }
