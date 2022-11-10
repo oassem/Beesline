@@ -11,6 +11,7 @@ import { FormGroup,FormControl, Validators,FormBuilder } from '@angular/forms';
 })
 export class SignInComponent implements OnInit {
   invalidLogin:boolean =false;
+  userName:string="";
   signInForm = new FormGroup({
     email:new FormControl('',[Validators.required,Validators.email]),
     password:new FormControl('',Validators.required)
@@ -36,6 +37,7 @@ export class SignInComponent implements OnInit {
         this.invalidLogin=true;
       }
     );
+    
    
   }
   closeDialog(){

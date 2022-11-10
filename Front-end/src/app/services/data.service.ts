@@ -9,6 +9,7 @@ export class DataService {
   result:any;
   token:any;
   uId:any;
+  userData:any;
    public imageUrl="http://127.0.0.1:8000/public/";
    private base_url="http://127.0.0.1:8000/api";
    constructor( 
@@ -18,11 +19,16 @@ export class DataService {
     
     AddUser(data:any): Observable<any>{
 
-     return this.http.post(`${this.base_url}/users`,JSON.stringify(data))
+     return this.http.post(`${this.base_url}/users`,data)
     }
-    // getUserData():
+    getUserData(id:number){
+      return this.http.get(`${this.base_url}/users/${this.uId}`).subscribe(res=>{
+        
+        localStorage.setItem('userData', JSON.stringify(res));
+      })
+     }
     AuthUser(data:any){
-      console.log(data);
+     
       return this.http.post(`http://127.0.0.1:8000/api/login`,data).pipe(map(res=>{
        
        this.result=res;
@@ -33,6 +39,8 @@ export class DataService {
      if( this. result){
      localStorage.setItem('token', this.token );
      localStorage.setItem('userId',this.uId);
+     
+     this.getUserData(this.uId);
      return true;
     }
     return false;
