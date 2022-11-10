@@ -13,7 +13,7 @@ export class ProductFilterComponent implements OnInit {
   items: any;
   param: any;
 
-  constructor(myRoute: ActivatedRoute, private myService: APIService) {
+  constructor(myRoute: ActivatedRoute, public myService: APIService) {
     this.param = myRoute.snapshot.params['name'];
   }
 

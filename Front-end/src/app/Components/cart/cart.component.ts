@@ -10,7 +10,7 @@ export class CartComponent implements OnInit {
   items: any;
   counter: any;
 
-  constructor(private myService: APIService) { }
+  constructor(public myService: APIService) { }
 
   ngOnInit(): void {
     this.myService.getCartItems(1).subscribe({

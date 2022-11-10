@@ -5,7 +5,7 @@ import { APIService } from 'src/app/Services/api.service';
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
-  styleUrls: ['./product-details.component.css']
+  styleUrls: ['./product-details.component.css'],
 })
 export class ProductDetailsComponent implements OnInit {
   id: any;
@@ -14,24 +14,24 @@ export class ProductDetailsComponent implements OnInit {
   offers: any;
   items: any;
 
-  constructor(myRoute: ActivatedRoute, private myService: APIService) {
+  constructor(myRoute: ActivatedRoute, public myService: APIService) {
     this.id = myRoute.snapshot.params['id'];
   }
 
   ngOnInit(): void {
     this.myService.getProductDetails(this.id).subscribe({
-      next: (data) => this.product = data,
-      error: (err) => console.error(err)
+      next: (data) => (this.product = data),
+      error: (err) => console.error(err),
     });
 
     this.myService.getAllProducts().subscribe({
-      next: (data) => this.products = data,
-      error: (err) => console.error(err)
+      next: (data) => (this.products = data),
+      error: (err) => console.error(err),
     });
 
     this.myService.getAllOffers().subscribe({
-      next: (data) => this.offers = data,
-      error: (err) => console.error(err)
+      next: (data) => (this.offers = data),
+      error: (err) => console.error(err),
     });
   }
 
@@ -49,11 +49,21 @@ export class ProductDetailsComponent implements OnInit {
             quantity = this.items.data[x].quantity;
           }
         }
-        if (!flag) { this.myService.addCartItem({ user_id: 1, product_id: id, quantity: 1 }).subscribe(); }
-        else { this.myService.updateCartItem(index, { user_id: 1, product_id: id, quantity: ++quantity }).subscribe(); }
+        if (!flag) {
+          this.myService
+            .addCartItem({ user_id: 1, product_id: id, quantity: 1 })
+            .subscribe();
+        } else {
+          this.myService
+            .updateCartItem(index, {
+              user_id: 1,
+              product_id: id,
+              quantity: ++quantity,
+            })
+            .subscribe();
+        }
       },
-      error: (err) => console.error(err)
+      error: (err) => console.error(err),
     });
   }
-
 }

@@ -4,7 +4,7 @@ import { APIService } from 'src/app/Services/api.service';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css']
+  styleUrls: ['./products.component.css'],
 })
 export class ProductsComponent implements OnInit {
   products: any;
@@ -12,22 +12,22 @@ export class ProductsComponent implements OnInit {
   offers: any;
   items: any;
 
-  constructor(private myService: APIService) { }
+  constructor(public myService: APIService) {}
 
   ngOnInit(): void {
     this.myService.getAllProducts().subscribe({
-      next: (data) => this.products = data,
-      error: (err) => console.error(err)
+      next: (data) => (this.products = data),
+      error: (err) => console.error(err),
     });
 
     this.myService.getAllCategories().subscribe({
-      next: (data) => this.categories = data,
-      error: (err) => console.error(err)
+      next: (data) => (this.categories = data),
+      error: (err) => console.error(err),
     });
 
     this.myService.getAllOffers().subscribe({
-      next: (data) => this.offers = data,
-      error: (err) => console.error(err)
+      next: (data) => (this.offers = data),
+      error: (err) => console.error(err),
     });
   }
 
@@ -35,6 +35,11 @@ export class ProductsComponent implements OnInit {
     let flag = false;
     let index: number;
     let quantity: number;
+    let userInfo = localStorage.getItem('userInfo');
+    let userID;
+    if (userInfo) {
+      userID = JSON.parse(userInfo).id;
+    }
     this.myService.getCartItems(1).subscribe({
       next: (data) => {
         this.items = data;
@@ -45,10 +50,21 @@ export class ProductsComponent implements OnInit {
             quantity = this.items.data[x].quantity;
           }
         }
-        if (!flag) { this.myService.addCartItem({ user_id: 1, product_id: id, quantity: 1 }).subscribe(); }
-        else { this.myService.updateCartItem(index, { user_id: 1, product_id: id, quantity: ++quantity }).subscribe(); }
+        if (!flag) {
+          this.myService
+            .addCartItem({ user_id: 1, product_id: id, quantity: 1 })
+            .subscribe();
+        } else {
+          this.myService
+            .updateCartItem(index, {
+              user_id: 1,
+              product_id: id,
+              quantity: ++quantity,
+            })
+            .subscribe();
+        }
       },
-      error: (err) => console.error(err)
+      error: (err) => console.error(err),
     });
   }
 }

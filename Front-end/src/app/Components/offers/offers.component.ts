@@ -10,7 +10,7 @@ export class OffersComponent implements OnInit {
   offers: any;
   items: any;
 
-  constructor(private myService: APIService) { }
+  constructor(public myService: APIService) { }
 
   ngOnInit(): void {
     this.myService.getAllOffers().subscribe({

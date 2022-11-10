@@ -16,7 +16,7 @@
             <tbody>
                 <tr style="visibility:hidden">hidden row</tr>
                 <tr *ngFor="let item of items.data" style="font-weight:bold">
-                    <td class="imageCol"><img class="rounded" src="assets/images/{{item['product info'].image}}" width="100%" /></td>
+                    <td class="imageCol"><img class="rounded" src="{{myService.IMG_URL}}{{item['product info'].image}}" width="100%" /></td>
                     <td class="golder productName" style="letter-spacing: 2px">{{item['product info'].name}}</td>
                     <td><i (click)="dec(item.id, item.product_id, item.quantity)" class="bi bi-dash-lg golder mx-lg-3 mx-2"></i>{{item.quantity}}<i (click)="inc(item.id, item.product_id, item.quantity)" class="bi bi-plus-lg golder mx-lg-3 mx-2"></i></td>
                     <td *ngIf="item['product info']['offer info'] == null">EGP {{item['product info'].price | number:'1.2-2'}}</td>

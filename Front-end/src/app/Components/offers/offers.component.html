@@ -5,7 +5,7 @@
         <div class="row">
             <div *ngFor="let offer of offers.data" class="col-lg-3 col-md-4 col-sm-6 mb-5">
                 <div class="card" style="border: none">
-                    <img src="assets/images/{{offer['product info'].image}}" class="card-img-top">
+                    <img src="{{myService.IMG_URL}}{{offer['product info'].image}}" class="card-img-top">
                     <div class="card-body rounded-bottom" style="text-align: center; background: #FAFAFA;">
                         <h6 class="card-title" style="height:45px">{{offer['product info'].name}}</h6>
                         <p class="card-text mb-4">EGP {{offer.oldPrice - (offer.oldPrice * (offer.discount/100)) | number:'1.2-2'}}<span class="mx-1" style="text-decoration:line-through; font-size: small; color: #7D7DA5;">EGP{{offer.oldPrice}}.00</span></p>
