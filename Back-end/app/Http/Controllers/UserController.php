@@ -10,16 +10,9 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function store(Request $request)
+    public function store(UserRequest $request)
       {
-        // 'firstname',
-        // 'lastname',
-        // 'image',
-        // 'mobile',
-        // 'email',
-        // 'password',
-        // 'address',
-        // 'city'
+  
        $image=time().'.'.$request->image->extension();
         $request->merge(['password' => Hash::make($request->password)]);
          $data = User::Create( [
@@ -33,8 +26,8 @@ class UserController extends Controller
             'city'=>$request->city
     ]);
     $request->image->move(public_path('public/'), $image);  
-     $response['data']=$request->all();
-     return response()->json($response);    
+    //  $response['data']=$request->all();
+    //  return response()->json($response);    
     }
 
     public function index()
@@ -53,7 +46,7 @@ class UserController extends Controller
         }
     }
 
-    public function update($id, UserRequest $request)
+    public function update($id,Request $request)
     {
         $user = User::find($id);
         if (Hash::check($request->password, $user->password)) {
