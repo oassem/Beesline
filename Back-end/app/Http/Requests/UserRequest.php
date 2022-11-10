@@ -33,7 +33,7 @@ class UserRequest extends FormRequest
                 'email' => 'sometimes|required|email|unique:users,email,'.$this->user,
                 'password' => 'sometimes|required',
                 'address' => 'sometimes|required|min:10|max:255',
-                'city' => 'sometimes|required|min:5|max:255',
+                'city' => 'sometimes|required',
                 'newsletter'=>'sometimes|required'
             ];
         }else{

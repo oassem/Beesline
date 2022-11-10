@@ -27,11 +27,10 @@ class CreateUsersTable extends Migration
             // $table->rememberToken();
             $table->boolean('newsletter')->default(false);
             $table->text('address');
-            $table->string('city');
+            $table->enum('city',['NoTSelected','cairo','alex','giza','portSaid','suez','luxor','mansoura','tanta','asyut','ismailia','faiyum','zagazig','damietta','aswan','minya','damanhur','beniSuef','qena','sohag','banha','arish'])->default('NoTSelected');
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *
