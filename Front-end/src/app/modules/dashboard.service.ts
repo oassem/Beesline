@@ -66,6 +66,9 @@ export class DashboardService {
  UpdateOneOrder(id:number,data:any): Observable<any>{
   return this.http.post(`${this.base_url}/orders/${id}`,data);
  }
+ GetAllNotRepeatedOrder():Observable<any>{
+  return this.http.get(`${this.base_url}/allOrders`);
+ }
 //CRUD System for User_orders, this can be used in user details :) 
 ShowOneUserOrder(id:number): Observable<any>{//user id
 return this.http.get(`${this.base_url}/user_orders/${id}`);

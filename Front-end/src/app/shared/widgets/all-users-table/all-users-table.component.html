@@ -9,6 +9,7 @@
        <th>Name</th>
        <th>Image</th>
        <th>Email</th>
+       <th>Type</th>
        <th>City</th>
        <th>Action</th>
      </tr>
@@ -19,6 +20,7 @@
        <td>{{u.firstname}} &nbsp;{{u.lastname}}</td>
        <td><img src="{{dashboardService.imageUrl}}{{u.image}}" style="width:100px;height:100px;"  alt=""></td>
        <td>{{u.email}}</td>
+       <td>{{u.type}}</td>
        <td>{{u.city}}</td>
        <td>
          <button mat-raised-button  color="primary" routerLink="/users/userDetails/{{u.id}}"><mat-icon>remove_red_eye</mat-icon></button>

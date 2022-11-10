@@ -6,32 +6,46 @@
    <thead>
      <tr>
        <th>Order No.</th>
-       <th>User Name</th>
-
-       <th>Product Name</th>
-       <th>Quantity</th>
        <th>Order Status</th>
-       <th>Total Price</th>
-       <th>Action</th>
+       <th>User Name</th>
+       <th>User City</th>
+       <th>User address</th>
+        <th>Product Details</th>
+        <th>Action</th> 
      </tr>
    </thead>
    <tbody >
-     <tr *ngFor="let o of AllOrders">
+     <tr *ngFor="let o of AllOrdersNotRepeated">
        <td>{{o.id}}</td>
-       <td>{{o.userInfo.firstname}} {{o.userInfo.lastname}}</td>
-       <td>{{o.productInfo.name}}</td>
-       <td>{{o.quantity}}</td>
        <td [ngClass]="{
         'text-primary':o.orderStatus === 'pending',
         'text-success':o.orderStatus === 'accepted',
         'text-danger':o.orderStatus === 'rejected'
       }"><b>{{o.orderStatus}}</b></td>
-       <td>{{o.productInfo.price * o.quantity}}</td>
-       
-       <td>
-         <button mat-raised-button  color="primary" routerLink="/orders/orderDetails/{{o.id}}"><mat-icon>remove_red_eye</mat-icon></button>
-         <button mat-raised-button color="accent" routerLink="/orders/changeStatus/{{o.id}}"><mat-icon>edit</mat-icon>Edit status</button>
-       </td>
+       <td>{{o.userInfo.firstname}} {{o.userInfo.lastname}}</td>
+       <td>{{o.userInfo.city}}</td>
+       <td>{{o.userInfo.address}}</td>
+      <td>
+        <table class="table table-striped">
+          <tr>
+            <th>Product Name</th>
+            <th>Product Image</th>
+            <th>Quantity</th>
+            <th>Product Price</th>
+            <th>Total Price</th>
+          </tr>
+           <tr *ngFor="let oo of AllOrders">
+              <td *ngIf="o.user_id==oo.user_id">{{oo.productInfo.name}}</td>
+              <td *ngIf="o.user_id==oo.user_id"><img src="{{dashboardService.imageUrl}}{{oo.productInfo.image}}" style="width:100px;height:80px;"  alt=""></td>
+              <td *ngIf="o.user_id==oo.user_id">{{oo.quantity}}</td>
+              <td *ngIf="o.user_id==oo.user_id">{{oo.productInfo.price}}</td>
+              <td *ngIf="o.user_id==oo.user_id">{{oo.productInfo.price * oo.quantity}}</td>
+           </tr>
+        </table>
+      </td>
+      <td>
+        <button mat-raised-button color="accent" routerLink="/orders/changeStatus/{{o.id}}"><mat-icon>edit</mat-icon>Edit status</button>
+      </td>
      </tr>
    </tbody>
  </table>

@@ -4,42 +4,63 @@
           <mat-card-title>
             <mat-card class="text-black">User Name: {{userData.firstname}}&nbsp;{{userData.lastname}}</mat-card> 
             <br>
-            <button mat-raised-button color="light" routerLink="/users"> <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>users Page</button>   
-           
+            <button mat-raised-button color="light" routerLink="/users"> <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>users Page</button>    
           </mat-card-title> 
           <mat-divider></mat-divider>
             <img mat-card-xl-image src="{{dashboardService.imageUrl}}{{userData.image}}"> 
         </mat-card-title-group>
         <mat-tab-group>
-          <mat-tab label="cart Details" class="text-black" >
-           
+          <mat-tab label="cart Details" class="text-black"> 
           <mat-card *ngFor="let card of userData.cartInfo" class="d-flex flex-row">
-            <mat-card-subtitle class="text-black"><h3>Product Name: <span class="text-muted">{{card.productInfo.name}}</span> </h3> </mat-card-subtitle>&nbsp; &nbsp;
-            <mat-card-subtitle class="text-black"><h3>Product Price: <span class="text-muted">{{card.productInfo.price}} EGP</span></h3></mat-card-subtitle>&nbsp; &nbsp;
-            <mat-card-subtitle class="text-black"><h3> Quantity: <span class="text-muted">{{card.quantity}}</span></h3></mat-card-subtitle>
+          
+          
+           <mat-card class="text-black "><h3>Product Name: <span class="text-muted">{{card.productInfo.name}}</span> </h3> </mat-card>&nbsp; &nbsp;
+       <mat-card class="text-black"><h3>Product Price: <span class="text-muted">{{card.productInfo.price}} EGP</span></h3></mat-card>&nbsp; &nbsp;
+      <mat-card class="text-black"><h3> Quantity: <span class="text-muted">{{card.quantity}}</span></h3></mat-card>
+
           </mat-card>
-      
           </mat-tab>
           <mat-tab label="User Details" class="text-black"> 
-           
             <mat-card>
-            <mat-card-subtitle class="text-black"><h3>User Mobile No.: <span class="text-muted">{{userData.mobile}}
-             </span></h3></mat-card-subtitle>
-             <mat-card-subtitle class="text-black"><h3>User Email: <span class="text-muted">{{userData.email}}</span></h3></mat-card-subtitle>
-              <mat-card-subtitle class="text-black"><h3>User City: <span class="text-muted">{{userData.city}} </span></h3> </mat-card-subtitle>
-              <mat-card-subtitle class="text-black"><h3>User Address: <span class="text-muted">{{userData.address}}</span></h3></mat-card-subtitle>
+            <mat-card class="text-black"><h3>User Mobile No.: <span class="text-muted">{{userData.mobile}}
+             </span></h3></mat-card>
+             <mat-card class="text-black"><h3>User Email: <span class="text-muted">{{userData.email}}</span></h3></mat-card>
+              <mat-card class="text-black"><h3>User City: <span class="text-muted">{{userData.city}} </span></h3> </mat-card>
+              <mat-card class="text-black"><h3>User Address: <span class="text-muted">{{userData.address}}</span></h3></mat-card>
               </mat-card>
-             
           </mat-tab>
-          <mat-tab label="Order Details" class="text-black"  > 
-           
-            <mat-card *ngFor="let o of ordersData" class="d-flex flex-row">
+          <mat-tab label="Order Details" class="text-black"> 
+            <mat-card *ngFor="let or of AllOrdersNotRepeated">
+            <p *ngIf="or.user_id==userData.id">Order Number: {{or.id}}</p>
+            <p  *ngIf="or.user_id==userData.id" [ngClass]="{
+             'text-primary':or.orderStatus === 'pending',
+             'text-success':or.orderStatus === 'accepted',
+             'text-danger':or.orderStatus === 'rejected'
+           }"><b>{{or.orderStatus}}</b></p>
+           <table class="table table-striped table-bordered" *ngIf="userData.id==or.user_id">
+            <tr>
+              <th>Product Name</th>
+              <th>Product Image</th>
+              <th>Quantity</th>
+              <th>Product Price</th>
+              <th>Total Price</th>
+            </tr>
+             <tr *ngFor="let oo of ordersData">
+                <td *ngIf="or.user_id==oo.user_id">{{oo.productInfo.name}}</td>
+                <td *ngIf="or.user_id==oo.user_id"><img src="{{dashboardService.imageUrl}}{{oo.productInfo.image}}" style="width:100px;height:80px;"  alt=""></td>
+                <td *ngIf="or.user_id==oo.user_id">{{oo.quantity}}</td>
+                <td *ngIf="or.user_id==oo.user_id">{{oo.productInfo.price}}</td>
+                <td *ngIf="or.user_id==oo.user_id">{{oo.productInfo.price * oo.quantity}}</td>
+             </tr>
+          </table>
+        </mat-card>
+            <!-- <mat-card *ngFor="let o of ordersData" class="d-flex flex-row">
             <mat-card-subtitle class="text-black" *ngIf="o.user_id == userData.id"><h3>Order Status: <span class="text-muted">{{o.orderStatus}}</span></h3></mat-card-subtitle> &nbsp; &nbsp;
             <mat-card-subtitle class="text-black" *ngIf="o.user_id == userData.id"><h3>Order Date: <span class="text-muted">{{o.created_at}}</span></h3></mat-card-subtitle> &nbsp; &nbsp;
             <mat-card-subtitle class="text-black" *ngIf="o.user_id == userData.id"><h3>Product Name: <span class="text-muted">{{o.productInfo.name}}</span></h3></mat-card-subtitle> &nbsp; &nbsp;
             <mat-card-subtitle class="text-black" *ngIf="o.user_id == userData.id"><h3>Product Price: <span class="text-muted">{{o.productInfo.price}}</span></h3></mat-card-subtitle>&nbsp; &nbsp;
             <mat-card-subtitle class="text-black" *ngIf="o.user_id == userData.id"><h3>Total Price: <span class="text-muted">{{o.productInfo.price * o.quantity}} EGP</span></h3></mat-card-subtitle> 
-          </mat-card>
+          </mat-card> -->
        
           </mat-tab>
         </mat-tab-group>

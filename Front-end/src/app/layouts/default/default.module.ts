@@ -34,7 +34,6 @@ import { OrdersTableComponent } from '../../shared/widgets/orders-table/orders-t
 import { ReactiveFormsModule } from '@angular/forms';  
 import { ProductDetailsComponent } from '../../shared/widgets/product-details/product-details.component';
 import { EditProductComponent } from '../../shared/widgets/edit-product/edit-product.component';
-import { OrderDetailsComponent } from '../../shared/widgets/order-details/order-details.component';
 import { ChangeStatusComponent } from '../../shared/widgets/change-status/change-status.component';
 import { MatSelectModule} from '@angular/material/select';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
@@ -66,7 +65,6 @@ import { AddofferComponent } from 'src/app/shared/widgets/addoffer/addoffer.comp
     OrdersTableComponent,
     ProductDetailsComponent,
     EditProductComponent,
-  OrderDetailsComponent,
   ChangeStatusComponent,
   EditProfileComponent,
   UsersComponent,
@@ -117,7 +115,7 @@ import { AddofferComponent } from 'src/app/shared/widgets/addoffer/addoffer.comp
   OrdersTableComponent,
   ProductDetailsComponent,
   EditProductComponent,
-  OrderDetailsComponent,
+
   ChangeStatusComponent
   // SidebarComponent
 

@@ -18,9 +18,15 @@ class OrderController extends Controller
         $user_order->order_id = $request->id;
         $user_order->save();
     }
-
+   
+    public function _orders(){
+        $orders= Order::distinct()->get(['id','user_id','orderStatus']);
+        return OrderResource::collection($orders);
+    }
+    
     public function index()
     {
+      
         $orders = Order::all();
         return OrderResource::collection($orders);
     }
@@ -36,7 +42,7 @@ class OrderController extends Controller
         }
     }
 
-    public function update($id,Request $request)
+    public function update($id,StoreandUpdateOrderRequest $request)
     {
        
         Order::find($id)->update($request->all()); 

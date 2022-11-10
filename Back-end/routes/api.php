@@ -40,6 +40,7 @@ Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
 Route::get('/orders/{order}', [OrderController::class, 'show'])->name('orders.show');
 Route::put('/orders/{order}', [OrderController::class, 'update'])->name('orders.update');
 Route::delete('/orders/{order}', [OrderController::class, 'destroy'])->name('orders.destroy');
+Route::get('/allOrders',[OrderController::class,'_orders'])->name('orders._orders');
 
 // user_orders
 Route::get('/user_orders/{user_order}', [User_OrderController::class, 'show']);

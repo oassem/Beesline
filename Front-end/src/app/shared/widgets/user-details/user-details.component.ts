@@ -10,6 +10,7 @@ import { DashboardService } from '../../../modules/dashboard.service';
 export class UserDetailsComponent implements OnInit {
 userData:any;
 ordersData:any;
+AllOrdersNotRepeated:any;
 id = this._route.snapshot.params['id'];
   constructor(public _route:ActivatedRoute,private router:Router,public dashboardService:DashboardService) { }
 
@@ -21,6 +22,10 @@ id = this._route.snapshot.params['id'];
     ()=>{
       
     });
+    this.dashboardService.GetAllNotRepeatedOrder().subscribe(data=>{
+      console.log(data.data);
+      this.AllOrdersNotRepeated=data.data;
+    })
     this.dashboardService.GetAllOrders().subscribe(data=>{
       console.log(data.data);
       this.ordersData=data.data;

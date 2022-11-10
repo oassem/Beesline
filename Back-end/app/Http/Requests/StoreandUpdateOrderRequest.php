@@ -24,14 +24,23 @@ class StoreandUpdateOrderRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'id' => ['required','numeric'],
-            'product_id' => ['required','numeric'],
-            'user_id' => ['required','numeric'],
-            'price' => ['required','numeric'],
-            'quantity' => ['required','numeric'],
-           
-        ];
+           if ($this->method()=='PUT') {
+            return [
+                'id' => 'sometimes|required|numeric',
+                'product_id' => 'sometimes|required|numeric',
+                'user_id' => 'sometimes|required|numeric',
+                'quantity' => 'sometimes|required|numeric',  
+                'orderStatus'=>'sometimes|required', 
+            ];  
+           }else{
+            return [
+                'id' => 'required|numeric',
+                'product_id' => 'required|numeric',
+                'user_id' => 'required|numeric',
+                'quantity' => 'required|numeric',  
+                'orderStatus'=>'sometimes|required', 
+            ];
+          }
     }
     public function messages()
     {

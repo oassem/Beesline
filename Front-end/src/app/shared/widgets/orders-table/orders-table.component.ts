@@ -9,14 +9,17 @@ import { DashboardService } from 'src/app/modules/dashboard.service';
 })
 export class OrdersTableComponent implements OnInit  {
   AllOrders:any;
- 
-  constructor(private router:Router,private activatedRoute:ActivatedRoute,private dashboardService:DashboardService) {}
+  AllOrdersNotRepeated:any;
+  constructor(private router:Router,private activatedRoute:ActivatedRoute,public dashboardService:DashboardService) {}
   ngOnInit():void{
     this.dashboardService.GetAllOrders().subscribe(data=>{
       console.log(data.data);
       this.AllOrders=data.data;
     })
-   
+    this.dashboardService.GetAllNotRepeatedOrder().subscribe(data=>{
+      console.log(data.data);
+      this.AllOrdersNotRepeated=data.data;
+    })
   }
 }
  
