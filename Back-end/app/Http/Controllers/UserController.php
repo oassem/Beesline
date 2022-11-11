@@ -6,13 +6,25 @@ use App\Http\Resources\UserResource;
 use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
     public function store(UserRequest $request)
     {
+        $image=time().'.'.$request->image->extension();
         $request->merge(['password' => Hash::make($request->password)]);
-        User::Create($request->all());
+        $data = User::Create([
+           'firstname'=>$request->firstname,
+           'lastname'=>$request->lastname,
+           'image'=>$image,
+           'mobile'=>$request->mobile,
+           'email'=>$request->email,
+           'password'=>$request->password,
+           'address'=>$request->address,
+           'city'=>$request->city
+    ]);
+        $request->image->move(public_path('public/'), $image);
     }
 
     public function index()
@@ -31,7 +43,7 @@ class UserController extends Controller
         }
     }
 
-    public function update($id, UserRequest $request)
+    public function update($id, Request $request)
     {
         $user = User::find($id);
         if (Hash::check($request->password, $user->password)) {

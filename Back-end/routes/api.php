@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use Illuminate\Validation\ValidationException;
@@ -58,10 +59,11 @@ Route::put('/contacts/{contact}', [ContactController::class, 'update']);
 Route::delete('/contacts/{contact}', [ContactController::class, 'destroy']);
 
 // sanctum
-Route::post('/sanctum/token', function (Request $request) {
+Route::post('/login', function (Request $request) {
     $request->validate([
         'email' => 'required|email',
-        'password' => 'required'
+        'password' => 'required',
+
     ]);
 
     $credentials = [
@@ -70,9 +72,8 @@ Route::post('/sanctum/token', function (Request $request) {
     ];
 
     $user = User::where('email', $request->email)->first();
-
     if ($user && Auth::attempt($credentials)) {
-        return $user->createToken($request->email)->plainTextToken;
+        return [$user->createToken($request->email)->plainTextToken, $user->id];
     } else {
         throw ValidationException::withMessages([
             'email' => ['The provided credentials are incorrect.'],

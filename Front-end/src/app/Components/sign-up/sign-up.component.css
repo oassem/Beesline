@@ -1,0 +1,46 @@
+h3 {
+  width: 100%;
+  text-align: center;
+  border-bottom: 3.5px solid #c59630;
+  line-height: 0.1em;
+  letter-spacing: 2px;
+  margin-top: 50px;
+  font-size: 26px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+h3 span {
+  background: #fff;
+  padding: 0 10px;
+}
+button[type="submit"] {
+  color: #fff;
+  font-family: "Avenir Next LT Pro" !important;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+button[type="submit"]:hover {
+  background-color: #fff;
+  color: #b48b32;
+}
+input {
+  width: 400px;
+}
+input[type="checkbox"] {
+  width: 15px;
+  border: 0.5px solid #b48b32;
+}
+.profile-card {
+  text-align: center;
+  padding: 0 20px 20px 20px;
+  background-color: #c59630;
+}
+img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+}
