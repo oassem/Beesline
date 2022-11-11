@@ -63,7 +63,7 @@ Route::post('/login', function (Request $request) {
     $request->validate([
         'email' => 'required|email',
         'password' => 'required',
-     
+
     ]);
 
     $credentials = [
@@ -72,8 +72,6 @@ Route::post('/login', function (Request $request) {
     ];
 
     $user = User::where('email', $request->email)->first();
-    
-
     if ($user && Auth::attempt($credentials)) {
         return [$user->createToken($request->email)->plainTextToken, $user->id];
     } else {
@@ -81,11 +79,4 @@ Route::post('/login', function (Request $request) {
             'email' => ['The provided credentials are incorrect.'],
         ]);
     }
-    // response($content, $status)
-    // ->header('Content-Type', 'application/json');
 });
-
-
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });

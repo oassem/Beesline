@@ -17,11 +17,11 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->enum('category',array('lip balms','face care','deodorants','sun care','express masks','face radiance','intimate hygiene','skin treatments'));
+            $table->enum('category', array('lip balms','face care','deodorants','sun care','express masks','face radiance','intimate hygiene','skin treatments'));
             $table->string('name');
             $table->string('image');
             $table->integer('price');
-            $table->integer('stock');//no of products in stock
+            $table->integer('stock'); //no of products in stock
             $table->text('description');
             $table->timestamps();
         });
