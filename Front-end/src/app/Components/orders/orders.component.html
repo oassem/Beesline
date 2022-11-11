@@ -8,7 +8,6 @@
       </div>
     </div>
   </div>
-
   <div class="row" *ngFor="let order of orders">
     <div class="toast mb-4 w-50" style="display:block; box-shadow: none; border: 0.5px solid #c59630; font-size: large;" role="alert" aria-live="assertive" aria-atomic="true">
       <div class="toast-header">
@@ -17,7 +16,7 @@
       <div class="toast-body">
         <span><b>Order number:</b> {{order[0].id}}</span>
         <span class="mx-4"><b>Order status:</b> {{order[0].orderStatus}}</span>
-        <button class="btn btn-danger" *ngIf="order[0].orderStatus=='pending'" (click)="cancelOrder(order[0].id)">Cancel Order</button>
+          <button class="btn btn-danger btn-sm" *ngIf="order[0].orderStatus=='pending'" (click)="cancelOrder(order[0].id)">Cancel </button>
       </div>
     </div>
     <table class="table mb-5 table-responsive">

@@ -1,5 +1,3 @@
-<!-- {{items.data[0]['product info'].name}} -->
-
 <div class="mx-auto container" style="width: 85%">
   <h3 class="mb-5 me-2 ms-2 mt-5"><span>&nbsp;ONE STEP CHECKOUT&nbsp;</span></h3>
   <!--  Shipping Address  -->
@@ -100,7 +98,7 @@
             <hr>
             <div class="row">
               <div class="col-sm-12">
-                <a class="btn btn-warning place" (click)="order()" routerLink="/orders/{{userID}}">Place Order</a>
+                <a class="btn btn-warning place" (click)="order()" routerLink="/orders/{{info.data.id}}">Place Order</a>
               </div>
             </div>
           </div>

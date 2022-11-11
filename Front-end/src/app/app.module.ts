@@ -8,9 +8,8 @@ import { ProfileComponent } from './Components/profile/profile.component';
 import { ordersComponent } from './Components/orders/orders.component';
 import { EditProfileComponent } from './Components/edit-profile/edit-profile.component';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
-// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-// import { FileUploadService } from './Services/file-upload.service';
+
 
 @NgModule({
   declarations: [
@@ -22,9 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
     EditProfileComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule, HttpClientModule],
-  providers: [
-    // file-FileUploadService
-  ],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

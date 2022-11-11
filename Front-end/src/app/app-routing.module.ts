@@ -12,7 +12,6 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent, title: 'My Profile' },
   { path: 'edit-profile/:id', component: EditProfileComponent, title: 'Edit Profile' },
   { path: 'orders/:id', component: ordersComponent, title: 'My Orders' },
-  //{ path: 'orders', component: ordersComponent, title: 'My Orders' },
 ];
 
 @NgModule({

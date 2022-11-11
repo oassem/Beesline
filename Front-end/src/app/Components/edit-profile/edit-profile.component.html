@@ -6,9 +6,6 @@
       <div class="form-group mb-4">
         <label class="btn btn-default p-0">Upload your image</label>
         <input type="file" class="form-control"  (change)="selectFile($event)"/>
-        <!-- <div class="alert alert-danger" *ngIf="image?.invalid && (image?.touched)">
-          <p *ngIf="image?.errors?.['required']">required</p>
-        </div> -->
         <div>
           <img src="http://127.0.0.1:8000/public/{{prev.image}}" class="preview w-25">
         </div>

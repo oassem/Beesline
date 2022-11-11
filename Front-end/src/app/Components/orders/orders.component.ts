@@ -33,11 +33,11 @@ export class ordersComponent implements OnInit {
       },
       error: (err) => console.error(err),
     });
-    console.log(this.orders);
+    // console.log(this.orders);
   }
   cancelOrder(id:any){
        this.myService.deleteOrder(id).subscribe(data=>{
-        console.log(data);
+        // console.log(data);
        },(e)=>{console.log(e)},
        ()=>{
         window.location.reload();
