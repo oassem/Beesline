@@ -1,0 +1,47 @@
+<img src="assets/images/p1.png" width="100%" style="border:1px solid #FFCD25" />
+<div class="mx-auto" style="width: 90%">
+    <div class="row mt-5">
+        <div *ngFor="let product of products.data" [ngClass]="{'disable': (product['offer info'] != null) || (!product.name.toLowerCase().includes(param.toLowerCase()))}" class="col-lg-3 col-md-4 col-sm-6 mb-5">
+            <div class="card" style="border: none">
+                <img src="{{myService.IMG_URL}}{{product.image}}" class="card-img-top">
+                <div class="card-body rounded-bottom" style="text-align: center; background: #FAFAFA;">
+                    <h6 class="card-title" style="height:45px">{{product.name}}</h6>
+                    <p class="card-text mb-4">EGP {{product.price | number:'1.2-2'}}</p>
+                    <div class="d-flex justify-content-around" id="buttons-group">
+                        <a href="/product/{{product.id}}" class="btn btn-primary deta-btn mb-2">Details</a>
+                        <button data-target="#exampleModal" data-toggle="modal" (click)="add(product.id)" class="btn btn-primary prod-btn mb-2">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngFor="let offer of offers.data" [ngClass]="{'disable': !offer['product info'].name.toLowerCase().includes(param.toLowerCase())}" class="col-lg-3 col-md-4 col-sm-6 mb-5">
+            <div class="card" style="border: none">
+                <img src="{{myService.IMG_URL}}{{offer['product info'].image}}" class="card-img-top">
+                <div class="card-body rounded-bottom" style="text-align: center; background: #FAFAFA;">
+                    <h6 class="card-title" style="height:45px">{{offer['product info'].name}}</h6>
+                    <p class="card-text mb-4">EGP {{offer.oldPrice - (offer.oldPrice * (offer.discount/100)) | number:'1.2-2'}}<span class="mx-1" style="text-decoration:line-through; font-size: small; color: #7D7DA5;">EGP{{offer.oldPrice}}.00</span></p>
+                    <div class="d-flex justify-content-around" id="buttons-group">
+                        <a href="/product/{{offer['product info'].id}}" class="btn btn-primary deta-btn mb-2">Details</a>
+                        <button data-target="#exampleModal" data-toggle="modal" (click)="add(offer['product info'].id)" class="btn btn-primary prod-btn mb-2">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel" style="color:green">Success</h5>
+            </div>
+            <div class="modal-body">
+                Item was added to your cart!
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

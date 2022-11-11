@@ -10,8 +10,13 @@ import { FooterComponent } from './Components/footer/footer.component';
 import { SignInComponent } from './Components/sign-in/sign-in.component';
 import { SignUpComponent } from './Components/sign-up/sign-up.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
 import { DataService } from './services/data.service';
+import { ProductsComponent } from './Components/products/products.component';
+import { OffersComponent } from './Components/offers/offers.component';
+import { ProductDetailsComponent } from './Components/product-details/product-details.component';
+import { CartComponent } from './Components/cart/cart.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ProductFilterComponent } from './Components/product-filter/product-filter.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +25,11 @@ import { DataService } from './services/data.service';
     FooterComponent,
     SignInComponent,
     SignUpComponent,
+    ProductsComponent,
+    OffersComponent,
+    ProductDetailsComponent,
+    CartComponent,
+    ProductFilterComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,10 +41,8 @@ import { DataService } from './services/data.service';
     HttpClientModule,
     MatMenuModule,
   ],
-  providers: [
-    DataService
-  ],
+  providers: [DataService],
   bootstrap: [AppComponent],
-  entryComponents: [SignInComponent]
+  entryComponents: [SignInComponent],
 })
-export class AppModule { }
+export class AppModule {}

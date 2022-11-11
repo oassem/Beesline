@@ -19,6 +19,7 @@ class OfferResource extends JsonResource
             'id' => $this->id,
             'oldPrice' => $this->oldPrice,
             'discount' => $this->discount,
+            'newPrice' => $this->oldPrice - ($this->oldPrice * ($this->discount / 100)),
             'productId' => $this->productId,
             'product info' => new ProductResource($this->product)
         ];
