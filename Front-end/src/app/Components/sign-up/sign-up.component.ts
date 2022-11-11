@@ -53,13 +53,7 @@ get passwordMatchError() {
 get phoneNumber(){
   return this.signUpForm.get('phoneNumber')
 }
-//  onSubmit(){
-//   console.log(this.signUpForm.value);
-//   this.dataService.signUp(this.signUpForm.value).subscribe(res=>{
-//     this.data=res;
-//     // console.log(res);
-//   })
-//  }
+
  file:any;
  onChange(event:any){
    this.file=event.target.files[0];
@@ -79,26 +73,9 @@ get phoneNumber(){
     
      this.dataService.AddUser(formData).subscribe(data=>{
       console.log(data);
-    },(e)=>{console.log(e)}
-    ,()=>{this.router.navigateByUrl('')})
+    })
+     , window.location.reload()
+    ,()=>{this.router.navigateByUrl('/login')}
 
-  
-    
-    // this.dashboardService.AddOneProduct(formData).subscribe(data=>{
-    //   console.log(data);
-    // },(e)=>{console.log(e)}
-    // ,()=>{this._router.navigateByUrl('/products')})
-
-    // const formData = new FormData();
-    // formData.append('firstName',data.value.firstName);
-    // formData.append('lastName' ,data.value.lastName);
-    // formData.append('email' ,data.value.email);
-    // // formData.append('image', this.file,this.file.name);
-    // formData.append('address' ,data.value.address);
-    // formData.append('password' ,data.value.password);
-    // formData.append('city',data.value.city);
-    // formData.append('phoneNumber' ,data.value.phoneNumber);
-    //  console.log( this.file);
-   
   }
 }

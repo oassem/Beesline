@@ -28,13 +28,11 @@ export class DataService {
       })
      }
     AuthUser(data:any){
-     
       return this.http.post(`http://127.0.0.1:8000/api/login`,data).pipe(map(res=>{
-       
-       this.result=res;
-       this.token =this.result['0'];
-       this.uId=this.result['1'];
-       this. result={token:this.token ,userId:this.uId}
+      this.result=res;
+      this.token =this.result['0'];
+      this.uId=this.result['1'];
+      this. result={token:this.token ,userId:this.uId}
     
      if( this. result){
      localStorage.setItem('token', this.token );
@@ -46,12 +44,4 @@ export class DataService {
     return false;
     }));
     }
- 
- 
-  // signUp(data: Partial<{ firstName: string | null; lastName: string | null; email: string | null; password: string | null; address: string | null; confirmPass: string | null; city: string | null; phoneNumber: string | null; }>){
-  //   const headers = new HttpHeaders();
-  //   headers.append('Content-Type', 'application/json');
-  //   headers.append('Accept', 'application/json');
-  //   return this.http.post('http://127.0.0.:8000/api/users',JSON.stringify(data),{headers:headers})
-  // }
 }

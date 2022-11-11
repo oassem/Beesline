@@ -3,7 +3,7 @@ import { MatDialog,MatDialogConfig} from '@angular/material/dialog';
 import {  Router } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
 import { FormGroup,FormControl, Validators,FormBuilder } from '@angular/forms';
-
+declare let FB: any;
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
@@ -16,6 +16,7 @@ export class SignInComponent implements OnInit {
     email:new FormControl('',[Validators.required,Validators.email]),
     password:new FormControl('',Validators.required)
   });
+  toastr: any;
   constructor( 
     private dialog:MatDialog,
 
@@ -23,10 +24,9 @@ export class SignInComponent implements OnInit {
     private router:Router
     ) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
+
   signIn(data: any){
-  
     this.dataService.AuthUser(data.value).subscribe(
       result=>{
         if(result){
@@ -37,13 +37,10 @@ export class SignInComponent implements OnInit {
         this.invalidLogin=true;
       }
     );
-    
-   
   }
   closeDialog(){
     this.dialog.closeAll();
   }
-  
   close_popup(){
     this.dialog.closeAll();
   }

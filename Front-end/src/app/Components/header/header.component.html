@@ -5,7 +5,7 @@
             <div class="d-flex flex-row  justify-content-around align-items-center  ">
                 <div class="p-2 align-self-end " >
                     <img src="assets\images\Icon_search.png" alt="">
-                   <input  type="text" placeholder="SEARCH" id="search" (onChange)="onKey($event)"value="{{ searchValue }}">
+                   <input  type="text" placeholder="SEARCH" id="search" (change)="onChangeEvent($event)"value="{{ searchValue }}">
                 </div>
                <div class=" align-self-center">
                     <a  href="#">
@@ -20,7 +20,7 @@
                           <button mat-menu-item (click)="logOut()">LogOut</button>
                         </mat-menu>
                         <div class ="d-inline" ><img src="assets\images\Icon_sign-in.png" alt=""></div>
-                        <P class ="d-inline  text_header">{{ userName }}</P>
+                       <P class ="d-inline  text_header">{{ userName }}</P>
                        </button>
                     </div>
                     

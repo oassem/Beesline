@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog,MatDialogConfig} from '@angular/material/dialog';
 import { SignInComponent } from '../sign-in/sign-in.component';
 import {MatMenuModule, MatMenuTrigger} from '@angular/material/menu';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -10,7 +11,8 @@ import {MatMenuModule, MatMenuTrigger} from '@angular/material/menu';
 export class HeaderComponent implements OnInit {
   searchValue:string='';
   userName:string='';
-  constructor( private dialog:MatDialog) {
+  private _router: any;
+  constructor( private dialog:MatDialog ,private router:Router) {
     let token=localStorage.getItem('token');
     if(token!=null){  
      let data= localStorage.getItem('userData');
@@ -21,10 +23,8 @@ export class HeaderComponent implements OnInit {
       else
       this.userName="SignIn";
   }
-  
- 
   ngOnInit(): void { }
-  
+
   @ViewChild(MatMenuTrigger)
   trigger!: MatMenuTrigger;
 
@@ -37,7 +37,7 @@ export class HeaderComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.width="600px";
-    dialogConfig.height="600px";
+    dialogConfig.height="500px";
     this.dialog.open(SignInComponent,dialogConfig );
     this.trigger.closeMenu();
   }
@@ -52,9 +52,12 @@ export class HeaderComponent implements OnInit {
   }
  
 
-  onKey(event: any) { // without type info
-  let  search =this.searchValue=event.target.value;
-    console.log(search);
+  onChangeEvent(event: any) { 
+  this.searchValue=event.target.value;
+  console.log( this.searchValue);
+  this.searchValue='';
+  // this.router.navigateByUrl('/products/{ this.searchValue }')
+ // this._router.navigate(['SecondComponent', {p1: this.searchValue}]);
   }
 }
 
