@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import {
+  FormGroup,
+  FormControl,
+  Validators,
+  FormBuilder,
+} from '@angular/forms';
 import { PasswordValidators } from './password.validators';
 import { DataService } from 'src/app/services/data.service';
 import { Router } from '@angular/router';
@@ -7,25 +12,28 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.css']
+  styleUrls: ['./sign-up.component.css'],
 })
-
 export class SignUpComponent implements OnInit {
-  signUpForm = new FormGroup({
-    firstName: new FormControl('', Validators.required),
-    lastName: new FormControl('', Validators.required),
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', Validators.required),
-    address: new FormControl('', Validators.required),
-    confirmPass: new FormControl('', Validators.required),
-    city: new FormControl(''),
-    phoneNumber: new FormControl('', [Validators.required, Validators.pattern('^01[0125][0-9]{8}$')])
-  },
+  signUpForm = new FormGroup(
+    {
+      firstName: new FormControl('', Validators.required),
+      lastName: new FormControl('', Validators.required),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', Validators.required),
+      address: new FormControl('', Validators.required),
+      confirmPass: new FormControl('', Validators.required),
+      city: new FormControl(''),
+      phoneNumber: new FormControl('', [
+        Validators.required,
+        Validators.pattern('^01[0125][0-9]{8}$'),
+      ]),
+    },
     [PasswordValidators.MatchValidator('password', 'confirmPass')]
   );
 
-  constructor(private dataService: DataService, private router: Router) { }
-  ngOnInit(): void { }
+  constructor(private dataService: DataService, private router: Router) {}
+  ngOnInit(): void {}
 
   get FirstName() {
     return this.signUpForm.get('firstName');
@@ -65,10 +73,16 @@ export class SignUpComponent implements OnInit {
     formData.append('city', data.value.city);
     formData.append('mobile', data.value.phoneNumber);
 
-    this.dataService.AddUser(formData).subscribe(data => {
-      console.log(data);
-    })
-      , window.location.reload()
-      , () => { this.router.navigateByUrl('/login') }
+    this.dataService.AddUser(formData).subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (e) => {
+        console.log(e);
+      },
+      () => {
+        this.router.navigateByUrl('/login');
+      }
+    );
   }
 }
