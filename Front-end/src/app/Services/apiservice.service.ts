@@ -37,4 +37,7 @@ export class APIServiceService {
   getOrders(id: number) {
     return this.myClient.get(this.BASE_URL + `/orders/${id}`);
   }
+  deleteOrder(id:number){
+    return this.myClient.delete(this.BASE_URL +`/orders/${id}`);
+  }
 }

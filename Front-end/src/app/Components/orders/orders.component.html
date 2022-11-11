@@ -17,6 +17,7 @@
       <div class="toast-body">
         <span><b>Order number:</b> {{order[0].id}}</span>
         <span class="mx-4"><b>Order status:</b> {{order[0].orderStatus}}</span>
+        <button class="btn btn-danger" *ngIf="order[0].orderStatus=='pending'" (click)="cancelOrder(order[0].id)">Cancel Order</button>
       </div>
     </div>
     <table class="table mb-5 table-responsive">

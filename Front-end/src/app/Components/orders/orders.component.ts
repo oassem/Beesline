@@ -35,4 +35,12 @@ export class ordersComponent implements OnInit {
     });
     console.log(this.orders);
   }
+  cancelOrder(id:any){
+       this.myService.deleteOrder(id).subscribe(data=>{
+        console.log(data);
+       },(e)=>{console.log(e)},
+       ()=>{
+        window.location.reload();
+       })
+  }
 }

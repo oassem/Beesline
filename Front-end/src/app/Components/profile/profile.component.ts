@@ -17,7 +17,7 @@ export class ProfileComponent implements OnInit {
     this.myService.getUserInfo(1).subscribe({
       next: (data) => {
         this.info = data;
-        console.log(this.info.data.firstname);
+        console.log(this.info.data.id);
       },
       error: (err) => console.error(err),
     });
