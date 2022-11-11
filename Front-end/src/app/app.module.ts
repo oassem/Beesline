@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatMenuModule} from '@angular/material/menu';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatMenuModule } from '@angular/material/menu';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './Components/header/header.component';
@@ -11,7 +11,6 @@ import { SignInComponent } from './Components/sign-in/sign-in.component';
 import { SignUpComponent } from './Components/sign-up/sign-up.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-
 import { DataService } from './services/data.service';
 
 @NgModule({
@@ -21,7 +20,6 @@ import { DataService } from './services/data.service';
     FooterComponent,
     SignInComponent,
     SignUpComponent,
-   
   ],
   imports: [
     BrowserModule,
@@ -31,14 +29,12 @@ import { DataService } from './services/data.service';
     MatDialogModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatMenuModule
- 
+    MatMenuModule,
   ],
   providers: [
     DataService
   ],
   bootstrap: [AppComponent],
   entryComponents: [SignInComponent]
-
 })
 export class AppModule { }
