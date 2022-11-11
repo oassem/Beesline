@@ -23,14 +23,25 @@ class StoreandUpdateProductRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-                'name' => ['required','min:3','max:255'],
-                'category' => ['required'],
-                'image' => 'image|mimes:jpeg,jpg,png,gif|required|max:10000',
-                'price' => ['required','numeric'],
-                'description' => ['required','min:10','max:255'],
-                'stock' => ['required','numeric'],
-        ];
+if ($this->method()=='PUT') {
+    return [
+            'name' => ['sometimes','required','min:3','max:255'],
+            'category' => ['sometimes','required'],
+            'image' => 'image|mimes:jpeg,jpg,png,gif|sometimes|required|max:10000',
+            'price' => ['sometimes','required','numeric'],
+            'description' => ['sometimes','required','min:10','max:255'],
+            'stock' => ['sometimes','required','numeric'],
+    ];
+}else{
+    return [
+        'name' => ['required','min:3','max:255'],
+        'category' => ['required'],
+        'image' => 'image|mimes:jpeg,jpg,png,gif|required|max:10000',
+        'price' => ['required','numeric'],
+        'description' => ['required','min:10','max:255'],
+        'stock' => ['required','numeric'],
+];
+}
     }
     public function messages()
     {

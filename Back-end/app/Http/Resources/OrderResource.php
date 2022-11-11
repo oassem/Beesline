@@ -23,7 +23,7 @@ class OrderResource extends JsonResource
             'quantity' => $this->quantity,
             'orderStatus' => $this->orderStatus,
             'created_at'=>$this->created_at,
-            'productInfo' => new ProductResource($this->product),
+            'product info' => new ProductResource($this->product),
             'userInfo'=>new UserResource($this->user)
         ];
     }

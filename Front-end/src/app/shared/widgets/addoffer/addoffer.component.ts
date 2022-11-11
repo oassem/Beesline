@@ -25,7 +25,8 @@ productData:any;
   get discount(){
     return this.myFormValidation.get('discount');
   }
-  
+  discountAmount:any;
+  newPrice:any;
   SendData(data:any){
     console.log(data);
     this.dashboardService.CreateOneOffer({'oldPrice':this.productData.price,'discount':this.myFormValidation.value.discount,'productId':this.id}).subscribe(data=>{

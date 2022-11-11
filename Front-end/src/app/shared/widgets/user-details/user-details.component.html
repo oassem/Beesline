@@ -11,11 +11,11 @@
         </mat-card-title-group>
         <mat-tab-group>
           <mat-tab label="cart Details" class="text-black"> 
-          <mat-card *ngFor="let card of userData.cartInfo" class="d-flex flex-row">
+          <mat-card *ngFor="let card of userData['cart info']" class="d-flex flex-row">
           
           
-           <mat-card class="text-black "><h3>Product Name: <span class="text-muted">{{card.productInfo.name}}</span> </h3> </mat-card>&nbsp; &nbsp;
-       <mat-card class="text-black"><h3>Product Price: <span class="text-muted">{{card.productInfo.price}} EGP</span></h3></mat-card>&nbsp; &nbsp;
+           <mat-card class="text-black "><h3>Product Name: <span class="text-muted">{{card['product info'].name}}</span> </h3> </mat-card>&nbsp; &nbsp;
+       <mat-card class="text-black"><h3>Product Price: <span class="text-muted">{{card['product info'].price}} EGP</span></h3></mat-card>&nbsp; &nbsp;
       <mat-card class="text-black"><h3> Quantity: <span class="text-muted">{{card.quantity}}</span></h3></mat-card>
 
           </mat-card>
@@ -46,11 +46,11 @@
               <th>Total Price</th>
             </tr>
              <tr *ngFor="let oo of ordersData">
-                <td *ngIf="or.user_id==oo.user_id">{{oo.productInfo.name}}</td>
-                <td *ngIf="or.user_id==oo.user_id"><img src="{{dashboardService.imageUrl}}{{oo.productInfo.image}}" style="width:100px;height:80px;"  alt=""></td>
+                <td *ngIf="or.user_id==oo.user_id">{{oo['product info'].name}}</td>
+                <td *ngIf="or.user_id==oo.user_id"><img src="{{dashboardService.imageUrl}}{{oo['product info'].image}}" style="width:100px;height:80px;"  alt=""></td>
                 <td *ngIf="or.user_id==oo.user_id">{{oo.quantity}}</td>
-                <td *ngIf="or.user_id==oo.user_id">{{oo.productInfo.price}}</td>
-                <td *ngIf="or.user_id==oo.user_id">{{oo.productInfo.price * oo.quantity}}</td>
+                <td *ngIf="or.user_id==oo.user_id">{{oo['product info'].price}}</td>
+                <td *ngIf="or.user_id==oo.user_id">{{oo['product info'].price * oo.quantity}}</td>
              </tr>
           </table>
         </mat-card>
