@@ -22,9 +22,7 @@ class CreateUsersTable extends Migration
             $table->enum('type',['admin','superAdmin','user'])->default('user');
             $table->string('image');
             $table->string('mobile');
-            // $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            // $table->rememberToken();
             $table->boolean('newsletter')->default(false);
             $table->text('address');
             $table->string('city');
