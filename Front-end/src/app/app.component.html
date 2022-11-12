@@ -1,5 +1,5 @@
-<app-header></app-header>
+<app-header *ngIf="AdminHere !=1"></app-header>
 <section>
     <router-outlet></router-outlet>
 </section>
-<app-footer></app-footer>
+<app-footer *ngIf="AdminHere !=1"></app-footer>

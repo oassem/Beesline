@@ -1,43 +1,38 @@
 <header>
-  <div style="height: 38px; background-color: #FFCD25;">
-  </div>
-  <div class="container">
-    <div class="d-flex flex-row  justify-content-around align-items-center  ">
-      <div class="p-2 align-self-end ">
-        <img src="assets\images\Icon_search.png" alt="">
-        <input type="text" placeholder="SEARCH" id="search" (change)="onChangeEvent($event)" value="{{ searchValue }}">
+  <div style="height: 38px; background-color: #FFCD25;"></div>
+    <div class="d-flex justify-content-around" style="padding-left: 10%">
+      <div class="pt-4">
+        <img src="assets\images\Icon_search.png">
+        <input type="text" placeholder="search" id="search" (change)="onChangeEvent($event)" value="{{ searchValue }}">
       </div>
-      <div class=" align-self-center">
+      <div class="px-5">
         <a href="#">
-          <img style=" margin-top: 15px;" src="assets\images\logo_eng.png">
+          <img style="margin-top: 15px" src="assets\images\logo_eng.png">
         </a>
       </div>
-      <div class="p-2 align-self-end">
-        <!-- ************* SIGN IN ICON ***************** -->
-        <div class="d-inline ">
+      <div class="pt-4" style="width: 30%">
+        <div class="d-inline">
           <button id="login_in" mat-button [matMenuTriggerFor]="belowMenu" class=" text-warning text-decoration-none " (click)="signIn()">
             <mat-menu #belowMenu="matMenu" yPosition="below">
               <button mat-menu-item (click)="logOut()">Logout</button>
-              <button mat-menu-item routerLink="/profile">My Profile</button>
             </mat-menu>
             <div class="d-inline"><img src="assets\images\Icon_sign-in.png"></div>
-            <p class="d-inline  text_header"> {{ userName }}</p>
+            <p class="d-inline  text_header">&nbsp;&nbsp;
+{{ userName }}
+</p>
           </button>
         </div>
-
-
         <!-- ********************* CART ICON *************** -->
-        <div class="d-inline p-4">
+        <div class="d-inline mx-5">
           <a routerLink="/cart" class=" text-warning text-decoration-none">
             <div class="d-inline ">
               <img src="assets\images\Icon_cart.png">
             </div>
-            <p class="d-inline  text_header"> &nbsp;CART</p>
+            <p class="d-inline  text_header">&nbsp;&nbsp;CART</p>
           </a>
         </div>
       </div>
     </div>
-  </div>
 </header>
 <div class="d-flex flex-row align-items-center justify-content-center">
   <nav class="navbar navbar-expand-lg navbar-light">

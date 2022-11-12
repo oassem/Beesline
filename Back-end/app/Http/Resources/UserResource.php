@@ -25,7 +25,8 @@ class UserResource extends JsonResource
             'newsletter'=>$this->newsletter,
             'address'=>$this->address,
             'city'=>$this->city,
-            'cart info' => CartResource::collection($this->carts)
+            'type'=>$this->type,
+            'cart info' => CartResource::collection($this->carts) 
         ];
     }
 }

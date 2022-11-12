@@ -33,7 +33,7 @@ class UserRequest extends FormRequest
                 'password' => 'sometimes|required',
                 'address' => 'sometimes|required|min:10|max:255',
                 'city' => 'sometimes|required',
-                'newsletter'=>'required'
+                'newsletter'=>'sometimes|required'
             ];
         }else{
           return [

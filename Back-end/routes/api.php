@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use Illuminate\Validation\ValidationException;
@@ -13,6 +12,10 @@ use App\Http\Controllers\User_OrderController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Response;
+
+
+
 
 // products
 Route::get('products', [ProductController::class, 'index'])->name('products.index');
@@ -42,6 +45,7 @@ Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
 Route::get('/orders/{order}', [OrderController::class, 'show'])->name('orders.show');
 Route::put('/orders/{order}', [OrderController::class, 'update'])->name('orders.update');
 Route::delete('/orders/{order}', [OrderController::class, 'destroy'])->name('orders.destroy');
+Route::get('/allOrders',[OrderController::class,'_orders'])->name('orders._orders');
 
 // user_orders
 Route::get('/user_orders/{user_order}', [User_OrderController::class, 'show']);
@@ -51,6 +55,8 @@ Route::post('/carts', [CartController::class, 'store']);
 Route::get('/carts/{cart}', [CartController::class, 'show']);
 Route::put('/carts/{cart}', [CartController::class, 'update']);
 Route::delete('/carts/{cart}', [CartController::class, 'destroy']);
+
+
 
 // contacts
 Route::get('contacts', [ContactController::class, 'index']);
@@ -81,3 +87,15 @@ Route::post('/login', function (Request $request) {
         ]);
     }
 });
+
+
+
+
+
+
+
+
+
+
+
+

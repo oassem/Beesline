@@ -5,26 +5,29 @@ namespace App\Http\Controllers;
 use App\Http\Resources\UserResource;
 use App\Http\Requests\UserRequest;
 use App\Models\User;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
     public function store(UserRequest $request)
     {
         $request->merge(['password' => Hash::make($request->password)]);
-        $image = time() . '.' . $request->image->extension();
-        User::create([
-            'firstname' => request()->firstname,
-            'lastname' => request()->lastname,
-            'email' => request()->email,
-            'password' => $request->password,
-            'city' => $request->city,
-            'address' => $request->address,
-            'mobile' => $request->mobile,
-            'image' => $image
-        ]);
-        $request->image->move(public_path('public/'), $image);
+       
+        $image=time().'.'.$request->image->extension();  
+           User::create([
+                'firstname' => request()->firstname,
+                'lastname'=>request()->lastname,
+                'email'=>request()->email,
+                'password' => $request->password,
+                'city' => $request->city,
+                'address'=>$request->address,
+                'mobile'=>$request->mobile,
+                'image'=>$image,
+               
+            ]); 
+            $request->image->move(public_path('public/'), $image);   
     }
 
     public function index()
@@ -43,38 +46,44 @@ class UserController extends Controller
         }
     }
 
-    public function update($id, Request $request)
+    public function update($id,UserRequest $request)
     {
         $user = User::find($id);
         if (Hash::check($request->password, $user->password)) {
             $request->merge(['password' => Hash::make($request->password)]);
         }
         if ($request->image) {
-            $path = public_path('public/') . $user->image;
-            if (file_exists($path)) {
+            $path=public_path('public/').$user->image;
+            if(file_exists($path)){
                 @unlink($path);
             }
             $imageName = time() . '.' . $request->image->extension();
-
             $request->image->move(public_path('public/'), $imageName);
-        } else {
-            $imageName = $user->image;
+        }else{
+            $imageName=$user->image;
         }
-        $user->update([
-            'firstname' => request()->firstname,
-            'lastname' => request()->lastname,
-            'email' => request()->email,
-            'password' => $request->password,
-            'city' => $request->city,
-            'address' => $request->address,
-            'mobile' => $request->mobile,
-            'newsletter' => $request->newsletter,
-            'image' => $imageName
-        ]);
+      
+            $user->update([
+                'firstname' => $request->firstname,
+                'lastname'=>$request->lastname,
+                'email'=>$request->email,
+                'password' => $request->password,
+                'city' => $request->city,
+                'address'=>$request->address,
+                'mobile'=>$request->mobile,
+               'image'=>$imageName,
+               'newsletter'=>$request->newsletter
+              
+        ]);  
+       
+            
     }
 
     public function destroy($id)
     {
-        User::find($id)->delete();
+        $user=User::find($id);
+        $path=public_path('public/').$user->image;
+        @unlink($path);
+        $user->delete();
     }
 }

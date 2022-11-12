@@ -1,0 +1,33 @@
+.hos{
+    height:100vh;
+  }
+  p {
+     font-family: Lato;
+    }
+  .example-container {
+      display: flex;
+      flex-direction: column;
+      max-height: 500px;
+      min-width: 300px;
+  }
+  .table{
+      overflow:auto;
+      max-height: 500px;
+  }
+  .tr{
+    padding-top: 50px;
+    padding-bottom: 10px;
+    color: #405065;
+  }
+  .search-hero {
+    max-width: 1100px;
+    padding-bottom: 50px;
+    margin:auto;
+  }
+  .form-control {
+    box-shadow: 0 10px 40px 0 #B0C1D9;
+  }
+  .form-control::placeholder  {
+    font-family: FontAwesome;
+  }
+    

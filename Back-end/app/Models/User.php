@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Cart;
+use App\Models\Order;
 
 class User extends Authenticatable
 {
@@ -44,6 +45,10 @@ class User extends Authenticatable
      *
      * @var array<string, string>
      */
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];

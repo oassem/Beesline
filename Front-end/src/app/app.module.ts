@@ -9,20 +9,36 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MatMenuModule } from '@angular/material/menu';
 import {MatDialogModule} from '@angular/material/dialog';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { HeaderComponent } from './Components/header/header.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { SignInComponent } from './Components/sign-in/sign-in.component';
 import { SignUpComponent } from './Components/sign-up/sign-up.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DataService } from './Services/data.service';
 import { ProductsComponent } from './Components/products/products.component';
 import { OffersComponent } from './Components/offers/offers.component';
 import { ProductDetailsComponent } from './Components/product-details/product-details.component';
 import { CartComponent } from './Components/cart/cart.component';
-import { HttpClientModule } from '@angular/common/http';
 import { ProductFilterComponent } from './Components/product-filter/product-filter.component';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DefaultComponent } from './layouts/default/default.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import{MatIconModule} from '@angular/material/icon';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import {MatListModule} from '@angular/material/list';
+import { RouterModule } from '@angular/router';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { HttpClientModule } from '@angular/common/http';
+import { SidebarComponent } from './shared/components/admin-sidebar/sidebar.component';
+import { AdminHeaderComponent } from './shared/components/admin-header/admin-header.component';
+import { AdminFooterComponent } from './shared/components/admin-footer/admin-footer.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +57,12 @@ import { ProductFilterComponent } from './Components/product-filter/product-filt
     ProductDetailsComponent,
     CartComponent,
     ProductFilterComponent,
+    DefaultComponent,
+    AdminHeaderComponent,
+     AdminFooterComponent,
+     SidebarComponent,
+     AdminHeaderComponent,
+     AdminFooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,10 +70,33 @@ import { ProductFilterComponent } from './Components/product-filter/product-filt
      FormsModule, ReactiveFormsModule,
     HttpClientModule,
     MatDialogModule,
-    MatMenuModule,BrowserAnimationsModule
+    MatMenuModule,BrowserAnimationsModule,
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    BrowserAnimationsModule,
+  MatSidenavModule,
+MatDividerModule,
+MatToolbarModule,
+MatIconModule,
+MatButtonModule,
+FlexLayoutModule,
+MatMenuModule,
+MatListModule,
+RouterModule,
+MatFormFieldModule,
+MatTableModule,
+MatPaginatorModule,
+HttpClientModule
+  ],
+  exports:[
+    AdminHeaderComponent,
+    AdminFooterComponent,
+     SidebarComponent
   ],
   providers: [DataService],
   bootstrap: [AppComponent],
   entryComponents: [SignInComponent],
-})
-export class AppModule {}
+}) 
+
+export class AppModule { }

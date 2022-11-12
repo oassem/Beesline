@@ -11,7 +11,7 @@ class OfferController extends Controller
 {
     public function store(Request $request)
     {
-        Offer::Create($request->all());
+        Offer::Create($request->all());  
     }
 
     public function index()
