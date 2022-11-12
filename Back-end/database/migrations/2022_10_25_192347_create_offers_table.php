@@ -17,9 +17,9 @@ class CreateOffersTable extends Migration
         Schema::create('offers', function (Blueprint $table) {
             $table->id();
             $table->integer('oldPrice');
-            $table->integer('discount');//discount Percentage
+            $table->integer('discount'); //discount Percentage
             $table->unsignedBigInteger('productId');
-            $table->foreign('productId')->references('id')->on('products'); 
+            $table->foreign('productId')->references('id')->on('products');
             $table->timestamps();
         });
     }

@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Http\Resources\OfferResource;
 
 class ProductResource extends JsonResource
 {
@@ -22,7 +23,7 @@ class ProductResource extends JsonResource
             'price' => $this->price,
             'description' => $this->description,
             'stock' => $this->stock,
-            'offerInfo' => $this->offer
+            'offer info' => $this->offer
         ];
     }
 }

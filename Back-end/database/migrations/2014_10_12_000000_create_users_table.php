@@ -11,7 +11,7 @@ class CreateUsersTable extends Migration
      *
      * @return void
      */
-    // id,type(admin,SuperAdmin,user>default),firstname,lastname,email,Image,MobileNo->default:null,password,AcceptOfNewsletter(true,false), Address,City
+// id,type(admin,SuperAdmin,user>default),firstname,lastname,email,Image,MobileNo->default:null,password,AcceptOfNewsletter(true,false), Address,City
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {

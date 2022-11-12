@@ -1,0 +1,37 @@
+.before_footer {
+  background: rgb(250, 250, 250);
+  color: #000;
+  margin-top: 20px;
+  width: fit-content;
+  font-family: "Avenir Next LT Pro";
+  padding-top: 32px;
+  padding-bottom: 38px;
+  background-color: transparent;
+}
+.before_footer h2 {
+  font-family: "Avenir Next LT Pro";
+  text-align: center;
+  font-size: 24px;
+  letter-spacing: 3px;
+  margin: 0;
+}
+
+.bee_circle {
+  background: #ffcd25;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  text-align: center;
+  margin: 0 auto;
+}
+#footerbees {
+  font-family: "Avenir Next LT Pro";
+  font-weight: normal;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-top: 10px;
+  margin-bottom: 0;
+  color: #fff;
+  margin-left: 150px;
+}

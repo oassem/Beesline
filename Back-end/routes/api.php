@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use Illuminate\Validation\ValidationException;
@@ -15,6 +16,7 @@ use Illuminate\Support\Facades\Auth;
 
 // products
 Route::get('products', [ProductController::class, 'index'])->name('products.index');
+Route::get('categories', [ProductController::class, 'category']);
 Route::post('/products', [ProductController::class, 'store'])->name('products.store');
 Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
 Route::put('/products/{product}', [ProductController::class, 'update'])->name('products.update');
@@ -58,10 +60,11 @@ Route::put('/contacts/{contact}', [ContactController::class, 'update']);
 Route::delete('/contacts/{contact}', [ContactController::class, 'destroy']);
 
 // sanctum
-Route::post('/sanctum/token', function (Request $request) {
+Route::post('/login', function (Request $request) {
     $request->validate([
         'email' => 'required|email',
-        'password' => 'required'
+        'password' => 'required',
+
     ]);
 
     $credentials = [
@@ -70,9 +73,8 @@ Route::post('/sanctum/token', function (Request $request) {
     ];
 
     $user = User::where('email', $request->email)->first();
-
     if ($user && Auth::attempt($credentials)) {
-        return $user->createToken($request->email)->plainTextToken;
+        return [$user->createToken($request->email)->plainTextToken, $user->id];
     } else {
         throw ValidationException::withMessages([
             'email' => ['The provided credentials are incorrect.'],

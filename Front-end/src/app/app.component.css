@@ -1,0 +1,13 @@
+h3 {
+  width: 100%;
+  text-align: center;
+  border-bottom: 3.5px solid #c59630;
+  line-height: 0.1em;
+  margin: 10px 0 20px;
+  letter-spacing: 2px;
+}
+
+h3 span {
+  background: #fff;
+  padding: 0 10px;
+}

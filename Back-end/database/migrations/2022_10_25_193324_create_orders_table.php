@@ -18,16 +18,13 @@ class CreateOrdersTable extends Migration
             $table->unsignedBigInteger('id', false);
             $table->unsignedBigInteger('product_id');
             $table->unsignedBigInteger('user_id');
-            $table->foreign('product_id')->references('id')->on('products'); 
-            $table->foreign('user_id')->references('id')->on('users'); 
+            $table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->integer('quantity');
-            $table->enum('orderStatus',array('pending','accepted','rejected'))->default('pending');
-            $table->timestamps();     
-            $table->primary(['id','user_id','product_id']);            
+            $table->enum('orderStatus', array('pending','accepted','rejected'))->default('pending');
+            $table->timestamps();
+            $table->primary(['id','user_id','product_id']);
         });
-       
-
-
     }
 
     /**

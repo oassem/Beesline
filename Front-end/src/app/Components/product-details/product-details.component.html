@@ -1,0 +1,76 @@
+<div class="mx-auto" style="width: 90%">
+    <div class="row my-5" id="product-details">
+        <div class="col-lg-6 col-12" id="imageDiv">
+            <img src="{{myService.IMG_URL}}{{product.data.image}}" width="100%" class="rounded">
+        </div>
+        <div class="col-lg-6 col-12 px-5" style="text-align: center" id="textDiv">
+            <h4><span>&nbsp;{{product.data.category.toUpperCase()}}&nbsp;</span></h4>
+            <h2 class="my-4">{{product.data.name}}</h2>
+            <h5 *ngIf="product.data['offer info'] == null">EGP {{product.data.price | number:'1.2-2'}}</h5>
+            <h5 *ngIf="product.data['offer info']">EGP {{product.data['offer info'].oldPrice - (product.data['offer info'].oldPrice * (product.data['offer info'].discount/100)) | number:'1.2-2'}}<span class="mx-1" style="text-decoration:line-through; font-size: smaller; color: #7D7DA5;">EGP{{product.data.price | number:'1.2-2'}}</span></h5>
+            <p class="mt-5" style="font-size: larger">{{product.data.description}}</p>
+            <div class="row mt-5">
+                <div class="col-sm-4 col-6">
+                    <img src="assets/images/icon1.png" />
+                    <p class="mt-2 icon">cruelty free</p>
+                </div>
+                <div class="col-sm-4 col-6">
+                    <img src="assets/images/icon2.png" />
+                    <p class="mt-2 icon">hyrdroquinone free</p>
+                </div>
+                <div class="col-sm-4 col-6">
+                    <img src="assets/images/icon3.png" />
+                    <p class="mt-2 icon">parabens free</p>
+                </div>
+            </div>
+            <button (click)="add(product.data.id)" data-target="#exampleModal" data-toggle="modal" class="btn btn-primary add-btn mt-4" style="width: 80%">ADD TO CART</button>
+        </div>
+    </div>
+    <div style="margin-top: 12%; margin-bottom:10%">
+        <h3 class="mb-5" id="secTitle"><span>&nbsp;YOU MIGHT ALSO LIKE&nbsp;</span></h3>
+        <div class="row">
+            <div *ngFor="let prod of products.data" [ngClass]="{'disable':(prod.category != product.data.category) || (prod.id == product.data.id) || (prod['offer info'] != null)}" class="col-lg-3 col-md-4 col-sm-6 mb-3">
+                <div class="card" style="border: none">
+                    <img src="{{myService.IMG_URL}}{{prod.image}}" class="card-img-top">
+                    <div class="card-body rounded-bottom" style="text-align: center; background: #FAFAFA;">
+                        <h6 class="card-title" style="height:45px">{{prod.name}}</h6>
+                        <p class="card-text mb-4">EGP {{prod.price | number:'1.2-2'}}</p>
+                        <div class="d-flex justify-content-around" id="buttons-group">
+                            <a href="/product/{{prod.id}}" class="btn btn-primary deta-btn mb-2">Details</a>
+                            <button data-target="#exampleModal" data-toggle="modal" (click)="add(prod.id)" class="btn btn-primary prod-btn mb-2">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngFor="let offer of offers.data" [ngClass]="{'disable':(offer['product info'].category != product.data.category) || (offer['product info'].id == product.data.id)}" class="col-lg-3 col-md-4 col-sm-6 mb-5">
+                <div class="card" style="border: none">
+                    <img src="{{myService.IMG_URL}}{{offer['product info'].image}}" class="card-img-top">
+                    <div class="card-body rounded-bottom" style="text-align: center; background: #FAFAFA;">
+                        <h6 class="card-title" style="height:45px">{{offer['product info'].name}}</h6>
+                        <p class="card-text mb-4">EGP {{offer.oldPrice - (offer.oldPrice * (offer.discount/100)) | number:'1.2-2'}}<span class="mx-1" style="text-decoration:line-through; font-size: small; color: #7D7DA5;">EGP{{offer.oldPrice}}.00</span></p>
+                        <div class="d-flex justify-content-around" id="buttons-group">
+                            <a href="/product/{{offer['product info'].id}}" class="btn btn-primary deta-btn mb-2">Details</a>
+                            <button data-target="#exampleModal" data-toggle="modal" (click)="add(offer['product info'].id)" class="btn btn-primary prod-btn mb-2">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel" style="color:green">Success</h5>
+        </div>
+        <div class="modal-body">
+            Item was added to your cart!
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+</div>

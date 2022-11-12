@@ -9,23 +9,20 @@ import { APIServiceService } from 'src/app/Services/apiservice.service';
 export class CheckoutComponent implements OnInit {
   items: any;
   info: any;
-  userID: any;
+  userID = Number(localStorage.getItem('userId'));
 
   constructor(private myService: APIServiceService) {}
 
   ngOnInit(): void {
-    let userInfo = localStorage.getItem('userInfo');
-    if (userInfo) {
-      this.userID = JSON.parse(userInfo).id;
-    }
-    this.myService.getCartItems(1).subscribe({
+
+    this.myService.getCartItems(this.userID).subscribe({
       next: (data) => {
         this.items = data;
       },
       error: (err) => console.error(err),
     });
 
-    this.myService.getUserInfo(1).subscribe({
+    this.myService.getUserInfo(this.userID).subscribe({
       next: (data) => {
         this.info = data;
       },

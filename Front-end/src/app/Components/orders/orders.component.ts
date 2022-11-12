@@ -11,14 +11,14 @@ export class ordersComponent implements OnInit {
   IDs: any;
   order: any;
   orders: any = [];
-  userID: any;
 
+  userID = Number(localStorage.getItem('userId'));
   constructor(public myService: APIServiceService, private activatedRoute: ActivatedRoute) {
-    this.userID = activatedRoute.snapshot.params['id']
+
   }
 
   ngOnInit(): void {
-    this.myService.getUserOrders(1).subscribe({
+    this.myService.getUserOrders(this.userID).subscribe({
       next: (data) => {
         this.IDs = data;
         for (let x in this.IDs.data) {
