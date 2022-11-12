@@ -54,6 +54,6 @@ export class AddProductComponent implements OnInit {
     this.dashboardService.AddOneProduct(formData).subscribe(data=>{
       console.log(data);
     },(e)=>{console.log(e)}
-    ,()=>{this._router.navigateByUrl('/products')})
+    ,()=>{this._router.navigateByUrl('/dashboard/products')})
   }
 }

@@ -2,7 +2,7 @@
    <mat-card>Products</mat-card>
 <br>
 <p>
-   <a mat-raised-button  routerLinkActive="list-item-active" routerLink="/products/addProduct" color="primary">Add New Product</a>
+   <a mat-raised-button  routerLinkActive="list-item-active" routerLink="/dashboard/products/addProduct" color="primary">Add New Product</a>
 </p>
 <div class="search-hero">
      <input class="form-control" type="text" name="search" [(ngModel)]="searchTerm" autocomplete="off" placeholder="&#61442;  Start searching for a Product by name or price">
@@ -26,10 +26,10 @@
         <td>{{p.name}}</td>
         <td>{{p.price}}</td>
         <td>
-          <button mat-raised-button  color="primary" routerLink="/products/productDetails/{{p.id}}"><mat-icon>remove_red_eye</mat-icon></button>
-          <button mat-raised-button color="accent" routerLink="/products/editProduct/{{p.id}}"><mat-icon>edit</mat-icon></button>
+          <button mat-raised-button  color="primary" routerLink="/dashboard/products/productDetails/{{p.id}}"><mat-icon>remove_red_eye</mat-icon></button>
+          <button mat-raised-button color="accent" routerLink="/dashboard/products/editProduct/{{p.id}}"><mat-icon>edit</mat-icon></button>
           <button mat-raised-button  color="warn" (click)="deleteProduct(p.id)"><mat-icon>delete</mat-icon></button>
-          <button mat-raised-button  color="warn" routerLink="/offers/{{p.id}}">make Offer</button>
+          <button mat-raised-button  color="warn" routerLink="/dashboard/offers/{{p.id}}">make Offer</button>
         </td>
       </tr>
     </tbody>

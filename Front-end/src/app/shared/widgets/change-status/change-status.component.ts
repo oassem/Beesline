@@ -38,7 +38,7 @@ export class ChangeStatusComponent implements OnInit {
       this.dashboardService.UpdateOneOrder(this.id,orderData).subscribe(data=>{
       },(e)=>{console.log(e)},
       ()=>{
-        this.router.navigateByUrl('/orders');
+        this.router.navigateByUrl('/dashboard/orders');
       });    
     }
  }

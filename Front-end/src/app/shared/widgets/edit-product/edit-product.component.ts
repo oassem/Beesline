@@ -79,7 +79,7 @@ export class EditProductComponent implements OnInit {
         this.dashboardService.UpdateOneProduct(formData,this.id).subscribe(data=>{
           console.log(data);
         },(e)=>{console.log(e)}
-        ,()=>{this.router.navigateByUrl('/products')})
+        ,()=>{this.router.navigateByUrl('/dashboard/products')})
       }
  }
 

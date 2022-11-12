@@ -29,13 +29,11 @@ makeOffer(){
 
 deleteProduct(id:any){
   this.dashboardService.deleteOneProduct(id).subscribe(data=>{
-  
-
     this.ngOnInit();
    },
    (e)=>{console.log(e)},
    ()=>{
-    window.location.reload()
+    window.location.reload();
    
    })
 

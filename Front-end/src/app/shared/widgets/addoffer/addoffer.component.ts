@@ -25,15 +25,36 @@ productData:any;
   get discount(){
     return this.myFormValidation.get('discount');
   }
-  discountAmount:any;
-  newPrice:any;
+
+ productNewPriceAfterOffer:any;
   SendData(data:any){
     console.log(data);
-    this.dashboardService.CreateOneOffer({'oldPrice':this.productData.price,'discount':this.myFormValidation.value.discount,'productId':this.id}).subscribe(data=>{
-      console.log(data.data);
-    },(e)=>{console.log(e)},
-    ()=>{
-      this.router.navigateByUrl('/products');
-    })
+ 
+
+   this.dashboardService.CreateOneOffer({'oldPrice':this.productData.price,'discount':this.myFormValidation.value.discount,'productId':this.id}).subscribe(data=>{
+    console.log(data.data);
+    
+  },(e)=>{console.log(e)},
+  ()=>{
+    
+  })
+  this.productNewPriceAfterOffer= this.productData.price - (this.productData.price * (this.myFormValidation.value.discount / 100));
+  
+  this.dashboardService.UpdateOneProduct({'price':this.productNewPriceAfterOffer,'category':this.productData.category,'description':this.productData.description,'stock':this.productData.stock,'name':this.productData.name,'_method':'put'},this.id).subscribe(data=>{
+   console.log(data.data);
+  },(e)=>{
+   console.log(e)
+  },
+  ()=>{
+   this.router.navigateByUrl('/dashboard/products');
+  })
+    // this.dashboardService.ShowOneOffer(this.OfferId.OfferId).subscribe(data=>{
+    //   console.log(data.data);
+
+    // },(e)=>{console.log(e)},
+    // ()=>{
+
+    // })
+    // this.dashboardService.UpdateOneProduct({'price':this.})
   }
 }

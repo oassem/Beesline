@@ -2,14 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DashboardService } from '../../../modules/dashboard.service';
-
 @Component({
-  selector: 'app-edit-profile',
-  templateUrl: './edit-profile.component.html',
-  styleUrls: ['./edit-profile.component.css']
+  selector: 'app-admin-edit-profile',
+  templateUrl: './admin-edit-profile.component.html',
+  styleUrls: ['./admin-edit-profile.component.css']
 })
-export class EditProfileComponent implements OnInit {
+export class AdminEditProfileComponent implements OnInit {
 
+  
   prev:any={
 
     email:"",
@@ -94,6 +94,6 @@ export class EditProfileComponent implements OnInit {
       console.log(data.data);
     },(e)=>{console.log(e)}
     ,()=>{
-      this.router.navigateByUrl('')})
+      this.router.navigateByUrl('/dashboard/users')})
     }
- }
+}

@@ -4,8 +4,6 @@ import { DashboardComponent } from '../../modules/dashboard/dashboard.component'
 import { RouterModule } from '@angular/router';
 // import { AppRoutingModule } from '../../app-routing.module';
 
-import { ProductsComponent } from '../../modules/products/products.component';
-import { OrdersComponent } from '../../modules/orders/orders.component';
 import {MatDividerModule} from '@angular/material/divider';
 
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -32,13 +30,11 @@ import { PrdouctsTableComponent } from '../../shared/widgets/prdoucts-table/prdo
 import { AddProductComponent } from '../../shared/widgets/add-product/add-product.component';
 import { OrdersTableComponent } from '../../shared/widgets/orders-table/orders-table.component';
 import { ReactiveFormsModule } from '@angular/forms';  
-import { ProductDetailsComponent } from '../../shared/widgets/product-details/product-details.component';
 import { EditProductComponent } from '../../shared/widgets/edit-product/edit-product.component';
 import { ChangeStatusComponent } from '../../shared/widgets/change-status/change-status.component';
 import { MatSelectModule} from '@angular/material/select';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { FormsModule } from '@angular/forms';
-import { EditProfileComponent } from '../../shared/widgets/edit-profile/edit-profile.component';
 // import { SidebarComponent } from '../../shared/components/admin-sidebar/sidebar.component';
 import { DashboardService } from '../../modules/dashboard.service';
 
@@ -46,16 +42,20 @@ import { DashboardService } from '../../modules/dashboard.service';
 import {MatTabsModule} from '@angular/material/tabs';
 import { UsersComponent } from 'src/app/modules/users/users.component';
 import { UserDetailsComponent } from 'src/app/shared/widgets/user-details/user-details.component';
-import { OffersComponent } from 'src/app/modules/offers/offers.component';
 import { AddofferComponent } from 'src/app/shared/widgets/addoffer/addoffer.component';
+import { AdminProductsComponent } from 'src/app/modules/admin-products/admin-products.component';
+import { AdminOrdersComponent } from 'src/app/modules/admin-orders/admin-orders.component';
+import { AdminEditProfileComponent } from 'src/app/shared/widgets/admin-edit-profile/admin-edit-profile.component';
+import { AdminOffersComponent } from 'src/app/modules/admin-offers/admin-offers.component';
+import { AdminProductDetailsComponent } from 'src/app/shared/widgets/admin-product-details/admin-product-details.component';
+
 
 
 
 @NgModule({
   declarations: [
     DashboardComponent,
-    ProductsComponent,
-    OrdersComponent,
+ AdminOrdersComponent,
     AreaComponent,
     CardComponent,
     PieComponent,
@@ -63,15 +63,16 @@ import { AddofferComponent } from 'src/app/shared/widgets/addoffer/addoffer.comp
     PrdouctsTableComponent,
     AddProductComponent,
     OrdersTableComponent,
-    ProductDetailsComponent,
+   AdminProductDetailsComponent,
     EditProductComponent,
   ChangeStatusComponent,
-  EditProfileComponent,
+ AdminEditProfileComponent,
   UsersComponent,
   UserDetailsComponent,
-  OffersComponent,
-  AddofferComponent
+ AdminOffersComponent,
+  AddofferComponent,
   // SidebarComponent
+  AdminProductsComponent
  
   
     
@@ -113,7 +114,7 @@ import { AddofferComponent } from 'src/app/shared/widgets/addoffer/addoffer.comp
   PrdouctsTableComponent,
   AddProductComponent,
   OrdersTableComponent,
-  ProductDetailsComponent,
+ AdminProductDetailsComponent,
   EditProductComponent,
 
   ChangeStatusComponent

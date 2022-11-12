@@ -3,11 +3,11 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  templateUrl: './admin-header.component.html',
+  styleUrls: ['./admin-header.component.css']
 })
-export class HeaderComponent implements OnInit {
- @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
+export class AdminHeaderComponent implements OnInit {
+  @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
   constructor(private router:Router) { }
 
   ngOnInit(): void {

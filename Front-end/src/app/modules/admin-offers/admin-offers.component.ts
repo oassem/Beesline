@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DashboardService } from '../dashboard.service';
-
 @Component({
-  selector: 'app-offers',
-  templateUrl: './offers.component.html',
-  styleUrls: ['./offers.component.css']
+  selector: 'app-admin-offers',
+  templateUrl: './admin-offers.component.html',
+  styleUrls: ['./admin-offers.component.css']
 })
-export class OffersComponent implements OnInit {
+export class AdminOffersComponent implements OnInit {
 
   constructor(public dashboardService:DashboardService,private router:Router) { 
    

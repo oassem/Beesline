@@ -22,6 +22,5 @@ export class SidebarComponent implements OnInit {
       },(e)=>{console.log(e)},
       ()=>{
       })
- 
   }
 }

@@ -15,13 +15,13 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatListModule} from '@angular/material/list';
 import { RouterModule } from '@angular/router';
-import { HeaderComponent } from './shared/components/admin-header/header.component';
-import { FooterComponent } from './shared/components/admin-footer/footer.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { HttpClientModule } from '@angular/common/http';
 import { SidebarComponent } from './shared/components/admin-sidebar/sidebar.component';
+import { AdminHeaderComponent } from './shared/components/admin-header/admin-header.component';
+import { AdminFooterComponent } from './shared/components/admin-footer/admin-footer.component';
 
 
 
@@ -36,9 +36,16 @@ import { SidebarComponent } from './shared/components/admin-sidebar/sidebar.comp
   declarations: [
     AppComponent,
     DefaultComponent,
-    HeaderComponent,
-    FooterComponent,
+   AdminHeaderComponent,
+    AdminFooterComponent,
     SidebarComponent,
+    AdminHeaderComponent,
+    AdminFooterComponent,
+   
+   
+   
+   
+  
   
  
     
@@ -65,10 +72,9 @@ HttpClientModule
 
 ],
 exports:[
- HeaderComponent,
- FooterComponent,
+ AdminHeaderComponent,
+AdminFooterComponent,
  SidebarComponent
-
 ],
   providers: [],
   bootstrap: [AppComponent]

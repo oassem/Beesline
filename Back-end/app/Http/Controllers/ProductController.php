@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Services\ProductQuery;
 use App\Http\Requests\StoreandUpdateProductRequest;
-
+use App\Models\Offer;
 
 class ProductController extends Controller
 {
@@ -75,6 +75,7 @@ class ProductController extends Controller
         $product=Product::find($id);
         $path=public_path('public/').$product->image;
         @unlink($path);
+        Offer::where('productId',$id)->delete();
         $product->delete();
     }
 }
