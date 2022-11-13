@@ -44,5 +44,8 @@ export class CheckoutComponent implements OnInit {
 
       this.myService.deleteCartItem(this.items.data[x].id).subscribe();
     }
+    setTimeout(() => {
+      window.location.href = "/orders";
+    }, 1000);
   }
 }

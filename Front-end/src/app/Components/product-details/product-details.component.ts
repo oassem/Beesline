@@ -63,6 +63,9 @@ export class ProductDetailsComponent implements OnInit {
             })
             .subscribe();
         }
+        setTimeout(() => {
+          window.location.reload();
+        }, 2000);
       },
       error: (err) => console.error(err),
     });

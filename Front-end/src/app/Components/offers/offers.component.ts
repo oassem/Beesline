@@ -4,18 +4,18 @@ import { APIService } from 'src/app/services/api.service';
 @Component({
   selector: 'app-offers',
   templateUrl: './offers.component.html',
-  styleUrls: ['./offers.component.css']
+  styleUrls: ['./offers.component.css'],
 })
 export class OffersComponent implements OnInit {
   offers: any;
   items: any;
 
-  constructor(public myService: APIService) { }
+  constructor(public myService: APIService) {}
 
   ngOnInit(): void {
     this.myService.getAllOffers().subscribe({
-      next: (data) => this.offers = data,
-      error: (err) => console.error(err)
+      next: (data) => (this.offers = data),
+      error: (err) => console.error(err),
     });
   }
 
@@ -34,11 +34,24 @@ export class OffersComponent implements OnInit {
             quantity = this.items.data[x].quantity;
           }
         }
-        if (!flag) { this.myService.addCartItem({ user_id: userID, product_id: id, quantity: 1 }).subscribe(); }
-        else { this.myService.updateCartItem(index, { user_id: userID, product_id: id, quantity: ++quantity }).subscribe(); }
+        if (!flag) {
+          this.myService
+            .addCartItem({ user_id: userID, product_id: id, quantity: 1 })
+            .subscribe();
+        } else {
+          this.myService
+            .updateCartItem(index, {
+              user_id: userID,
+              product_id: id,
+              quantity: ++quantity,
+            })
+            .subscribe();
+        }
+        setTimeout(() => {
+          window.location.reload();
+        }, 2000);
       },
-      error: (err) => console.error(err)
+      error: (err) => console.error(err),
     });
   }
-
 }

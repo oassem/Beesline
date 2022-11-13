@@ -29,14 +29,14 @@ import { IsLoggedGuard } from './guards/is-logged.guard';
 import { IsnotLoggedGuard } from './guards/isnot-logged.guard';
 
 const routes: Routes = [
-  { path: 'products', component: ProductsComponent, title: 'Products', pathMatch: 'full' ,canActivate:[IsnotLoggedGuard]},
-  { path: 'products/:name', component: ProductFilterComponent, title: 'Filtered Products', pathMatch: 'full',canActivate:[IsnotLoggedGuard] },
+  { path: 'products', component: ProductsComponent, title: 'Products', pathMatch: 'full'},
+  { path: 'products/:name', component: ProductFilterComponent, title: 'Filtered Products', pathMatch: 'full'},
   { path: '', component: OffersComponent, title: 'Home', pathMatch: 'full' },
-  { path: 'product/:id', component: ProductDetailsComponent, title: 'Product Details', pathMatch: 'full' ,canActivate:[IsnotLoggedGuard]},
+  { path: 'product/:id', component: ProductDetailsComponent, title: 'Product Details', pathMatch: 'full'},
   { path: 'cart', component: CartComponent, title: 'My Cart', pathMatch: 'full',canActivate:[IsnotLoggedGuard] },
   { path: 'signUp', component: SignUpComponent, pathMatch: 'full',canActivate:[IsLoggedGuard] },
   { path: 'login', component: SignInComponent, pathMatch: 'full',canActivate:[IsLoggedGuard] },
-  { path: 'about', component: AboutComponent, title: 'about' , pathMatch: 'full',canActivate:[IsnotLoggedGuard] },
+  { path: 'about', component: AboutComponent, title: 'about' , pathMatch: 'full'},
   { path: 'checkout', component: CheckoutComponent, title: 'CheckOut', pathMatch: 'full',canActivate:[IsnotLoggedGuard] },
   { path: 'profile', component: ProfileComponent, title: 'My Profile', pathMatch: 'full',canActivate:[IsnotLoggedGuard] },
   { path: 'edit-profile/:id', component: EditProfileComponent, title: 'Edit Profile', pathMatch: 'full' ,canActivate:[IsnotLoggedGuard]},
