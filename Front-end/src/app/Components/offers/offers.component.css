@@ -2,9 +2,10 @@ h3 {
     width: 100%;
     text-align: center;
     border-bottom: 3.5px solid #C59630;
-    line-height: 0.1em;
+    line-height: 0.1rem;
     margin: 10px 0 20px;
     letter-spacing: 2px;
+    font-size: 1.75rem;
 }
 
 h3 span {
@@ -45,9 +46,17 @@ h3 span {
     font-size: larger;
 }
 
+.card-title {
+    font-weight: 600;
+}
+
 .title {
     font-size: 30px;
     font-family: Arial;
+}
+
+.card-img-top {
+    height: 268px;
 }
 
 @media (max-width: 575.98px) {}

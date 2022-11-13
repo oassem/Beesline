@@ -49,6 +49,14 @@ h3 span {
     font-size: larger;
 }
 
+.card-title {
+    font-weight: 600;
+}
+
+.card-img-top {
+    height: 268px;
+}
+
 @media (max-width: 575.98px) {}
 
 @media (min-width: 576px) and (max-width: 767.98px) {}

@@ -27,7 +27,7 @@ export class CartComponent implements OnInit {
   }
 
   delete(id: any) {
-    this.myService.deleteCartItem(id).subscribe((result) => {
+    this.myService.deleteCartItem(id).subscribe(() => {
       window.location.reload();
     });
   }

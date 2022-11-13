@@ -46,6 +46,6 @@ export class CheckoutComponent implements OnInit {
     }
     setTimeout(() => {
       window.location.href = "/orders";
-    }, 1000);
+    }, 3000);
   }
 }

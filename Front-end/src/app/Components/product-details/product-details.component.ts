@@ -13,9 +13,13 @@ export class ProductDetailsComponent implements OnInit {
   products: any;
   offers: any;
   items: any;
+  logged: any;
 
   constructor(myRoute: ActivatedRoute, public myService: APIService) {
     this.id = myRoute.snapshot.params['id'];
+    if (localStorage.getItem('userId')) {
+      this.logged = true;
+    }
   }
 
   ngOnInit(): void {
@@ -63,9 +67,11 @@ export class ProductDetailsComponent implements OnInit {
             })
             .subscribe();
         }
-        setTimeout(() => {
-          window.location.reload();
-        }, 2000);
+        if (this.logged) {
+          setTimeout(() => {
+            window.location.reload();
+          }, 1300);
+        }
       },
       error: (err) => console.error(err),
     });

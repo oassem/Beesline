@@ -12,6 +12,7 @@
   background-color: transparent;
   border: none;
 }
+
 nav {
   margin-left: 150px;
 }
@@ -21,6 +22,7 @@ nav {
   opacity: 1; /* Firefox */
   font-family: "Avenir Next LT Pro" !important;
 }
+
 p.text_header {
   text-transform: uppercase;
   font-size: 14px;

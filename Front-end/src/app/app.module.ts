@@ -8,7 +8,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
-
 import { HeaderComponent } from './Components/header/header.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { SignInComponent } from './Components/sign-in/sign-in.component';
