@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { APIServiceService } from 'src/app/Services/apiservice.service';
+import { APIServiceService } from 'src/app/services/apiservice.service';
 
 
 @Component({
@@ -14,7 +14,7 @@ export class ProfileComponent implements OnInit {
   constructor(private myService: APIServiceService) { }
 
   ngOnInit(): void {
-    this.myService.getUserInfo(1).subscribe({
+    this.myService.getUserInfo(Number(localStorage.getItem('userId'))).subscribe({
       next: (data) => {
         this.info = data;
         console.log(this.info.data.id);

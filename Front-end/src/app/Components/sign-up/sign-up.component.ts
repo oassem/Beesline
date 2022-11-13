@@ -6,7 +6,7 @@ import {
   FormBuilder,
 } from '@angular/forms';
 import { PasswordValidators } from './password.validators';
-import { DataService } from 'src/app/Services/data.service';
+import { DataService } from 'src/app/services/data.service';
 import { Router } from '@angular/router';
 
 @Component({

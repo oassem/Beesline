@@ -11,7 +11,7 @@ export class CartComponent implements OnInit {
   counter: any;
   userID = Number(localStorage.getItem('userId'));
 
-  constructor(public myService: APIService) { }
+  constructor(public myService: APIService) {}
 
   ngOnInit(): void {
     this.myService.getCartItems(this.userID).subscribe({
@@ -28,7 +28,7 @@ export class CartComponent implements OnInit {
 
   delete(id: any) {
     this.myService.deleteCartItem(id).subscribe((result) => {
-      this.ngOnInit();
+      window.location.reload();
     });
   }
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { DataService } from 'src/app/Services/data.service';
+import { DataService } from 'src/app/services/data.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
@@ -33,12 +33,12 @@ export class SignInComponent implements OnInit {
          if(localStorage.getItem('userId')=='1'){
           setTimeout(() => {
             window.location.href = '/dashboard/home';
-            
+
           }, 1000);
          }else{
           setTimeout(() => {
             window.location.href = '/';
-            
+
           }, 1000);}
           this.dialog.closeAll();
         }

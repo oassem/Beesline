@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { APIServiceService } from 'src/app/Services/apiservice.service';
+import { APIServiceService } from 'src/app/services/apiservice.service';
 
 @Component({
   selector: 'app-orders',

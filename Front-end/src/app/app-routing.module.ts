@@ -36,7 +36,7 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent, title: 'My Cart', pathMatch: 'full',canActivate:[IsnotLoggedGuard] },
   { path: 'signUp', component: SignUpComponent, pathMatch: 'full',canActivate:[IsLoggedGuard] },
   { path: 'login', component: SignInComponent, pathMatch: 'full',canActivate:[IsLoggedGuard] },
-  { path: 'about', component: AboutComponent, title: 'about' , pathMatch: 'full',canActivate:[IsLoggedGuard] },
+  { path: 'about', component: AboutComponent, title: 'about' , pathMatch: 'full',canActivate:[IsnotLoggedGuard] },
   { path: 'checkout', component: CheckoutComponent, title: 'CheckOut', pathMatch: 'full',canActivate:[IsnotLoggedGuard] },
   { path: 'profile', component: ProfileComponent, title: 'My Profile', pathMatch: 'full',canActivate:[IsnotLoggedGuard] },
   { path: 'edit-profile/:id', component: EditProfileComponent, title: 'Edit Profile', pathMatch: 'full' ,canActivate:[IsnotLoggedGuard]},

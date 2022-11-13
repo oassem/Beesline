@@ -15,11 +15,10 @@
           <button id="login_in" mat-button [matMenuTriggerFor]="belowMenu" class=" text-warning text-decoration-none " (click)="signIn()">
             <mat-menu #belowMenu="matMenu" yPosition="below">
               <button mat-menu-item (click)="logOut()">Logout</button>
+              <button mat-menu-item [routerLink]="['/profile']" routerLinkActive="router-link-active" >My Profile</button>
             </mat-menu>
             <div class="d-inline"><img src="assets\images\Icon_sign-in.png"></div>
-            <p class="d-inline  text_header">&nbsp;&nbsp;
-{{ userName }}
-</p>
+            <p class="d-inline  text_header">&nbsp;&nbsp;{{ userName }}</p>
           </button>
         </div>
         <!-- ********************* CART ICON *************** -->
@@ -28,7 +27,7 @@
             <div class="d-inline ">
               <img src="assets\images\Icon_cart.png">
             </div>
-            <p class="d-inline  text_header">&nbsp;&nbsp;CART</p>
+            <p class="d-inline  text_header">&nbsp;&nbsp;CART&nbsp;<span class="badge" style="color:grey; font-size:.9rem; border: #eac06c solid; border-radius: 50%;">{{counter}}</span></p>
           </a>
         </div>
       </div>

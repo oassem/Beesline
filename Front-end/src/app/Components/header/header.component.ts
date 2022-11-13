@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { SignInComponent } from '../sign-in/sign-in.component';
 import { MatMenuTrigger } from '@angular/material/menu';
+import { APIService } from 'src/app/services/api.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -10,8 +11,10 @@ import { MatMenuTrigger } from '@angular/material/menu';
 export class HeaderComponent implements OnInit {
   searchValue: any;
   userName: string = '';
+  items: any;
+  counter: any;
 
-  constructor(private dialog: MatDialog) {
+  constructor(private dialog: MatDialog, private myService: APIService) {
     let token = localStorage.getItem('token');
     if (token != null) {
       let data = localStorage.getItem('userData');
@@ -22,7 +25,18 @@ export class HeaderComponent implements OnInit {
       this.userName = 'SignIn';
     }
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.myService.getCartItems(Number(localStorage.getItem('userId'))).subscribe({
+      next: (data) => {
+        this.items = data;
+        this.counter = 0;
+        for (let x in this.items.data) {
+          this.counter++;
+        }
+      },
+      error: (err) => console.error(err)
+    });
+  }
 
   @ViewChild(MatMenuTrigger)
   trigger!: MatMenuTrigger;
