@@ -44,7 +44,7 @@ class UserRequest extends FormRequest
         'email' => 'required|email|unique:users,email,'.$this->user,
         'password' => 'required',
         'address' => 'required|min:10|max:255',
-        'city' => 'required|min:5|max:255',
+        'city' => 'required',
         'newsletter'=>'sometimes|required'
            ];
        }
