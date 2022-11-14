@@ -19,8 +19,7 @@ export class SignInComponent implements OnInit {
 
   constructor(
     private dialog: MatDialog,
-    private dataService: DataService,
-    private router: Router
+    private dataService: DataService
   ) { }
 
   ngOnInit(): void { }
@@ -29,21 +28,18 @@ export class SignInComponent implements OnInit {
     this.dataService.AuthUser(data.value).subscribe(
       result => {
         if (result) {
-          // this.router.navigateByUrl('/');
          if(localStorage.getItem('userId')=='1'){
           setTimeout(() => {
             window.location.href = '/dashboard/home';
-
           }, 1000);
          }else{
           setTimeout(() => {
             window.location.href = '/';
-
           }, 1000);}
           this.dialog.closeAll();
         }
       },
-      error => {
+      () => {
         this.flag = true;
       }
     );

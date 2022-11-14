@@ -12,10 +12,6 @@ use App\Http\Controllers\User_OrderController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Response;
-
-
-
 
 // products
 Route::get('products', [ProductController::class, 'index'])->name('products.index');
@@ -55,8 +51,6 @@ Route::post('/carts', [CartController::class, 'store']);
 Route::get('/carts/{cart}', [CartController::class, 'show']);
 Route::put('/carts/{cart}', [CartController::class, 'update']);
 Route::delete('/carts/{cart}', [CartController::class, 'destroy']);
-
-
 
 // contacts
 Route::get('contacts', [ContactController::class, 'index']);
