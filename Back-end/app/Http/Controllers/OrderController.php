@@ -22,6 +22,7 @@ class OrderController extends Controller
             $user_order->save();
         }
     }
+    
 
     public function _orders(){
         $orders= Order::distinct()->get(['id','user_id','orderStatus']);
