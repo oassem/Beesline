@@ -1,9 +1,9 @@
 <div class="mx-auto" style="width: 90%">
     <div style="text-align: center" class="mt-3">
         <p style="font-size:1rem; letter-spacing:0.2rem; font-weight:500; color: #C59630">HAVE A QUESTION ?</p>
-        <p class="my-5" style="font-size:2.3rem; letter-spacing:0.5rem; font-weight:500;">WE'RE HERE TO HELP</p>
+        <p id="heading" class="my-5" style="font-size:2.3rem; letter-spacing:0.5rem; font-weight:500;">WE'RE HERE TO HELP</p>
         <div class="row pt-4">
-            <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
                 <div>
                     <img src="assets/images/c1.png"><br>
                     <a (click)="onClick('contact')" class="icon" style="color:#FFCD25; font-size: 1.2rem; text-decoration: none;">CONTACT US</a>
@@ -23,14 +23,14 @@
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div>
-                    <img src="assets/images/c3.png"><br>
+                    <img src="assets/images/c4.png"><br>
                     <a class="icon" style="color:#FFCD25; font-size: 1.2rem; text-decoration: none;">BECOME AN AGENT</a>
                 </div>
             </div>
         </div><br>
         <div id="contact" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
             <h3 class="my-5"><span class="title">&nbsp;CONTACT US&nbsp;</span></h3>
-            <form [formGroup]="contactForm" class="w-50 mx-auto pt-3" (ngSubmit)="add(btn)">
+            <form [formGroup]="contactForm" class="w-50 mx-auto pt-3" id="con" (ngSubmit)="add(btn)">
                 <div class="form-group d-flex">
                     <label style="font-size: 1.3rem" class="pt-2 mx-4">Subject</label>
                     <input formControlName="subject" type="text" class="form-control" placeholder="Message subject">
@@ -41,7 +41,7 @@
                     <textarea formControlName="message" rows="3" class="form-control" placeholder="Feel free to tell us anything ..."></textarea>
                     <small style="color: red !important" class="form-text text-muted" *ngIf="flag && !validMessage">Message is required</small>
                 </div>
-                <button #btn type="submit" class="post btn text-white mb-5" style="line-height: 1.7rem; font-size: 1.2rem; width: 35%; background-color:#FFCD25;">Send&nbsp;&nbsp;<i class="bi bi-send-fill"></i></button>
+                <button #btn type="submit" id="send" class="post btn text-white mb-5" style="line-height: 1.7rem; font-size: 1.2rem; width: 35%; background-color:#FFCD25;">Send&nbsp;&nbsp;<i class="bi bi-send-fill"></i></button>
             </form>
         </div>
         <div id="FAQ">
@@ -98,7 +98,7 @@
         </div>
         <div id="location" style="margin-top: 7%" class="mb-5">
             <h3 class="mb-4"><span class="title">&nbsp;FIND A STORE&nbsp;</span></h3>
-            <p style="line-height: 3rem; letter-spacing: 0.1rem; font-style:italic; color:#C59630; font-size:1.5rem; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
+            <p id="location-par" style="line-height: 3rem; letter-spacing: 0.1rem; font-style:italic; color:#C59630; font-size:1.5rem; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
                 We're available in stores across the Middle East, find one near you.<br>
                 Get in touch with our local agents
             </p>
@@ -108,32 +108,32 @@
                     <h6 style="font-size: 1rem">MPS</h6>
                     <p style="font-size: 1rem">Tel: +966 50 464 2846</p>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-5">
                     <h4 style="font-size: 1.2rem"><b>UAE</b></h4>
                     <h6 style="font-size: 1rem">Areen East & West</h6>
                     <p style="font-size: 1rem">Tel: +965 2496 2722</p>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-5">
                     <h4 style="font-size: 1.2rem"><b>LEBANON</b></h4>
                     <h6 style="font-size: 1rem">Holdal</h6>
                     <p style="font-size: 1rem">Tel: +961 01 501 000</p>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-5">
                     <h4 style="font-size: 1.2rem"><b>IRAQ</b></h4>
                     <h6 style="font-size: 1rem">Wahat Al Jamal</h6>
                     <p style="font-size: 1rem">Tel: +964 771 466 6661</p>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-5">
                     <h4 style="font-size: 1.2rem"><b>QATAR</b></h4>
                     <h6 style="font-size: 1rem">Doha Drug Store</h6>
                     <p style="font-size: 1rem">Tel: +974 44 506 245</p>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-5">
                     <h4 style="font-size: 1.2rem"><b>JORDAN</b></h4>
                     <h6 style="font-size: 1rem">Quality Drug Store</h6>
                     <p style="font-size: 1rem">Tel: +962 6 533 6801</p>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-5">
                     <h4 style="font-size: 1.2rem"><b>EGYPT</b></h4>
                     <h6 style="font-size: 1rem">Globe Int. Pharma</h6>
                     <p style="font-size: 1rem">Tel: +20 122 022 4000</p>
