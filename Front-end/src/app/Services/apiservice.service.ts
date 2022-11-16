@@ -8,7 +8,7 @@ export class APIServiceService {
   constructor(private myClient: HttpClient) {}
 
   BASE_URL = 'http://127.0.0.1:8000/api';
-  IMG_URL = 'http://127.0.0.1:8000/public';
+  IMG_URL = 'http://127.0.0.1:8000/public/';
 
   getCartItems(id: number): Observable<any> {
     return this.myClient.get(this.BASE_URL + `/carts/${id}`);

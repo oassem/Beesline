@@ -51,14 +51,6 @@ table {
   .productName {
     font-size: small;
   }
-
-  .imageCol {
-    display: none;
-  }
-
-  .checkout {
-    width: 70% !important;
-  }
 }
 
 @media (min-width: 576px) and (max-width: 767.98px) {
@@ -66,14 +58,7 @@ table {
     font-size: small;
   }
 
-  .imageCol {
-    display: none;
-  }
-
-  .checkout {
-    width: 40% !important;
-  }
-  .txt2{
+  .txt2 {
     font-size: 1.5rem;
   }
 }

@@ -15,7 +15,6 @@ export class CheckoutComponent implements OnInit {
   constructor(private myService: APIServiceService) {}
 
   ngOnInit(): void {
-
     this.myService.getCartItems(this.userID).subscribe({
       next: (data) => {
         this.items = data;
@@ -42,11 +41,10 @@ export class CheckoutComponent implements OnInit {
           quantity: this.items.data[x].quantity,
         })
         .subscribe();
-
       this.myService.deleteCartItem(this.items.data[x].id).subscribe();
     }
     setTimeout(() => {
-      window.location.href = "/orders";
-    }, 1000);
+      window.location.href = '/orders';
+    }, 5000);
   }
 }

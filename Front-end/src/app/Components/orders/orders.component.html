@@ -3,42 +3,51 @@
     <div class="col-lg-12 text-center">
       <h3 class="mb-3 me-2 ms-2 mt-5" style="font-size: 1.5rem;"><span>&nbsp; My Orders &nbsp;</span></h3>
       <div class="btn-group mb-4" role="group" aria-label="Basic mixed styles example">
-        <a routerLink="/profile" class="btn btn-dark add-btn my-4 w-30 checkout">My Account</a>
-        <a routerLink="/orders" class="btn btn-warning add-btn my-4 w-30 checkout">My Orders</a>
+        <a routerLink="/profile" class="btn btn-dark add-btn my-4 w-20 checkout">My Account</a>
+        <a routerLink="/orders" class="btn btn-warning add-btn my-4 w-20 checkout">My Orders</a>
       </div>
     </div>
-  </div>
-  <div class="row" *ngFor="let order of orders">
-    <div class="toast mb-4 w-50" style="display:block; box-shadow: none; border: 0.5px solid #c59630; font-size: large;" role="alert" aria-live="assertive" aria-atomic="true">
-      <div class="toast-header">
-        <strong class="me-auto" style="color: #c59630">Order Basic Information</strong>
+    <div class="row" *ngFor="let order of orders">
+      <div class="toast mb-4 w-50"
+        style="display:block; box-shadow: none; border: 0.5px solid #c59630; font-size: large;" role="alert"
+        aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+          <strong class="me-auto" style="color: #c59630">Order Basic Information</strong>
+        </div>
+        <div class="toast-body">
+          <span style="font-size: 1rem;"><b>Order number:</b> {{order[0].id}}</span>
+          <span class="mx-4" style="font-size: 1rem;"><b>Order status:</b> {{order[0].orderStatus}}</span>
+          <button class="btn btn-danger btn-sm" *ngIf="order[0].orderStatus=='pending'"
+            (click)="cancelOrder(order[0].id)">Cancel </button>
+        </div>
       </div>
-      <div class="toast-body">
-        <span style="font-size: 1rem;"><b>Order number:</b> {{order[0].id}}</span>
-        <span class="mx-4" style="font-size: 1rem;"><b>Order status:</b> {{order[0].orderStatus}}</span>
-          <button class="btn btn-danger btn-sm" *ngIf="order[0].orderStatus=='pending'" (click)="cancelOrder(order[0].id)">Cancel </button>
-      </div>
+      <table class="table mb-5 table-responsive">
+        <thead>
+          <tr style="font-size: large; color:#c59630">
+            <th style="font-weight:bold" scope="col" class="px-3">PRODUCT</th>
+            <th style="font-weight:bold" scope="col">QUANTITY</th>
+            <th style="font-weight:bold" scope="col">PER UNIT</th>
+            <th style="font-weight:bold" scope="col">TOTAL</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="font-weight:bold" *ngFor="let item of order">
+            <td class="golder productName py-4 px-3">{{item['product info'].name}}</td>
+            <td class="px-5">{{item.quantity}}</td>
+            <td *ngIf="item['product info']['offer info'] == null">EGP {{item['product info'].price | number:'1.2-2'}}
+            </td>
+            <td *ngIf="item['product info']['offer info'] != null">EGP {{(item['product info']['offer info'].oldPrice -
+              (item['product info']['offer info'].oldPrice * (item['product info']['offer info'].discount / 100))) |
+              number:'1.2-2'}}</td>
+            <td *ngIf="item['product info']['offer info'] == null">EGP {{(item['product info'].price * item.quantity) |
+              number:'1.2-2'}}</td>
+            <td *ngIf="item['product info']['offer info'] != null">EGP {{((item['product info']['offer info'].oldPrice -
+              (item['product info']['offer info'].oldPrice * (item['product info']['offer info'].discount / 100))) *
+              item.quantity) | number:'1.2-2'}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="row mb-5" id="end" style="margin-top: 2.5%"></div>
     </div>
-    <table class="table mb-5 table-responsive">
-      <thead>
-        <tr>
-          <th scope="col" class="px-2">PRODUCT</th>
-          <th scope="col">QUANTITY</th>
-          <th scope="col">PER UNIT</th>
-          <th scope="col">TOTAL</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr style="font-weight:bold" *ngFor="let item of order">
-          <td class="golder productName py-4 px-2">{{item['product info'].name}}</td>
-          <td>{{item.quantity}}</td>
-          <td *ngIf="item['product info']['offer info'] == null">EGP {{item['product info'].price | number:'1.2-2'}}</td>
-          <td *ngIf="item['product info']['offer info'] != null">EGP {{(item['product info']['offer info'].oldPrice - (item['product info']['offer info'].oldPrice * (item['product info']['offer info'].discount / 100))) | number:'1.2-2'}}</td>
-          <td *ngIf="item['product info']['offer info'] == null">EGP {{(item['product info'].price * item.quantity) | number:'1.2-2'}}</td>
-          <td *ngIf="item['product info']['offer info'] != null">EGP {{((item['product info']['offer info'].oldPrice - (item['product info']['offer info'].oldPrice * (item['product info']['offer info'].discount / 100))) * item.quantity) | number:'1.2-2'}}</td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="row mb-5" id="end" style="margin-top: 2.5%"></div>
   </div>
 </div>
