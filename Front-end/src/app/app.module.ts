@@ -38,6 +38,7 @@ import { SidebarComponent } from './shared/components/admin-sidebar/sidebar.comp
 import { AdminHeaderComponent } from './shared/components/admin-header/admin-header.component';
 import { AdminFooterComponent } from './shared/components/admin-footer/admin-footer.component';
 import { ContactComponent } from './Components/contact/contact.component';
+import { NgxUiLoaderModule } from 'ngx-ui-loader';
 
 @NgModule({
   declarations: [
@@ -66,34 +67,29 @@ import { ContactComponent } from './Components/contact/contact.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
     MatDialogModule,
     MatMenuModule,
     BrowserAnimationsModule,
-    BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    BrowserAnimationsModule,
     MatSidenavModule,
     MatDividerModule,
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
     FlexLayoutModule,
-    MatMenuModule,
     MatListModule,
     RouterModule,
     MatFormFieldModule,
     MatTableModule,
     MatPaginatorModule,
     HttpClientModule,
+    NgxUiLoaderModule
   ],
   exports: [AdminHeaderComponent, AdminFooterComponent, SidebarComponent],
   providers: [DataService],
   bootstrap: [AppComponent],
-  entryComponents: [SignInComponent],
+  entryComponents: [SignInComponent]
 })
 export class AppModule {}
