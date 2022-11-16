@@ -28,6 +28,7 @@ class UserController extends Controller
                
             ]); 
             $request->image->move(public_path('public/'), $image);   
+        
     }
 
     public function index()
