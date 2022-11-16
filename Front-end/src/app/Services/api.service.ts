@@ -2,14 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class APIService {
+  constructor(private myClient: HttpClient) {}
 
-  constructor(private myClient: HttpClient) { }
-
-  BASE_URL = "http://127.0.0.1:8000/api";
-  IMG_URL = "http://127.0.0.1:8000/public/";
+  BASE_URL = 'http://127.0.0.1:8000/api';
+  IMG_URL = 'http://127.0.0.1:8000/public/';
 
   getAllProducts() {
     return this.myClient.get(this.BASE_URL + '/products');
@@ -45,5 +44,9 @@ export class APIService {
 
   deleteCartItem(id: number) {
     return this.myClient.delete(this.BASE_URL + `/carts/${id}`);
+  }
+
+  addContact(data: any) {
+    return this.myClient.post(this.BASE_URL + '/contacts', data);
   }
 }

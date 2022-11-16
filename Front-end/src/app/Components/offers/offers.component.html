@@ -11,7 +11,8 @@
                         <p class="card-text mb-4">EGP {{offer.oldPrice - (offer.oldPrice * (offer.discount/100)) | number:'1.2-2'}}<span class="mx-1" style="text-decoration:line-through; font-size: small; color: #7D7DA5;">EGP{{offer.oldPrice}}.00</span></p>
                         <div class="d-flex justify-content-around" id="buttons-group">
                             <a href="/product/{{offer['product info'].id}}" class="btn btn-primary deta-btn mb-2">Details</a>
-                            <button data-target="#exampleModal" data-toggle="modal" (click)="add(offer['product info'].id)" class="btn btn-primary prod-btn mb-2">Add to Cart</button>
+                            <button *ngIf="offer['product info'].stock>1" data-target="#exampleModal" data-toggle="modal" (click)="add(offer['product info'].id)" class="btn btn-primary prod-btn mb-2">Add to Cart</button>
+                            <button *ngIf="offer['product info'].stock==0" data-target="#exampleModal" data-toggle="modal" (click)="add(offer['product info'].id)" class="btn btn-primary prod-btn mb-2" disabled>Add to Cart</button>
                         </div>
                     </div>
                 </div>
@@ -22,15 +23,20 @@
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-      <div class="modal-content">
+      <div *ngIf="logged" class="modal-content" style="font-size:large">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel" style="color:green">Success</h5>
+          <h5 class="modal-title" id="exampleModalLabel" style="color:green; font-size: 1.25rem;">Success</h5>
         </div>
-        <div class="modal-body">
+        <div class="modal-body mb-4">
             Offer was added to your cart!
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+      <div *ngIf="!logged" class="modal-content" style="font-size:large">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel" style="color:red; font-size: 1.25rem;">Failure</h5>
+        </div>
+        <div class="modal-body mb-4">
+            Please log in to add items!
         </div>
       </div>
     </div>

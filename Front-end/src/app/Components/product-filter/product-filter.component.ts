@@ -12,9 +12,13 @@ export class ProductFilterComponent implements OnInit {
   offers: any;
   items: any;
   param: any;
+  logged: any;
 
   constructor(myRoute: ActivatedRoute, public myService: APIService) {
     this.param = myRoute.snapshot.params['name'];
+    if (localStorage.getItem('userId')) {
+      this.logged = true;
+    }
   }
 
   ngOnInit(): void {
@@ -57,9 +61,11 @@ export class ProductFilterComponent implements OnInit {
             })
             .subscribe();
         }
-        setTimeout(() => {
-          window.location.reload();
-        }, 2000);
+        if (this.logged) {
+          setTimeout(() => {
+            window.location.reload();
+          }, 1300);
+        }
       },
       error: (err) => console.error(err),
     });

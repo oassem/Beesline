@@ -12,13 +12,13 @@
       </div>
       <div class="pt-4" style="width: 30%">
         <div class="d-inline">
-          <button id="login_in" mat-button [matMenuTriggerFor]="belowMenu" class=" text-warning text-decoration-none " (click)="signIn()">
+          <button id="login_in" [matMenuTriggerFor]="belowMenu" class="text-warning text-decoration-none" (click)="signIn()">
             <mat-menu #belowMenu="matMenu" yPosition="below">
               <button mat-menu-item (click)="logOut()">Logout</button>
               <button mat-menu-item [routerLink]="['/profile']" routerLinkActive="router-link-active" >My Profile</button>
             </mat-menu>
             <div class="d-inline"><img src="assets\images\Icon_sign-in.png"></div>
-            <p class="d-inline  text_header">&nbsp;&nbsp;{{ userName }}</p>
+            <p class="d-inline  text_header">&nbsp;{{ userName }}</p>
           </button>
         </div>
         <!-- ********************* CART ICON *************** -->
@@ -27,7 +27,7 @@
             <div class="d-inline ">
               <img src="assets\images\Icon_cart.png">
             </div>
-            <p class="d-inline  text_header">&nbsp;&nbsp;CART&nbsp;<span class="badge" style="color:grey; font-size:.9rem; border: #eac06c solid; border-radius: 50%;">{{counter}}</span></p>
+            <p class="d-inline  text_header">&nbsp;&nbsp;CART&nbsp;<span class="badge" style="color:grey; font-size:.9rem; border: #FFCD25 solid; border-radius: 50%;">{{counter}}</span></p>
           </a>
         </div>
       </div>
@@ -49,16 +49,7 @@
             <a class=" nav-link custom_link" routerLink="/about">About</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
-              Contact
-            </a>
-            <span class="  dropdown_arrow "><i class='fas fa-sort-up '
-                style='font-size:35px; color: #eac06c;  margin-left: 1.5em; margin-bottom: 0em;'></i></span>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="margin-top: 0em;">
-              <li><a class="dropdown-item custom_dropdown" href="#">Contact us</a></li>
-              <li><a class="dropdown-item custom_dropdown" href="#">FAQ</a></li>
-              <li><a class="dropdown-item custom_dropdown" href="#">Locate US</a></li>
-            </ul>
+            <a class="nav-link dropdown-toggle" routerLink="/contact" id="navbarDropdown" role="button" data-bs-toggle="dropdown">Contact</a>
           </li>
         </ul>
       </div>

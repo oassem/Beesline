@@ -1,10 +1,11 @@
 <div id="mainDiv" class="mx-auto mt-5" style="width: 90%; text-align: center;">
-    <h1 style="letter-spacing: 2px">MY CART</h1>
-    <h5 class="my-5" style="font-weight:400">{{counter}} ITEM(S) SELECTED</h5>
-    <div>
+    <h1 *ngIf="counter>0" style="letter-spacing: 2px; font-size: 2rem;">MY CART</h1>
+    <h5 *ngIf="counter>0" class="my-5" style="font-weight:400; font-size: 1.2rem;">{{counter}} ITEM<span *ngIf="counter>1">S</span> SELECTED</h5>
+    <h2 *ngIf="counter==0" class="my-5" style="font-weight:400; font-size: 2rem; color:red">OOPS! YOUR CART IS EMPTY, <a routerLink="/products">SHOP NOW!</a></h2>
+    <div *ngIf="counter>0">
         <table class="table">
             <thead>
-                <tr>
+                <tr style="font-size: larger">
                     <th style="width: 150px" scope="col" class="imageCol"></th>
                     <th scope="col">PRODUCT</th>
                     <th scope="col">QUANTITY</th>
@@ -29,5 +30,5 @@
         </table>
         <div class="row" id="end" style="margin-top: 2.5%"></div>
     </div>
-    <a routerLink="/checkout" class="btn btn-primary add-btn my-5 w-25 checkout">GO TO CHECKOUT</a>
+    <a *ngIf="counter>0" routerLink="/checkout" class="btn btn-primary add-btn my-5 checkout" style="font-size: large; width: 35%;">GO TO CHECKOUT</a>
 </div>

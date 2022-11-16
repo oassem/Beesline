@@ -1,14 +1,14 @@
 <div class="mx-auto" style="width: 90%">
     <div class="row my-5" id="product-details">
         <div class="col-lg-6 col-12" id="imageDiv">
-            <img src="{{myService.IMG_URL}}{{product.data.image}}" width="100%" class="rounded">
+            <img src="{{myService.IMG_URL}}{{product.data.image}}" width="100%" height="590px" class="rounded">
         </div>
         <div class="col-lg-6 col-12 px-5" style="text-align: center" id="textDiv">
             <h4><span>&nbsp;{{product.data.category.toUpperCase()}}&nbsp;</span></h4>
-            <h2 class="my-4">{{product.data.name}}</h2>
+            <h2 class="mb-5 mt-5">{{product.data.name}}</h2>
             <h5 *ngIf="product.data['offer info'] == null">EGP {{product.data.price | number:'1.2-2'}}</h5>
             <h5 *ngIf="product.data['offer info']">EGP {{product.data['offer info'].oldPrice - (product.data['offer info'].oldPrice * (product.data['offer info'].discount/100)) | number:'1.2-2'}}<span class="mx-1" style="text-decoration:line-through; font-size: smaller; color: #7D7DA5;">EGP{{product.data.price | number:'1.2-2'}}</span></h5>
-            <p class="mt-5" style="font-size: larger">{{product.data.description}}</p>
+            <p class="mt-5" style="font-size: 1.25rem; font-family: 'Lucida Sans'; line-height: 2rem;">{{product.data.description}}</p>
             <div class="row mt-5">
                 <div class="col-sm-4 col-6">
                     <img src="assets/images/icon1.png" />
@@ -23,7 +23,8 @@
                     <p class="mt-2 icon">parabens free</p>
                 </div>
             </div>
-            <button (click)="add(product.data.id)" data-target="#exampleModal" data-toggle="modal" class="btn btn-primary add-btn mt-4" style="width: 80%">ADD TO CART</button>
+            <button *ngIf="product.data.stock>1" (click)="add(product.data.id)" data-target="#exampleModal" data-toggle="modal" class="btn btn-primary add-btn mt-5" style="width: 80%">ADD TO CART</button>
+            <button *ngIf="product.data.stock==0" (click)="add(product.data.id)" data-target="#exampleModal" data-toggle="modal" class="btn btn-primary add-btn mt-5" style="width: 80%" disabled>ADD TO CART</button>
         </div>
     </div>
     <div style="margin-top: 12%; margin-bottom:10%">
@@ -37,7 +38,8 @@
                         <p class="card-text mb-4">EGP {{prod.price | number:'1.2-2'}}</p>
                         <div class="d-flex justify-content-around" id="buttons-group">
                             <a href="/product/{{prod.id}}" class="btn btn-primary deta-btn mb-2">Details</a>
-                            <button data-target="#exampleModal" data-toggle="modal" (click)="add(prod.id)" class="btn btn-primary prod-btn mb-2">Add to Cart</button>
+                            <button *ngIf="prod.stock>1" data-target="#exampleModal" data-toggle="modal" (click)="add(prod.id)" class="btn btn-primary prod-btn mb-2">Add to Cart</button>
+                            <button *ngIf="prod.stock==0" data-target="#exampleModal" data-toggle="modal" (click)="add(prod.id)" class="btn btn-primary prod-btn mb-2" disabled>Add to Cart</button>
                         </div>
                     </div>
                 </div>
@@ -50,7 +52,8 @@
                         <p class="card-text mb-4">EGP {{offer.oldPrice - (offer.oldPrice * (offer.discount/100)) | number:'1.2-2'}}<span class="mx-1" style="text-decoration:line-through; font-size: small; color: #7D7DA5;">EGP{{offer.oldPrice}}.00</span></p>
                         <div class="d-flex justify-content-around" id="buttons-group">
                             <a href="/product/{{offer['product info'].id}}" class="btn btn-primary deta-btn mb-2">Details</a>
-                            <button data-target="#exampleModal" data-toggle="modal" (click)="add(offer['product info'].id)" class="btn btn-primary prod-btn mb-2">Add to Cart</button>
+                            <button *ngIf="offer['product info'].stock>1" data-target="#exampleModal" data-toggle="modal" (click)="add(offer['product info'].id)" class="btn btn-primary prod-btn mb-2">Add to Cart</button>
+                            <button *ngIf="offer['product info'].stock==0" data-target="#exampleModal" data-toggle="modal" (click)="add(offer['product info'].id)" class="btn btn-primary prod-btn mb-2" disabled>Add to Cart</button>
                         </div>
                     </div>
                 </div>
@@ -61,15 +64,20 @@
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-      <div class="modal-content">
+      <div *ngIf="logged" class="modal-content" style="font-size:large">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel" style="color:green">Success</h5>
+          <h5 class="modal-title" id="exampleModalLabel" style="color:green; font-size: 1.25rem;">Success</h5>
         </div>
-        <div class="modal-body">
+        <div class="modal-body mb-4">
             Item was added to your cart!
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+      <div *ngIf="!logged" class="modal-content" style="font-size:large">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel" style="color:red; font-size: 1.25rem;">Failure</h5>
+        </div>
+        <div class="modal-body mb-4">
+            Please log in to add items!
         </div>
       </div>
     </div>

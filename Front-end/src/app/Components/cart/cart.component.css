@@ -16,6 +16,7 @@
     border: none;
     font-weight: 500;
     font-size: larger;
+    line-height: 2rem;
 }
 
 .add-btn:hover {

@@ -22,7 +22,7 @@ export class HeaderComponent implements OnInit {
       let userObj: any = Object.values(userData)['0'];
       this.userName = userObj['firstname'];
     } else {
-      this.userName = 'SignIn';
+      this.userName = 'Sign in';
     }
   }
   ngOnInit(): void {

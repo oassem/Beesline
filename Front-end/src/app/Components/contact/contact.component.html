@@ -1,0 +1,149 @@
+<div class="mx-auto" style="width: 90%">
+    <div style="text-align: center" class="mt-3">
+        <p style="font-size:1rem; letter-spacing:0.2rem; font-weight:500; color: #C59630">HAVE A QUESTION ?</p>
+        <p id="heading" class="my-5" style="font-size:2.3rem; letter-spacing:0.5rem; font-weight:500;">WE'RE HERE TO HELP</p>
+        <div class="row pt-4">
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div>
+                    <img src="assets/images/c1.png"><br>
+                    <a (click)="onClick('contact')" class="icon" style="color:#FFCD25; font-size: 1.2rem; text-decoration: none;">CONTACT US</a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div>
+                    <img src="assets/images/c2.png"><br>
+                    <a (click)="onClick('FAQ')" class="icon" style="color:#FFCD25; font-size: 1.2rem; text-decoration: none;">FAQ</a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div>
+                    <img src="assets/images/c3.png"><br>
+                    <a (click)="onClick('location')" class="icon" style="color:#FFCD25; font-size: 1.2rem; text-decoration: none;">LOCATE US</a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div>
+                    <img src="assets/images/c4.png"><br>
+                    <a class="icon" style="color:#FFCD25; font-size: 1.2rem; text-decoration: none;">BECOME AN AGENT</a>
+                </div>
+            </div>
+        </div><br>
+        <div id="contact" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
+            <h3 class="my-5"><span class="title">&nbsp;CONTACT US&nbsp;</span></h3>
+            <form [formGroup]="contactForm" class="w-50 mx-auto pt-3" id="con" (ngSubmit)="add(btn)">
+                <div class="form-group d-flex">
+                    <label style="font-size: 1.3rem" class="pt-2 mx-4">Subject</label>
+                    <input formControlName="subject" type="text" class="form-control" placeholder="Message subject">
+                    <small style="color: red !important" class="form-text text-muted" *ngIf="flag && !validSubject">Subject is required</small>
+                </div>
+                <div class="form-group mt-5 mb-5 d-flex">
+                    <label style="font-size: 1.3rem" class="pt-2 mx-3">Message</label>
+                    <textarea formControlName="message" rows="3" class="form-control" placeholder="Feel free to tell us anything ..."></textarea>
+                    <small style="color: red !important" class="form-text text-muted" *ngIf="flag && !validMessage">Message is required</small>
+                </div>
+                <button #btn type="submit" id="send" class="post btn text-white mb-5" style="line-height: 1.7rem; font-size: 1.2rem; width: 35%; background-color:#FFCD25;">Send&nbsp;&nbsp;<i class="bi bi-send-fill"></i></button>
+            </form>
+        </div>
+        <div id="FAQ">
+            <h3 class="mt-5 mb-5"><span class="title">&nbsp;FAQ SECTION&nbsp;</span></h3>
+            <p style="letter-spacing: 0.1rem; font-style:italic; color:#C59630; font-size:1.5rem; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Click on the topics below to view our most frequently asked questions.</p>
+            <div class="accordion accordion-flush mt-4">
+                <div class="accordion-item">
+                    <h2 style="margin-bottom: 0" class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            <span style="margin-left: auto; font-size:1.5rem; font-weight: 400; letter-spacing: 0.1rem;">HOW TO MAKE AN ORDER?</span>
+                        </button>
+                    </h2>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne">
+                        <div class="accordion-body" style="text-align:center; line-height:3rem">
+                            Step1: Log in to your account by clicking "Log in" in the header.<br>
+                            Step2: To add items to your basket, click on the product you wish to purchase then click "Add to Cart".<br>
+                            Step3: To change the desired quantity of the item, adjust the number in the "Quantity" box.<br>
+                            Step4: To review the items in your basket, click on the "Cart" link located at the top right of the page.<br>
+                            Step5: If you have an applicable promo code, enter it and click "Apply". The total price will be updated to reflect the applied promo code discount.<br>
+                            Step6: Review your order at the Shopping Cart Page. Once you are ready to submit your order, click "Checkout".<br>
+                            Step7: Fill in all the required information for your shipping and payment details and click "Place Order"<br>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 style="margin-bottom: 0" class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                            <span style="margin-left: auto; font-size:1.5rem; font-weight: 400; letter-spacing: 0.1rem;">PAYMENT METHODS AVAILABLE?</span>
+                        </button>
+                    </h2>
+                    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo">
+                        <div class="accordion-body" style="text-align:center; line-height:3rem">
+                            Currently, we accept payment via Cash on Delivery strictly within Egypt.<br>
+                            Your order confirmation number is created after successfully placing your order on shopbeesline.com.<br>
+                            You can find your unique number in the Order Confirmation Email received shortly after placement and also in your online account under "Login".<br>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button style="border-bottom:solid" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false"
+                            aria-controls="flush-collapseThree">
+                            <span style="margin-left: auto; font-size:1.5rem; font-weight: 400; letter-spacing: 0.1rem;">WHEN TO EXPECT DELIVERY?</span>
+                        </button>
+                    </h2>
+                    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree">
+                        <div class="accordion-body" style="text-align:center; line-height:3rem">
+                            We aim to deliver within 2-3 business days of your order placement.<br>
+                            However, please note that some locations may require a longer delivery time, dependent on our delivery provider.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="location" style="margin-top: 7%" class="mb-5">
+            <h3 class="mb-4"><span class="title">&nbsp;FIND A STORE&nbsp;</span></h3>
+            <p id="location-par" style="line-height: 3rem; letter-spacing: 0.1rem; font-style:italic; color:#C59630; font-size:1.5rem; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
+                We're available in stores across the Middle East, find one near you.<br>
+                Get in touch with our local agents
+            </p>
+            <div class="row mt-5">
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-5">
+                    <h4 style="font-size: 1.2rem"><b>KSA</b></h4>
+                    <h6 style="font-size: 1rem">MPS</h6>
+                    <p style="font-size: 1rem">Tel: +966 50 464 2846</p>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-5">
+                    <h4 style="font-size: 1.2rem"><b>UAE</b></h4>
+                    <h6 style="font-size: 1rem">Areen East & West</h6>
+                    <p style="font-size: 1rem">Tel: +965 2496 2722</p>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-5">
+                    <h4 style="font-size: 1.2rem"><b>LEBANON</b></h4>
+                    <h6 style="font-size: 1rem">Holdal</h6>
+                    <p style="font-size: 1rem">Tel: +961 01 501 000</p>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-5">
+                    <h4 style="font-size: 1.2rem"><b>IRAQ</b></h4>
+                    <h6 style="font-size: 1rem">Wahat Al Jamal</h6>
+                    <p style="font-size: 1rem">Tel: +964 771 466 6661</p>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-5">
+                    <h4 style="font-size: 1.2rem"><b>QATAR</b></h4>
+                    <h6 style="font-size: 1rem">Doha Drug Store</h6>
+                    <p style="font-size: 1rem">Tel: +974 44 506 245</p>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-5">
+                    <h4 style="font-size: 1.2rem"><b>JORDAN</b></h4>
+                    <h6 style="font-size: 1rem">Quality Drug Store</h6>
+                    <p style="font-size: 1rem">Tel: +962 6 533 6801</p>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-5">
+                    <h4 style="font-size: 1.2rem"><b>EGYPT</b></h4>
+                    <h6 style="font-size: 1rem">Globe Int. Pharma</h6>
+                    <p style="font-size: 1rem">Tel: +20 122 022 4000</p>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <h4 style="font-size: 1.2rem"><b>OMAN</b></h4>
+                    <h6 style="font-size: 1rem">MPS</h6>
+                    <p style="font-size: 1rem">Tel: +96 899 883 635</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

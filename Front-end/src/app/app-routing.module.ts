@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes, CanActivate } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './Components/about/about.component';
 import { CheckoutComponent } from './Components/checkout/checkout.component';
 import { EditProfileComponent } from './Components/edit-profile/edit-profile.component';
@@ -27,6 +27,7 @@ import { AdminOffersComponent } from './modules/admin-offers/admin-offers.compon
 import { AdminProductDetailsComponent } from './shared/widgets/admin-product-details/admin-product-details.component';
 import { IsLoggedGuard } from './guards/is-logged.guard';
 import { IsnotLoggedGuard } from './guards/isnot-logged.guard';
+import { ContactComponent } from './Components/contact/contact.component';
 
 const routes: Routes = [
   { path: 'products', component: ProductsComponent, title: 'Products', pathMatch: 'full'},
@@ -34,10 +35,11 @@ const routes: Routes = [
   { path: '', component: OffersComponent, title: 'Home', pathMatch: 'full' },
   { path: 'product/:id', component: ProductDetailsComponent, title: 'Product Details', pathMatch: 'full'},
   { path: 'cart', component: CartComponent, title: 'My Cart', pathMatch: 'full',canActivate:[IsnotLoggedGuard] },
-  { path: 'signUp', component: SignUpComponent, pathMatch: 'full',canActivate:[IsLoggedGuard] },
-  { path: 'login', component: SignInComponent, pathMatch: 'full',canActivate:[IsLoggedGuard] },
-  { path: 'about', component: AboutComponent, title: 'about' , pathMatch: 'full'},
-  { path: 'checkout', component: CheckoutComponent, title: 'CheckOut', pathMatch: 'full',canActivate:[IsnotLoggedGuard] },
+  { path: 'signUp', component: SignUpComponent, title: 'Sign up', pathMatch: 'full',canActivate:[IsLoggedGuard] },
+  { path: 'login', component: SignInComponent, title: 'Sign in', pathMatch: 'full',canActivate:[IsLoggedGuard] },
+  { path: 'about', component: AboutComponent, title: 'About us' , pathMatch: 'full'},
+  { path: 'contact', component: ContactComponent, title: 'Contact us' , pathMatch: 'full'},
+  { path: 'checkout', component: CheckoutComponent, title: 'Checkout', pathMatch: 'full',canActivate:[IsnotLoggedGuard] },
   { path: 'profile', component: ProfileComponent, title: 'My Profile', pathMatch: 'full',canActivate:[IsnotLoggedGuard] },
   { path: 'edit-profile/:id', component: EditProfileComponent, title: 'Edit Profile', pathMatch: 'full' ,canActivate:[IsnotLoggedGuard]},
   { path: 'orders', component: ordersComponent, title: 'My Orders', pathMatch: 'full',canActivate:[IsnotLoggedGuard] },
@@ -59,7 +61,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { anchorScrolling: 'enabled'})],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

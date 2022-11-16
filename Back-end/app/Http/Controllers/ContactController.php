@@ -29,6 +29,16 @@ class ContactController extends Controller
         }
     }
 
+    public function showMessage($id)
+    {
+        $contact = Contact::find($id);
+        if ($contact) {
+            return $contact['message'];
+        } else {
+            return null;
+        }
+    }
+
     public function update($id, Request $request)
     {
         Contact::find($id)->update($request->all());

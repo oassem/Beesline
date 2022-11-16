@@ -9,8 +9,13 @@ import { APIService } from 'src/app/services/api.service';
 export class OffersComponent implements OnInit {
   offers: any;
   items: any;
+  logged: any;
 
-  constructor(public myService: APIService) {}
+  constructor(public myService: APIService) {
+    if (localStorage.getItem('userId')) {
+      this.logged = true;
+    }
+  }
 
   ngOnInit(): void {
     this.myService.getAllOffers().subscribe({
@@ -47,9 +52,11 @@ export class OffersComponent implements OnInit {
             })
             .subscribe();
         }
-        setTimeout(() => {
-          window.location.reload();
-        }, 2000);
+        if (this.logged) {
+          setTimeout(() => {
+            window.location.reload();
+          }, 1300);
+        }
       },
       error: (err) => console.error(err),
     });

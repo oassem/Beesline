@@ -8,7 +8,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
-
 import { HeaderComponent } from './Components/header/header.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { SignInComponent } from './Components/sign-in/sign-in.component';
@@ -19,7 +18,6 @@ import { OffersComponent } from './Components/offers/offers.component';
 import { ProductDetailsComponent } from './Components/product-details/product-details.component';
 import { CartComponent } from './Components/cart/cart.component';
 import { ProductFilterComponent } from './Components/product-filter/product-filter.component';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -39,6 +37,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { SidebarComponent } from './shared/components/admin-sidebar/sidebar.component';
 import { AdminHeaderComponent } from './shared/components/admin-header/admin-header.component';
 import { AdminFooterComponent } from './shared/components/admin-footer/admin-footer.component';
+import { ContactComponent } from './Components/contact/contact.component';
+import { NgxUiLoaderModule } from 'ngx-ui-loader';
 
 @NgModule({
   declarations: [
@@ -63,37 +63,33 @@ import { AdminFooterComponent } from './shared/components/admin-footer/admin-foo
     SidebarComponent,
     AdminHeaderComponent,
     AdminFooterComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
     MatDialogModule,
     MatMenuModule,
     BrowserAnimationsModule,
-    BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    BrowserAnimationsModule,
     MatSidenavModule,
     MatDividerModule,
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
     FlexLayoutModule,
-    MatMenuModule,
     MatListModule,
     RouterModule,
     MatFormFieldModule,
     MatTableModule,
     MatPaginatorModule,
     HttpClientModule,
+    NgxUiLoaderModule
   ],
   exports: [AdminHeaderComponent, AdminFooterComponent, SidebarComponent],
   providers: [DataService],
   bootstrap: [AppComponent],
-  entryComponents: [SignInComponent],
+  entryComponents: [SignInComponent]
 })
 export class AppModule {}

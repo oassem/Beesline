@@ -1,6 +1,5 @@
-import { LocationStrategy } from '@angular/common';
-import { Component, OnInit, Injectable } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 
 @Component({
   selector: 'app-root',
@@ -9,27 +8,17 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AppComponent implements OnInit {
   title = 'Beesline';
-  AdminHere:any;
-  constructor(private router:ActivatedRoute,private url:LocationStrategy){
-      // if(localStorage.getItem('userId')=='1'){
-      //   console.log(this.router.toString());
-      //  if(this.router.toString().includes('dashboard')){
-      //          this.AdminHere=true;
-      //          console.log(this.router.toString());
-      //          console.log(this.AdminHere);
-      //     }
-      // }
-  }
-  ngOnInit(){
-    if(localStorage.getItem('userId')=='1'){
-             this.AdminHere=1;     
-    }  
+  AdminHere: any;
 
-   
-    
-    // if (this.router.outlet.includes('/dashboard') > -1) {
-    //   this.active = 0;
-    // }
+  constructor(private loader: NgxUiLoaderService) {}
+
+  ngOnInit() {
+    this.loader.start();
+    setTimeout(() => {
+      this.loader.stop();
+    }, 3000);
+    if (localStorage.getItem('userId') == '1') {
+      this.AdminHere = 1;
+    }
   }
- 
 }

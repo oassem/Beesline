@@ -7,7 +7,7 @@
         <label class="btn btn-default p-0">Upload your image</label>
         <input type="file" class="form-control"  (change)="selectFile($event)"/>
         <div>
-          <img src="http://127.0.0.1:8000/public/{{prev.image}}" class="preview w-25">
+          <img src="http://127.0.0.1:8000/public/{{prev.image}}" class="preview w-25 mt-1 rounded">
         </div>
       </div>
       <div class="form-group mb-4">
@@ -73,10 +73,10 @@
       </div>
       <div class="form-group form-check">
         <input type="checkbox"  name="newsletter" [value]="prev.newsletter" #newsletter="ngModel" [(ngModel)]="prev.newsletter" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1"><span style="color:#c59630ed; font-size: smaller;">  Subscription For Newsletter</span>
+        <label class="form-check-label" for="exampleCheck1"><span style="color:#c59630ed; font-size: smaller;">  Sign up for Newsletter</span>
         </label>
       </div>
-      <h1 style="font-weight:300;">Sign-in Information</h1><hr>
+      <h1 class="mt-4" style="font-weight:300;">Sign-in Information</h1><hr>
       <div class="form-group mb-4">
         <label>Email</label><span style="color:red;">&nbsp;*</span>
         <input type="email" class="form-control" placeholder="Enter Email"  name="email" [value]="prev.email" [(ngModel)]="prev.email" #email="ngModel" required email>
