@@ -11,7 +11,7 @@ export class ProfileComponent implements OnInit {
   info: any;
 
 
-  constructor(private myService: APIServiceService) { }
+  constructor(public myService: APIServiceService) { }
 
   ngOnInit(): void {
     this.myService.getUserInfo(Number(localStorage.getItem('userId'))).subscribe({

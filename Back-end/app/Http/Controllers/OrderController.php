@@ -9,6 +9,7 @@ use App\Models\User_Order;
 
 class OrderController extends Controller
 {
+
     public function store(StoreandUpdateOrderRequest $request)
     {
         Order::Create($request->all());
