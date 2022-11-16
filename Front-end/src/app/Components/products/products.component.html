@@ -12,7 +12,7 @@
                         <div class="d-flex justify-content-around" id="buttons-group">
                             <a href="/product/{{product.id}}" class="btn btn-primary deta-btn mb-2">Details</a>
                             <button *ngIf="product.stock>1" data-target="#exampleModal" data-toggle="modal" (click)="add(product.id)" class="btn btn-primary prod-btn mb-2">Add to Cart</button>
-                            <button *ngIf="product.stock==0" data-target="#exampleModal" data-toggle="modal" (click)="add(product.id)" class="btn btn-primary prod-btn mb-2" disabled>Add to Cart</button>
+                            <button *ngIf="product.stock==0" data-target="#exampleModal" data-toggle="modal" (click)="add(product.id)" class="btn prod-btn mb-2 danger" disabled>OUT OF STOCK</button>
                         </div>
                     </div>
                 </div>
@@ -26,7 +26,7 @@
                         <div class="d-flex justify-content-around" id="buttons-group">
                             <a href="/product/{{offer['product info'].id}}" class="btn btn-primary deta-btn mb-2">Details</a>
                             <button *ngIf="offer['product info'].stock>1" data-target="#exampleModal" data-toggle="modal" (click)="add(offer['product info'].id)" class="btn btn-primary prod-btn mb-2">Add to Cart</button>
-                            <button *ngIf="offer['product info'].stock==0" data-target="#exampleModal" data-toggle="modal" (click)="add(offer['product info'].id)" class="btn btn-primary prod-btn mb-2" disabled>Add to Cart</button>
+                            <button *ngIf="offer['product info'].stock==0" data-target="#exampleModal" data-toggle="modal" (click)="add(offer['product info'].id)" class="btn btn-primary prod-btn mb-2 danger" disabled>OUT OF STOCK</button>
                         </div>
                     </div>
                 </div>

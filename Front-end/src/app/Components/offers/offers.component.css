@@ -8,6 +8,11 @@ h3 {
     font-size: 1.75rem;
 }
 
+.danger {
+    background-color: red !important;
+    color: white !important;
+}
+
 h3 span {
     background: #fff;
     padding: 0 10px;

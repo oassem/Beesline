@@ -88,6 +88,11 @@ h5 {
     display: none;
 }
 
+.danger {
+    background-color: red !important;
+    color: white !important;
+}
+
 .card-title, .card-text {
     font-family: Arial !important;
     font-size: larger;

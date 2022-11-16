@@ -36,6 +36,11 @@ h3 span {
     box-shadow: none;
 }
 
+.danger {
+    background-color: red !important;
+    color: white !important;
+}
+
 .deta-btn:hover {
     background-color: black;
     color: white;
