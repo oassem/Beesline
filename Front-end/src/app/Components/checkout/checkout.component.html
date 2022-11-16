@@ -97,7 +97,12 @@
             <span>Cash On Delievry</span><hr>
             <div class="row">
               <div class="col-sm-12">
-                <a class="btn btn-warning buttons" (click)="order()">Place Order</a>
+                <a class="btn btn-warning buttons" (click)="order()">
+                  Place Order
+                  <div *ngIf="loading" class="mx-2 spinner-border text-white" style="font-size: smaller; height: 1.3rem; width: 1.3rem;" role="status">
+                    <span class="sr-only">Loading...</span>
+                  </div>
+                </a>
               </div>
             </div>
           </div>

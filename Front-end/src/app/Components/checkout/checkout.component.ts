@@ -11,6 +11,7 @@ export class CheckoutComponent implements OnInit {
   counter: any;
   info: any;
   userID = Number(localStorage.getItem('userId'));
+  loading = false;
 
   constructor(private myService: APIServiceService) {}
 
@@ -31,6 +32,7 @@ export class CheckoutComponent implements OnInit {
   }
 
   order() {
+    this.loading = true;
     let id = Date.now();
     for (let x in this.items.data) {
       this.myService
@@ -44,7 +46,7 @@ export class CheckoutComponent implements OnInit {
       this.myService.deleteCartItem(this.items.data[x].id).subscribe();
     }
     setTimeout(() => {
-      window.location.href = "/orders";
+      window.location.href = '/orders';
     }, 5000);
   }
 }
