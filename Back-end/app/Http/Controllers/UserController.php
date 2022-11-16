@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\UserResource;
 use App\Http\Requests\UserRequest;
+use App\Mail\WelcomeMail;
 use App\Models\User;
-use Illuminate\Http\Request;
-
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
@@ -27,7 +27,8 @@ class UserController extends Controller
                 'image'=>$image,
                
             ]); 
-            $request->image->move(public_path('public/'), $image);   
+            $request->image->move(public_path('public/'), $image);
+            Mail::to(request()->email)->send(new WelcomeMail());  
     }
 
     public function index()
