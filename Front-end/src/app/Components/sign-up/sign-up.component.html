@@ -1,6 +1,9 @@
 <div class="container">
   <h3><span>&nbsp;Create Acccont&nbsp;</span></h3>
   <div class="p-5">
+    <div *ngIf="flag" class="alert alert-danger">
+     Please fill in required fileds<span style="color:red;">&nbsp;*</span>
+    </div>
     <form [formGroup]="signUpForm" (ngSubmit)='onSubmit(signUpForm)' enctype="multipart/form-data">
       <h1 style="font-weight: 300;">Personal Informations</h1>
       <hr>
@@ -12,30 +15,32 @@
       <div class="form-group mb-4">
         <label>First Name</label> <span style="color:red;">&nbsp;*</span>
         <input type="text" class="form-control" placeholder="Enter First Name" formControlName="firstName"
-          minlength="3">
+          minlength="3" required  >
         <div *ngIf="FirstName?.touched &&  FirstName?.invalid" class="alert alert-danger">
           <div *ngIf="FirstName?.errors?.['required']">First Name is required</div>
-          <div *ngIf="FirstName?.errors?.['minlength']">First Name minimum lenght is 3</div>
+          <div *ngIf="FirstName?.errors?.['minlength']">First Name minimum length is 3</div>
+          <div *ngIf="FirstName?.errors?.['pattern']">The first name must contain  alphabetic characters only!</div>
         </div>
       </div>
       <div class="form-group mb-4">
         <label>Last Name</label><span style="color:red;">&nbsp;*</span>
-        <input type="text" class="form-control" placeholder="Enter Last Name" formControlName="lastName" minlength="3">
+        <input type="text" required class="form-control" placeholder="Enter Last Name" formControlName="lastName" minlength="3">
         <div *ngIf="lastName?.touched &&  lastName?.invalid" class="alert alert-danger">
           <div *ngIf="lastName?.errors?.['required']">Last Name is required</div>
-          <div *ngIf="lastName?.errors?.['minlength']">Last Name minimum lenght is 3</div>
+          <div *ngIf="lastName?.errors?.['minlength']">Last Name minimum length is 3</div>
+          <div *ngIf="lastName?.errors?.['pattern']">The last name must contain  alphabetic characters only!</div>
         </div>
       </div>
       <div class="form-group mb-4">
         <label>Address</label><span style="color:red;">&nbsp;*</span>
-        <textarea class="form-control" rows="3" style="width: 400px;" formControlName="address"></textarea>
+        <textarea  required class="form-control" rows="3" style="width: 400px;" formControlName="address"></textarea>
         <div *ngIf="address?.touched &&  address?.invalid" class="alert alert-danger">Address is Required </div>
       </div>
 
       <div class="form-group mb-4">
         <label>Phone Number</label><span style="color:red;">&nbsp;*</span>
         <input type="text" class="form-control" placeholder="Enter Phone number" formControlName="phoneNumber">
-        <div *ngIf="phoneNumber?.touched &&  phoneNumber?.invalid" class="alert alert-danger">
+        <div *ngIf="phoneNumber?.touched &&  phoneNumber?.invalid" class="alert alert-danger" required>
           <div *ngIf="phoneNumber?.errors?.['required']">Phone number is required</div>
           <div *ngIf="phoneNumber?.errors?.['pattern']">Invalid phone number</div>
         </div>
@@ -44,7 +49,7 @@
       <div class="form-group mb-4">
         <label>City</label>
         <br>
-        <select name="city" class="form-control" style="width:350px" formControlName="city">
+        <select name="city" class="form-control" style="width:350px" formControlName="city" required>
           <option value="NoTSelected">Choose your city</option>
           <option value="cairo">Cairo</option>
           <option value="alex">Alexandria</option>
@@ -69,7 +74,7 @@
           <option value="arish">Arish</option>
         </select>
       </div>
-      <div class="form-group form-check">
+      <div class="form-group form-check" required>
         <input type="checkbox" class="form-check-input" id="exampleCheck1">
         <label class="form-check-label" for="exampleCheck1"><span style="color:#c59630ed; font-size: smaller;"> Sign up
             for Newletter</span></label>
@@ -80,24 +85,29 @@
       <hr>
       <div class="form-group mb-4">
         <label>Email</label><span style="color:red;">&nbsp;*</span>
-        <input type="email" class="form-control" placeholder="Enter Email" formControlName="email">
+        <input type="email" class="form-control" placeholder="Enter Email" formControlName="email" required>
         <div *ngIf="email?.touched &&  email?.invalid" class="alert alert-danger">
           <div *ngIf="email?.errors?.['required']">Email is required</div>
-          <div *ngIf="email?.errors?.['email']">Invalid Email</div>
+          <div *ngIf="email?.errors?.['pattern']">Invalid Email</div>
         </div>
+        <div class="alert alert-danger" *ngIf="errorArray!=null">{{ errorArray }}</div>
       </div>
       <div class="form-group mb-4">
         <label>Password</label><span style="color:red;">&nbsp;*</span>
-        <input type="password" class="form-control" placeholder="Enter Password" formControlName="password">
+        <input type="password" class="form-control" placeholder="Enter Password" formControlName="password" minlength="6">
+        <div *ngIf="password?.touched && password?.invalid" class="alert alert-danger">
+          <div *ngIf="password?.errors?.['required']">Password is required</div>
+          <div *ngIf="password?.errors?.['minlength']">password minimum length is 6  characters</div>
+        </div>
       </div>
       <div class="form-group mb-4">
         <label>confirm password</label><span style="color:red;">&nbsp;*</span>
-        <input type="password" class="form-control" placeholder="Enter Password" formControlName="confirmPass">
+        <input type="password" class="form-control" placeholder="Enter Password" formControlName="confirmPass" required minlength="6">
         <div class="alert alert-danger" *ngIf="passwordMatchError">
           Passwords do not match
         </div>
       </div>
-      <button type="submit" class="btn btn-warning">Create An Acccount</button>
+      <button  type="submit" class="btn btn-warning">Create An Acccount</button>
     </form>
   </div>
 </div>

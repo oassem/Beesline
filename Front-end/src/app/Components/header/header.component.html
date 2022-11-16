@@ -1,16 +1,19 @@
-<header>
-  <div style="height: 38px; background-color: #FFCD25;"></div>
-    <div class="d-flex justify-content-around" style="padding-left: 10%">
-      <div class="pt-4">
+<div style="height: 38px;width: 100%; background-color: #FFCD25;"></div>
+
+<div class="container-xxl ">
+
+<header class=" text-center hide_element"  >
+    <div class="d-inline-flex" style=" width: fit-content; "  >
+      <div style="width:fit-content; height: fit-content;" >
         <img src="assets\images\Icon_search.png">
-        <input type="text" placeholder="search" id="search" (change)="onChangeEvent($event)" value="{{ searchValue }}">
+        <input type="text" placeholder="Search" id="search" (change)="onChangeEvent($event)" value="{{ searchValue }}">
       </div>
-      <div class="px-5">
-        <a href="#">
+      <div >
+        <a  routerLink="/products">
           <img style="margin-top: 15px" src="assets\images\logo_eng.png">
         </a>
       </div>
-      <div class="pt-4" style="width: 30%">
+      <div  class="mt-4  " style=" width:110px; height: fit-content; margin-left: 50px;">
         <div class="d-inline">
           <button id="login_in" mat-button [matMenuTriggerFor]="belowMenu" class=" text-warning text-decoration-none " (click)="signIn()">
             <mat-menu #belowMenu="matMenu" yPosition="below">
@@ -18,52 +21,73 @@
               <button mat-menu-item [routerLink]="['/profile']" routerLinkActive="router-link-active" >My Profile</button>
             </mat-menu>
             <div class="d-inline"><img src="assets\images\Icon_sign-in.png"></div>
-            <p class="d-inline  text_header">&nbsp;&nbsp;{{ userName }}</p>
+            <p class="d-inline  text_header">&nbsp;&nbsp;{{ userName }}&nbsp;</p>
           </button>
         </div>
-        <!-- ********************* CART ICON *************** -->
-        <div class="d-inline mx-5">
+        </div>
+        <div  class="mt-4 ml-3 " style=" width:fit-content; height: fit-content">
+        <div class="d-inline" >
           <a routerLink="/cart" class=" text-warning text-decoration-none">
             <div class="d-inline ">
-              <img src="assets\images\Icon_cart.png">
+              &nbsp;&nbsp;&nbsp;&nbsp; <img src="assets\images\Icon_cart.png">
             </div>
-            <p class="d-inline  text_header">&nbsp;&nbsp;CART&nbsp;<span class="badge" style="color:grey; font-size:.9rem; border: #eac06c solid; border-radius: 50%;">{{counter}}</span></p>
+            <p class="d-inline  text_header">&nbsp;&nbsp;CART&nbsp;<span class="badge" style="color:rgb(128, 128, 128); font-size:.9rem; border: #eac06c solid; border-radius: 50%;">{{counter}}</span></p>
           </a>
         </div>
       </div>
     </div>
 </header>
-<div class="d-flex flex-row align-items-center justify-content-center">
-  <nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container-fluid">
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+<div class="container">
+  <nav class="navbar navbar-expand-lg navbar-light" >
+    <div class="container-fluid " >
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="d-inline-flex hide_icon_nav" style=" width: fit-content; " >
+        <div class="searchContainer hide_icon_nav"  style="width:fit-content; height: fit-content;" >
+          <img src="assets\images\Icon_search.png">
+          <input type="text" placeholder="Search" id="search" (change)="onChangeEvent($event)" value="{{ searchValue }}">
+        </div>
+      </div>
+      <button id="login_in" mat-button [matMenuTriggerFor]="belowMenu" class=" text-warning text-decoration-none hide_icon_nav" (click)="signIn()">
+        <mat-menu #belowMenu="matMenu" yPosition="below">
+          <button mat-menu-item (click)="logOut()">Logout</button>
+          <button mat-menu-item [routerLink]="['/profile']" routerLinkActive="router-link-active" >My Profile</button>
+        </mat-menu>
+        <div class="d-inline"><img src="assets\images\Icon_sign-in.png"></div>
+        <p class="d-inline  text_header">&nbsp;&nbsp;{{ userName }}&nbsp;</p>
+      </button>
+      <a routerLink="/cart" class=" text-warning text-decoration-none hide_icon_nav">
+        <div class="d-inline ">
+          &nbsp;&nbsp;&nbsp;&nbsp; <img src="assets\images\Icon_cart.png">
+        </div>
+        <p class="d-inline  text_header">&nbsp;&nbsp;CART&nbsp;<span class="badge" style="color:rgb(128, 128, 128); font-size:.9rem; border: #eac06c solid; border-radius: 50%;">{{counter}}</span></p>
+      </a>
+      <div class="collapse navbar-collapse top_nav" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" routerLink="/products" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">Products</a>
+          <li class="nav-item dropdown customProduct">
+            <a class="nav-link custom_link" routerLink="/products">Products</a>
           </li>
-          <li class="nav-item" style="margin-left: 3%;">
+          <li class="nav-item dropdown">
+            <a class="nav-link custom_link" routerLink="/offers">Offers</a>
+          </li>
+          <li class="nav-item img-logo">
             <a class="nav-link" href="#"><img src="assets/images/logo_image.png"></a>
           </li>
           <li class="nav-item">
             <a class=" nav-link custom_link" routerLink="/about">About</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+            <a class="nav-link custom_link" href="#" >
               Contact
             </a>
-            <span class="  dropdown_arrow "><i class='fas fa-sort-up '
-                style='font-size:35px; color: #eac06c;  margin-left: 1.5em; margin-bottom: 0em;'></i></span>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="margin-top: 0em;">
-              <li><a class="dropdown-item custom_dropdown" href="#">Contact us</a></li>
-              <li><a class="dropdown-item custom_dropdown" href="#">FAQ</a></li>
-              <li><a class="dropdown-item custom_dropdown" href="#">Locate US</a></li>
-            </ul>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 </div>
+
 <div style="background-color: #ffcd25; height:0.5px;">
 </div>

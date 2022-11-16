@@ -35,7 +35,7 @@ import { RouterModule } from '@angular/router';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule} from '@angular/common/http';
 import { SidebarComponent } from './shared/components/admin-sidebar/sidebar.component';
 import { AdminHeaderComponent } from './shared/components/admin-header/admin-header.component';
 import { AdminFooterComponent } from './shared/components/admin-footer/admin-footer.component';
@@ -63,6 +63,7 @@ import { AdminFooterComponent } from './shared/components/admin-footer/admin-foo
     SidebarComponent,
     AdminHeaderComponent,
     AdminFooterComponent,
+   
   ],
   imports: [
     BrowserModule,
@@ -90,6 +91,7 @@ import { AdminFooterComponent } from './shared/components/admin-footer/admin-foo
     MatTableModule,
     MatPaginatorModule,
     HttpClientModule,
+   
   ],
   exports: [AdminHeaderComponent, AdminFooterComponent, SidebarComponent],
   providers: [DataService],

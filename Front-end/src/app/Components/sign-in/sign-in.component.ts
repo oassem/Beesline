@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
@@ -11,6 +11,9 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class SignInComponent implements OnInit {
   flag: boolean = false;
+  signUp:string='sign'
+  showIcon:boolean=false;
+  currentRoute=this.router.url;
   userName: string = "";
   signInForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -21,7 +24,15 @@ export class SignInComponent implements OnInit {
     private dialog: MatDialog,
     private dataService: DataService,
     private router: Router
-  ) { }
+  ) { 
+    if(this.currentRoute==="/login"){
+      this.showIcon=false;
+    }
+    else{
+      this.showIcon=true;
+    }
+ 
+  }
 
   ngOnInit(): void { }
 
@@ -29,7 +40,6 @@ export class SignInComponent implements OnInit {
     this.dataService.AuthUser(data.value).subscribe(
       result => {
         if (result) {
-          // this.router.navigateByUrl('/');
          if(localStorage.getItem('userId')=='1'){
           setTimeout(() => {
             window.location.href = '/dashboard/home';
@@ -54,4 +64,5 @@ export class SignInComponent implements OnInit {
   close_popup() {
     this.dialog.closeAll();
   }
+  
 }
