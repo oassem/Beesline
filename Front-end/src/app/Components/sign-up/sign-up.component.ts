@@ -9,22 +9,25 @@ import { PasswordValidators } from './password.validators';
 import { DataService } from 'src/app/services/data.service';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.css'],
 })
 export class SignUpComponent implements OnInit {
+  flag: boolean = false;
+  errorArray = null;
   signUpForm = new FormGroup(
     {
-      firstName: new FormControl('', Validators.required),
-      lastName: new FormControl('', Validators.required),
-      email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', Validators.required),
-      address: new FormControl('', Validators.required),
-      confirmPass: new FormControl('', Validators.required),
-      city: new FormControl(''),
-      phoneNumber: new FormControl('', [
+      firstName: new FormControl(null, [Validators.required, Validators.pattern(/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u)]),
+      lastName: new FormControl(null, [Validators.required, Validators.pattern(/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u)]),
+      email: new FormControl(null, [Validators.required, Validators.email, Validators.pattern(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)]),
+      password: new FormControl(null, Validators.required),
+      address: new FormControl(null, Validators.required),
+      confirmPass: new FormControl(null, Validators.required),
+      city: new FormControl(null, Validators.required),
+      phoneNumber: new FormControl(null, [
         Validators.required,
         Validators.pattern('^01[0125][0-9]{8}$'),
       ]),
@@ -32,8 +35,12 @@ export class SignUpComponent implements OnInit {
     [PasswordValidators.MatchValidator('password', 'confirmPass')]
   );
 
-  constructor(private dataService: DataService, private router: Router) {}
-  ngOnInit(): void {}
+  constructor(
+    private dataService: DataService,
+    private router: Router,
+
+  ) { }
+  ngOnInit(): void { }
 
   get FirstName() {
     return this.signUpForm.get('firstName');
@@ -43,6 +50,9 @@ export class SignUpComponent implements OnInit {
   }
   get email() {
     return this.signUpForm.get('email');
+  }
+  get password() {
+    return this.signUpForm.get('password');
   }
   get address() {
     return this.signUpForm.get('address');
@@ -60,29 +70,44 @@ export class SignUpComponent implements OnInit {
   file: any;
   onChange(event: any) {
     this.file = event.target.files[0];
+
   }
+
 
   onSubmit(data: any) {
-    const formData = new FormData();
-    formData.append('firstname', data.value.firstName);
-    formData.append('lastname', data.value.lastName);
-    formData.append('email', data.value.email);
-    formData.append('image', this.file, this.file.name);
-    formData.append('address', data.value.address);
-    formData.append('password', data.value.password);
-    formData.append('city', data.value.city);
-    formData.append('mobile', data.value.phoneNumber);
+    if (
+      this.file && this.signUpForm.valid
+    ) {
+      const formData = new FormData();
+      formData.append('firstname', data.value.firstName);
+      formData.append('lastname', data.value.lastName);
+      formData.append('email', data.value.email);
+      formData.append('image', this.file, this.file.name);
+      formData.append('address', data.value.address);
+      formData.append('password', data.value.password);
+      formData.append('city', data.value.city);
+      formData.append('mobile', data.value.phoneNumber);
 
-    this.dataService.AddUser(formData).subscribe(
-      (data) => {
-        console.log(data);
-      },
-      (e) => {
-        console.log(e);
-      },
-      () => {
-        this.router.navigateByUrl('/login');
-      }
-    );
+      this.dataService.AddUser(formData).subscribe(
+        (data) => {
+          console.log(data);
+        },
+        (e) => {
+          this.errorArray = e.error.errors.email[0];
+          console.log(this.errorArray);
+        },
+        () => {
+          this.router.navigateByUrl('/login');
+        }
+      );
+    }
+    else if (this.file === undefined || null || this.signUpForm.errors) {
+      this.flag = true;
+    }
+
   }
+
 }
+
+
+

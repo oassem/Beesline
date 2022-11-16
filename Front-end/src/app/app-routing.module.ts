@@ -32,7 +32,7 @@ import { ContactComponent } from './Components/contact/contact.component';
 const routes: Routes = [
   { path: 'products', component: ProductsComponent, title: 'Products', pathMatch: 'full'},
   { path: 'products/:name', component: ProductFilterComponent, title: 'Filtered Products', pathMatch: 'full'},
-  { path: '', component: OffersComponent, title: 'Home', pathMatch: 'full' },
+  { path: 'offers', component: OffersComponent, title: 'Home', pathMatch: 'full' },
   { path: 'product/:id', component: ProductDetailsComponent, title: 'Product Details', pathMatch: 'full'},
   { path: 'cart', component: CartComponent, title: 'My Cart', pathMatch: 'full',canActivate:[IsnotLoggedGuard] },
   { path: 'signUp', component: SignUpComponent, title: 'Sign up', pathMatch: 'full',canActivate:[IsLoggedGuard] },

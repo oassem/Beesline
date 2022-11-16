@@ -3,6 +3,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { SignInComponent } from '../sign-in/sign-in.component';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { APIService } from 'src/app/services/api.service';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -47,7 +48,7 @@ export class HeaderComponent implements OnInit {
       this.trigger.openMenu();
     } else {
       const dialogConfig = new MatDialogConfig();
-      dialogConfig.disableClose = true;
+      dialogConfig.disableClose = false;
       dialogConfig.width = '600px';
       dialogConfig.height = '500px';
       this.dialog.open(SignInComponent, dialogConfig);

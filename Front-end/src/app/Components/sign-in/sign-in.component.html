@@ -1,16 +1,15 @@
 <div class="text-center border border-light ">
   <div class="container ml-3">
-    <div class="row">
+    <div class="row container text-center">
       <div class="col-md-10 ">
-        <h2 class="popoup_heading"> <span> &nbsp;sign in / join us&nbsp; </span> </h2>
+        <h2  class="popoup_heading"  [ngClass]="{login_head_style:currentRoute==='/login',default_login_style:currentRoute==='/'||currentRoute==='/signUp'}"> <span> &nbsp;sign in / join us&nbsp; </span> </h2>
       </div>
-      <div class="col-md-2 ">
+      <div class="col-md-2 " *ngIf="showIcon">
         <button class="custom_close_btn" (click)='closeDialog()'>
           <img src="assets\images\close.png">
         </button>
       </div>
     </div>
-    <h1 style="margin-top:20px;font-weight:500;letter-spacing: 3px;line-height: 1.1; font-size: 40px;">SIGN IN</h1>
     <form [formGroup]="signInForm" style="margin-top: 20px;" (ngSubmit)='signIn(signInForm)'>
       <div *ngIf="flag" class="alert alert-danger">
         Invalid username or password!
@@ -21,7 +20,11 @@
       <div class="form-group">
         <input type="password" class="custom_input" id="exampleInputPassword1" placeholder="Password" formControlName="password">
       </div>
+<<<<<<< HEAD
       <button type="submit" class="btn btn-warning mt-4 w-25"> Sign in </button>
+=======
+      <button  [disabled]="!signInForm.valid"  type="submit" class="btn btn-warning"> Sign in </button>
+>>>>>>> logynkhaled-v2
     </form>
 
     <p class="text">Are you new here?</p>
