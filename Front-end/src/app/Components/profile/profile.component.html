@@ -1,7 +1,7 @@
 <div class="mx-auto container" style="width: 85%">
   <div class="row">
     <div class="col-lg-12 text-center">
-      <h3 class="mb-2 me-2 ms-2 mt-5"><span>&nbsp;   My Account   &nbsp;</span></h3>
+      <h3 class="mb-2 me-2 ms-2 mt-5 txt2"><span>&nbsp;   My Account   &nbsp;</span></h3>
       <div class="btn-group " role="group" aria-label="Basic mixed styles example">
         <a routerLink="/profile" class="btn btn-dark add-btn my-4 w-30 checkout ">My Account</a>
         <a routerLink="/orders" class="btn btn-warning add-btn my-4 w-30 checkout ">My Orders</a>
@@ -12,9 +12,9 @@
                 <div class="card" >
                   <div class="card-body">
                     <div class="d-flex flex-column align-items-center text-center">
-                      <img src="http://127.0.0.1:8000/public/{{info.data.image}}" alt="my profile picture" class="rounded-circle" width="150">
+                      <img src="{{myService.IMG_URL}}{{info.data.image}}" alt="my profile picture" class="rounded-circle" width="150">
                       <div class="mt-3">
-                        <h4>{{info.data.firstname}} {{info.data.lastname}}</h4>
+                        <h4 class="txt">{{info.data.firstname}} {{info.data.lastname}}</h4>
                       </div>
                     </div>
                   </div>
@@ -22,8 +22,8 @@
                 <div class="card mt-3" >
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                      <h6 class="mb-0">News Letter Subscription</h6>
-                      <span class="text-secondary">{{info.data.newsletter}}</span>
+                      <h6 class="mb-0 txt">News Letter Subscription</h6>
+                      <span class="text-secondary txt">{{info.data.newsletter}}</span>
                   </ul>
                 </div>
               </div>
@@ -32,54 +32,54 @@
                   <div class="card-body">
                     <div class="row">
                       <div class="col-sm-3">
-                        <h6 class="mb-0">First Name</h6>
+                        <h6 class="mb-0 txt">First Name</h6>
                       </div>
-                      <div class="col-sm-9 text-secondary">
+                      <div class="col-sm-9 text-secondary txt">
                         {{info.data.firstname}}
                       </div>
                     </div>
                     <hr>
                     <div class="row">
                       <div class="col-sm-3">
-                        <h6 class="mb-0">Last Name</h6>
+                        <h6 class="mb-0 txt">Last Name</h6>
                       </div>
-                      <div class="col-sm-9 text-secondary">
+                      <div class="col-sm-9 text-secondary txt">
                         {{info.data.lastname}}
                       </div>
                     </div>
                     <hr>
                     <div class="row">
                       <div class="col-sm-3">
-                        <h6 class="mb-0">Email</h6>
+                        <h6 class="mb-0 txt">Email</h6>
                       </div>
-                      <div class="col-sm-9 text-secondary">
+                      <div class="col-sm-9 text-secondary txt">
                         {{info.data.email}}
                       </div>
                     </div>
                     <hr>
                     <div class="row">
                       <div class="col-sm-3">
-                        <h6 class="mb-0">City</h6>
+                        <h6 class="mb-0 txt">City</h6>
                       </div>
-                      <div class="col-sm-9 text-secondary">
+                      <div class="col-sm-9 text-secondary txt">
                         {{info.data.city}}
                       </div>
                     </div>
                     <hr>
                     <div class="row">
                       <div class="col-sm-3">
-                        <h6 class="mb-0">Mobile</h6>
+                        <h6 class="mb-0 txt">Mobile</h6>
                       </div>
-                      <div class="col-sm-9 text-secondary">
+                      <div class="col-sm-9 text-secondary txt">
                         {{info.data.mobile}}
                       </div>
                     </div>
                     <hr>
                     <div class="row">
                       <div class="col-sm-3">
-                        <h6 class="mb-0">Address</h6>
+                        <h6 class="mb-0 txt">Address</h6>
                       </div>
-                      <div class="col-sm-9 text-secondary">
+                      <div class="col-sm-9 text-secondary txt">
                         {{info.data.address}}
                       </div>
                     </div>

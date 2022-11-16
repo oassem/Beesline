@@ -8,6 +8,7 @@ import { APIServiceService } from 'src/app/services/apiservice.service';
 })
 export class CheckoutComponent implements OnInit {
   items: any;
+  counter: any;
   info: any;
   userID = Number(localStorage.getItem('userId'));
 

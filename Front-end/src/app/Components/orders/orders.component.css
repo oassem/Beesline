@@ -73,6 +73,9 @@ table {
   .checkout {
     width: 40% !important;
   }
+  .txt2{
+    font-size: 1.5rem;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {

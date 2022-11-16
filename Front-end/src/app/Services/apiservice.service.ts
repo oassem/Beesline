@@ -29,6 +29,9 @@ export class APIServiceService {
   deleteCartItem(id: number) {
     return this.myClient.delete(this.BASE_URL + `/carts/${id}`);
   }
+  updateCartItem(id: number, data: any) {
+    return this.myClient.put(this.BASE_URL + `/carts/${id}`, data);
+  }
 
   getUserOrders(id: number) {
     return this.myClient.get(this.BASE_URL + `/user_orders/${id}`);

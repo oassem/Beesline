@@ -28,3 +28,29 @@ h2 {
   background-color: white;
   color:#c59630;
 }
+.buttons {
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  font-size: large;
+
+}
+.buttons:hover {
+  background-color: white;
+  color:#c59630;
+}
+.golder {
+  color: #C59630;
+  cursor: pointer;
+}
+
+.titles{
+  font-size: 1.3rem;
+}
+.txt{
+  font-size: 1.1rem;
+}
+.txt2{
+  font-size: 1rem;
+}
+
