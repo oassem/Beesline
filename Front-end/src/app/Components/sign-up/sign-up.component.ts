@@ -16,13 +16,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./sign-up.component.css'],
 })
 export class SignUpComponent implements OnInit {
-  flag:boolean=false;
-  errorArray=null;
+  flag: boolean = false;
+  errorArray = null;
   signUpForm = new FormGroup(
     {
-      firstName: new FormControl(null, [Validators.required ,Validators.pattern(/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u)]),
-      lastName: new FormControl(null, [Validators.required,Validators.pattern(/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u)]),
-      email: new FormControl(null, [Validators.required, Validators.email,Validators.pattern(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)]),
+      firstName: new FormControl(null, [Validators.required, Validators.pattern(/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u)]),
+      lastName: new FormControl(null, [Validators.required, Validators.pattern(/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u)]),
+      email: new FormControl(null, [Validators.required, Validators.email, Validators.pattern(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)]),
       password: new FormControl(null, Validators.required),
       address: new FormControl(null, Validators.required),
       confirmPass: new FormControl(null, Validators.required),
@@ -36,11 +36,11 @@ export class SignUpComponent implements OnInit {
   );
 
   constructor(
-    private dataService: DataService, 
+    private dataService: DataService,
     private router: Router,
-    
-    ) {}
-  ngOnInit(): void {}
+
+  ) { }
+  ngOnInit(): void { }
 
   get FirstName() {
     return this.signUpForm.get('firstName');
@@ -70,44 +70,43 @@ export class SignUpComponent implements OnInit {
   file: any;
   onChange(event: any) {
     this.file = event.target.files[0];
-  
+
   }
 
 
   onSubmit(data: any) {
-    if(
-      this.file &&this.signUpForm.valid
-      ){
-    const formData = new FormData();
-    formData.append('firstname', data.value.firstName);
-    formData.append('lastname', data.value.lastName);
-    formData.append('email', data.value.email);
-    formData.append('image', this.file, this.file.name);
-    formData.append('address', data.value.address);
-    formData.append('password', data.value.password);
-    formData.append('city', data.value.city);
-    formData.append('mobile', data.value.phoneNumber);
+    if (
+      this.file && this.signUpForm.valid
+    ) {
+      const formData = new FormData();
+      formData.append('firstname', data.value.firstName);
+      formData.append('lastname', data.value.lastName);
+      formData.append('email', data.value.email);
+      formData.append('image', this.file, this.file.name);
+      formData.append('address', data.value.address);
+      formData.append('password', data.value.password);
+      formData.append('city', data.value.city);
+      formData.append('mobile', data.value.phoneNumber);
 
-    this.dataService.AddUser(formData).subscribe(
-      (data) => {
-        console.log(data);
-      },
-      (e) => {
-        this.errorArray=e.error.errors.email[0];
-        console.log(this.errorArray);
-      },
-      () => {
-        this.router.navigateByUrl('/login');
-      }
-    );
+      this.dataService.AddUser(formData).subscribe(
+        (data) => {
+          console.log(data);
+        },
+        (e) => {
+          this.errorArray = e.error.errors.email[0];
+          console.log(this.errorArray);
+        },
+        () => {
+          this.router.navigateByUrl('/login');
+        }
+      );
+    }
+    else if (this.file === undefined || null || this.signUpForm.errors) {
+      this.flag = true;
+    }
+
   }
-  else if(this.file===undefined||null ||this.signUpForm.errors){
-    this.flag=true;
-    
-  }
-  
-}
- 
+
 }
 
 

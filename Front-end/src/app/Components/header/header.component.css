@@ -4,7 +4,7 @@
   font-size: 15px;
   letter-spacing: 1px;
   outline: medium none;
-  padding:30px 14px 5px 1px;
+  padding: 30px 14px 5px 1px;
   color: #ffcd25;
 }
 #login_in {
@@ -52,7 +52,6 @@ p.text_header {
 
 .navbar ul li {
   padding: 0 30px;
-
 }
 .custom_dropdown {
   width: max-content;
@@ -86,37 +85,37 @@ p.text_header {
   top: -10px;
   letter-spacing: normal;
 }
-.customProduct{
+.customProduct {
   margin-left: 120px;
 }
-@media  screen and (min-width: 991px) and (max-width: 1115px) {
-	 .customProduct {
-    margin-left:40px ;
+@media screen and (min-width: 991px) and (max-width: 1115px) {
+  .customProduct {
+    margin-left: 40px;
   }
 }
-@media  screen and (max-width: 991px)  {
+@media screen and (max-width: 991px) {
   .customProduct {
-   margin-left:0px ;
- }
- .img-logo{
-   display: none;
- }
- #search {
-  padding:30px 16px 5px 1px;
-  width: 100px;
+    margin-left: 0px;
+  }
+  .img-logo {
+    display: none;
+  }
+  #search {
+    padding: 30px 16px 5px 1px;
+    width: 100px;
+  }
+  .searchContainer {
+    margin-bottom: 16px;
+  }
+  .hide_element {
+    display: none;
+  }
+  nav {
+    width: 100%;
+  }
 }
-.searchContainer{
-  margin-bottom: 16px;
-}
-.hide_element{
-  display: none;
-}
-nav{
-  width: 100%;
-}
-}
-@media  screen and (min-width: 991px)  {
-  .hide_icon_nav{
-    display:none;
+@media screen and (min-width: 991px) {
+  .hide_icon_nav {
+    display: none;
   }
 }
