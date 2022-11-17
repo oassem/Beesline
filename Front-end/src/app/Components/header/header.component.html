@@ -14,11 +14,11 @@
         </a>
       </div>
       <div  class="mt-4  " style=" width:110px; height: fit-content; margin-left: 50px;">
-        <div class="d-inline">
-          <button id="login_in" [matMenuTriggerFor]="belowMenu" class="text-warning text-decoration-none" (click)="signIn()">
-            <mat-menu #belowMenu="matMenu" yPosition="below">
-              <button mat-menu-item [routerLink]="['/profile']" routerLinkActive="router-link-active" >My Profile</button>
-              <button mat-menu-item (click)="logOut()">Logout</button>
+        <div class="d-inline ">
+          <button id="login_in" [matMenuTriggerFor]="belowMenu"class=" text-warning text-decoration-none" (click)="signIn()">
+            <mat-menu class="customize" #belowMenu="matMenu" yPosition="below">
+              <button  class="hide_element" mat-menu-item [routerLink]="['/profile']" routerLinkActive="router-link-active" >My Profile</button>
+              <button  class="hide_element" mat-menu-item (click)="logOut()">Logout</button>
             </mat-menu>
             <div class="d-inline"><img src="assets\images\Icon_sign-in.png"></div>
             <p class="d-inline  text_header">&nbsp;{{ userName }}</p>
@@ -44,20 +44,17 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="d-inline-flex hide_icon_nav" style=" width: fit-content; " >
-        <div class="searchContainer hide_icon_nav"  style="width:fit-content; height: fit-content;" >
-          <img src="assets\images\Icon_search.png">
-          <input type="text" placeholder="Search" id="search" (change)="onChangeEvent($event)" value="{{ searchValue }}">
-        </div>
-      </div>
-      <button id="login_in" mat-button [matMenuTriggerFor]="belowMenu" class=" text-warning text-decoration-none hide_icon_nav" (click)="signIn()">
-        <mat-menu #belowMenu="matMenu" yPosition="below">
-          <button mat-menu-item (click)="logOut()">Logout</button>
-          <button mat-menu-item [routerLink]="['/profile']" routerLinkActive="router-link-active" >My Profile</button>
+    <div  class="hide_icon_nav">
+      <button  mat-button [matMenuTriggerFor]="Menu" class=" text-warning text-decoration-none " (click)="signIn()">
+        <mat-menu   #Menu="matMenu" yPosition="below">
+          <button  mat-menu-item (click)="logOut()">Logout</button>
+          <button  mat-menu-item [routerLink]="['/profile']" routerLinkActive="router-link-active" >My Profile</button>
         </mat-menu>
+     
         <div class="d-inline"><img src="assets\images\Icon_sign-in.png"></div>
         <p class="d-inline  text_header">&nbsp;&nbsp;{{ userName }}&nbsp;</p>
       </button>
+    </div>
       <a routerLink="/cart" class=" text-warning text-decoration-none hide_icon_nav">
         <div class="d-inline ">
           &nbsp;&nbsp;&nbsp;&nbsp; <img src="assets\images\Icon_cart.png">
@@ -66,6 +63,10 @@
       </a>
       <div class="collapse navbar-collapse top_nav" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="searchContainer nav-item hide_icon_nav"  style="width:fit-content; height: fit-content;" >
+            <img src="assets\images\Icon_search.png">
+            <input type="text" placeholder="Search" id="search" (change)="onChangeEvent($event)" value="{{ searchValue }}">
+          </li>
           <li class="nav-item dropdown customProduct">
             <a class="nav-link custom_link" routerLink="/products">Products</a>
           </li>

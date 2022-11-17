@@ -114,9 +114,20 @@ p.text_header {
   nav {
     width: 100%;
   }
+  ::ng-deep .customize {
+    display: none;
+  }
+  
+  
 }
-@media screen and (min-width: 991px) {
+@media screen and (min-width: 990px) {
   .hide_icon_nav {
+    display: none;
+  }
+
+}
+@media only screen and (min-width: 360px) and (max-width: 768px) {
+  default_mat_menu{
     display: none;
   }
 }

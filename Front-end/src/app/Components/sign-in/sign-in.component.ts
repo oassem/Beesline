@@ -45,9 +45,13 @@ export class SignInComponent implements OnInit {
               window.location.href = '/dashboard/home';
             }, 1000);
           } else {
+        
             setTimeout(() => {
+           
               window.location.href = '/';
             }, 1000);
+            
+
           }
           this.dialog.closeAll();
         }
