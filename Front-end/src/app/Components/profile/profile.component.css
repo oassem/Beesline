@@ -6,6 +6,7 @@ h3 {
   margin: 10px 0 20px;
   letter-spacing: 2px;
 }
+
 h3 span {
   background: #fff;
   padding: 0 10px;
@@ -14,6 +15,7 @@ h3 span {
 #end {
   border-bottom: 3px solid #c59630;
 }
+
 #all {
   border: 1px solid #c59630;
 }
@@ -34,9 +36,11 @@ body {
   text-align: left;
   background-color: #e2e8f0;
 }
+
 .main-body {
   padding: 15px;
 }
+
 .card {
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
@@ -64,11 +68,12 @@ body {
   margin-left: -8px;
 }
 
-.gutters-sm > .col,
-.gutters-sm > [class*="col-"] {
+.gutters-sm>.col,
+.gutters-sm>[class*="col-"] {
   padding-right: 8px;
   padding-left: 8px;
 }
+
 .mb-3,
 .my-3 {
   margin-bottom: 1rem !important;
@@ -77,24 +82,25 @@ body {
 .bg-gray-300 {
   background-color: #e2e8f0;
 }
+
 .h-100 {
   height: 100% !important;
 }
+
 .shadow-none {
   box-shadow: none !important;
 }
+
 .txt {
-  font-size: 1.09rem;
+  font-size: 0.9rem;
 }
+
 .txt2 {
   font-size: 1.5rem;
 }
 
-@media (min-width: 768px) and (max-width: 991.98px) {
-}
+@media (min-width: 768px) and (max-width: 991.98px) {}
 
-@media (min-width: 992px) and (max-width: 1199.98px) {
-}
+@media (min-width: 992px) and (max-width: 1199.98px) {}
 
-@media (min-width: 1200px) {
-}
+@media (min-width: 1200px) {}

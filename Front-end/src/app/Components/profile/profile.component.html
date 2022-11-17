@@ -1,7 +1,7 @@
 <div class="mx-auto container" style="width: 85%">
   <div class="row">
     <div class="col-lg-12 text-center">
-      <h3 class="mb-2 me-2 ms-2 mt-5 txt2"><span>&nbsp; My Account &nbsp;</span></h3>
+      <h3 class="mb-3 me-2 ms-2 mt-5 txt2"><span>&nbsp; My Account &nbsp;</span></h3>
       <div class="btn-group mb-4" role="group" aria-label="Basic mixed styles example">
         <a routerLink="/profile" class="btn btn-dark add-btn my-4 w-20 checkout ">My Account</a>
         <a routerLink="/orders" class="btn btn-warning add-btn my-4 w-20 checkout ">My Orders</a>
@@ -24,7 +24,8 @@
           <ul class="list-group list-group-flush">
             <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
               <h6 class="mb-0 txt">News Letter Subscription</h6>
-              <span class="text-secondary txt">{{info.data.newsletter}}</span>
+              <span *ngIf="info.data.newsletter == 1" class="text-secondary txt">Subscribed</span>
+              <span *ngIf="info.data.newsletter == 0" class="text-secondary txt">&#8212;</span>
           </ul>
         </div>
       </div>
@@ -87,8 +88,8 @@
             <hr>
             <div class="row">
               <div class="col-sm-12">
-                <a class="btn btn-dark btn-outline-danger border-0" style="color:white"
-                  routerLink="/edit-profile/{{info.data.id}}">Edit</a>
+                <a class="btn btn-dark btn-outline-danger border-0" style="color:white; font-size: larger; width: 20%;"
+                  routerLink="/edit-profile/{{info.data.id}}">Edit profile</a>
               </div>
             </div>
           </div>

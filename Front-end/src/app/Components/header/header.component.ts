@@ -26,6 +26,7 @@ export class HeaderComponent implements OnInit {
       this.userName = 'Sign in';
     }
   }
+  
   ngOnInit(): void {
     this.myService.getCartItems(Number(localStorage.getItem('userId'))).subscribe({
       next: (data) => {

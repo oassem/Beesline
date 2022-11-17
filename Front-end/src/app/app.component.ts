@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
     this.loader.start();
     setTimeout(() => {
       this.loader.stop();
-    }, 3000);
+    }, 1000);
     if (localStorage.getItem('userId') == '1') {
       this.AdminHere = 1;
     }

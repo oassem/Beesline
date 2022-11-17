@@ -47,10 +47,10 @@ class UserController extends Controller
         }
     }
 
-    public function update($id,UserRequest $request)
+    public function update($id, UserRequest $request)
     {
         $user = User::find($id);
-        if (Hash::check($request->password, $user->password)) {
+        if (!Hash::check($request->password, $user->password)) {
             $request->merge(['password' => Hash::make($request->password)]);
         }
         if ($request->image) {

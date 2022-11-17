@@ -7,10 +7,12 @@
   padding: 30px 14px 5px 1px;
   color: #ffcd25;
 }
+
 #login_in {
   background-color: transparent;
   border: none;
 }
+
 ::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #ffcd25;

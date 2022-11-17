@@ -6,6 +6,7 @@ h3 {
   margin: 10px 0 20px;
   letter-spacing: 2px;
 }
+
 h3 span {
   background: #fff;
   padding: 0 10px;
@@ -33,18 +34,18 @@ h3 span {
   color: #c59630;
 }
 
-table {
-  border: 1px solid #c59630;
-}
-
 .table thead th {
-  border-bottom: 1px solid #c59630;
+  border-bottom: 2px solid #c59630;
   padding-bottom: 2%;
   font-weight: 500;
 }
 
 .table tbody td {
   vertical-align: middle;
+}
+
+.table tbody tr {
+  border-bottom: 0.1rem solid #c59630 !important;
 }
 
 @media (max-width: 575.98px) {
@@ -63,11 +64,8 @@ table {
   }
 }
 
-@media (min-width: 768px) and (max-width: 991.98px) {
-}
+@media (min-width: 768px) and (max-width: 991.98px) {}
 
-@media (min-width: 992px) and (max-width: 1199.98px) {
-}
+@media (min-width: 992px) and (max-width: 1199.98px) {}
 
-@media (min-width: 1200px) {
-}
+@media (min-width: 1200px) {}
