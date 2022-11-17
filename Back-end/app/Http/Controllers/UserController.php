@@ -349,9 +349,9 @@ class UserController extends Controller
     public function update($id, UserRequest $request)
     {
         $user = User::find($id);
-        if (!Hash::check($request->password, $user->password)) {
-            $request->merge(['password' => Hash::make($request->password)]);
-        }
+       
+        $request->merge(['password' => Hash::make($request->password)]);
+        
         if ($request->image) {
             $path=public_path('public/').$user->image;
             if(file_exists($path)){

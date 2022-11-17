@@ -40,7 +40,7 @@ export class ContactComponent implements OnInit {
       this.myService
         .addContact({
           subject: this.contactForm.controls.subject.value,
-          message: this.contactForm.controls.message.value,
+          message: this.contactForm.controls.message.value
         })
         .subscribe();
     } else {
