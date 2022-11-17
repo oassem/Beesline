@@ -8,6 +8,7 @@ class User_OrderController extends Controller
 {
     public function show($id)
     {
+       
         $orders = User_Order::where('user_id', $id)->get();
         if ($orders) {
             return User_OrderResource::collection($orders);

@@ -11,7 +11,7 @@ import { DashboardService } from '../../../modules/dashboard.service';
   styleUrls: ['./edit-product.component.css']
 })
 export class EditProductComponent implements OnInit {
- 
+
   prev:any={
     name:"",
     description:"",
@@ -53,8 +53,10 @@ export class EditProductComponent implements OnInit {
     console.log(this.file);
   }
  SendData(data:any){
+ 
          var formData = new FormData();
          console.log(this.prev);
+
         if(this.file){
         
           formData.append('image',this.file,this.file.name); 
@@ -78,9 +80,13 @@ export class EditProductComponent implements OnInit {
        
         this.dashboardService.UpdateOneProduct(formData,this.id).subscribe(data=>{
           console.log(data);
-        },(e)=>{console.log(e)}
-        ,()=>{this.router.navigateByUrl('/dashboard/products')})
+        },(e)=>{
+          console.log(e);
+        }
+        ,()=>{this.router.navigateByUrl('/dashboard/products')});
       }
- }
+    }
+
+ 
 
  

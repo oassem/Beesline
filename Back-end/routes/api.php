@@ -20,6 +20,7 @@ Route::post('/products', [ProductController::class, 'store'])->name('products.st
 Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
 Route::put('/products/{product}', [ProductController::class, 'update'])->name('products.update');
 Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
+Route::get('/catProducts',[ProductController::class,'catProducts'])->name('products.catProducts');
 
 // users
 Route::get('users', [UserController::class, 'index'])->name('users.index');
@@ -27,6 +28,8 @@ Route::post('/users', [UserController::class, 'store'])->name('users.store');
 Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show');
 Route::put('/users/{user}', [UserController::class, 'update'])->name('users.update');
 Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
+Route::get('/areachart',[UserController::class,'_index'])->name('users._index');
+Route::get('/newusers',[UserController::class,'newusers'])->name('users.newusers');
 
 // offers
 Route::get('offers', [OfferController::class, 'index'])->name('offers.index');
@@ -42,6 +45,9 @@ Route::get('/orders/{order}', [OrderController::class, 'show'])->name('orders.sh
 Route::put('/orders/{order}', [OrderController::class, 'update'])->name('orders.update');
 Route::delete('/orders/{order}', [OrderController::class, 'destroy'])->name('orders.destroy');
 Route::get('/allOrders',[OrderController::class,'_orders'])->name('orders._orders');
+Route::get('/orderAccepted',[OrderController::class,'orderAccepted'])->name('orders.orderAccepted');
+Route::get('/orderRejected',[OrderController::class,'orderRejected'])->name('orders.orderRejected');
+Route::get('/orderPending',[OrderController::class,'orderPending'])->name('orders.orderPending');
 
 // user_orders
 Route::get('/user_orders/{user_order}', [User_OrderController::class, 'show']);

@@ -1,8 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { DataService } from 'src/app/services/data.service';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { DataService } from 'src/app/Services/data.service';
 import { Router } from '@angular/router';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-sign-in',

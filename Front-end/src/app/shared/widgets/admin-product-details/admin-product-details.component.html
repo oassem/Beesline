@@ -1,10 +1,10 @@
-<div class="hos d-flex flex-column align-items-center">
+<div class="container mt-3 mb-3">
     <mat-card class="example-card">
         <mat-card-title-group>
           <mat-card-title>
             <h2 class="text-muted d-inline">Product Name:</h2> <h4 class="d-inline">{{ProductData.name}}</h4>
           </mat-card-title>
-          <img mat-card-xl-image src="{{dashboardService.imageUrl}}{{ProductData.image}}" >
+          <img src="{{dashboardService.imageUrl}}{{ProductData.image}}">
         </mat-card-title-group>
         <mat-card-content>
             <h2 class="text-muted d-inline">Product Number:</h2> <h4 class="d-inline">{{ProductData.id}}</h4> <br>

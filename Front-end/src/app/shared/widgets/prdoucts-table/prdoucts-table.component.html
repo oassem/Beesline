@@ -1,14 +1,14 @@
-<div class="hos">
+<div class="container mb-5 mt-2 hos">
    <mat-card>Products</mat-card>
 <br>
 <p>
    <a mat-raised-button  routerLinkActive="list-item-active" routerLink="/dashboard/products/addProduct" color="primary">Add New Product</a>
 </p>
-<div class="search-hero">
+<div class="search-hero mb-2">
      <input class="form-control" type="text" name="search" [(ngModel)]="searchTerm" autocomplete="off" placeholder="&#61442;  Start searching for a Product by name or price">
 </div>
 
-<div class="example-container mat-elevation-z8">
+<div class="example-container mat-elevation-z8 table-responsive-sm">
   <table class="table table-striped" >
     <thead>
       <tr>
@@ -22,7 +22,7 @@
     <tbody>
       <tr *ngFor="let p of AllProducts | filter: searchTerm">
         <td>{{p.id}}</td>
-        <td><img src="{{dashboardService.imageUrl}}{{p.image}}" style="width:100px;height:100px;"  alt=""></td>
+        <td><img src="{{dashboardService.imageUrl}}{{p.image}}"  alt=""></td>
         <td>{{p.name}}</td>
         <td>{{p.price}}</td>
         <td>

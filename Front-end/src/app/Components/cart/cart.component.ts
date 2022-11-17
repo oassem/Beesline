@@ -10,7 +10,6 @@ export class CartComponent implements OnInit {
   items: any;
   counter: any;
   userID = Number(localStorage.getItem('userId'));
-
   constructor(public myService: APIService) {}
 
   ngOnInit(): void {

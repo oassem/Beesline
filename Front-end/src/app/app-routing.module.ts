@@ -28,10 +28,10 @@ import { AdminProductDetailsComponent } from './shared/widgets/admin-product-det
 import { IsLoggedGuard } from './guards/is-logged.guard';
 import { IsnotLoggedGuard } from './guards/isnot-logged.guard';
 import { ContactComponent } from './Components/contact/contact.component';
+import { MessagesComponent } from './modules/messages/messages.component';
 
 const routes: Routes = [
   { path: '', component: OffersComponent, title: 'Home', pathMatch: 'full' },
-  { path: 'products', component: ProductsComponent, title: 'Products', pathMatch: 'full' },
   { path: 'products/:name', component: ProductFilterComponent, title: 'Filtered Products', pathMatch: 'full' },
   { path: 'offers', component: OffersComponent, title: 'Home', pathMatch: 'full' },
   { path: 'product/:id', component: ProductDetailsComponent, title: 'Product Details', pathMatch: 'full' },
@@ -59,6 +59,8 @@ const routes: Routes = [
       { path: 'users/userDetails/:id', component: UserDetailsComponent, loadChildren: () => import('./layouts/default/default.module').then(m => m.DefaultModule), pathMatch: 'full' },
       { path: 'offers', component: AdminOffersComponent, loadChildren: () => import('./layouts/default/default.module').then(m => m.DefaultModule), pathMatch: 'full' },
       { path: 'offers/:id', component: AddofferComponent, loadChildren: () => import('./layouts/default/default.module').then(m => m.DefaultModule), pathMatch: 'full' },
+      {path:'messages',component:MessagesComponent,loadChildren:()=>import('./layouts/default/default.module').then(m=>m.DefaultModule),pathMatch:'full'}
+
     ]
   }
 ];

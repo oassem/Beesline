@@ -26,6 +26,7 @@ class UserResource extends JsonResource
             'address'=>$this->address,
             'city'=>$this->city,
             'type'=>$this->type,
+            'created_at'=>$this->created_at,
             'cart info' => CartResource::collection($this->carts) 
         ];
     }

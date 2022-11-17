@@ -1,8 +1,8 @@
-<div class="hos">
+<div class="container mt-5 mb-5">
   <mat-card>Users Details</mat-card>
 <br>
-<div class="example-container mat-elevation-z8">
- <table class="table table-striped" >
+<div style="overflow-x:auto;" class="example-container mat-elevation-z8">
+ <table class="table table-striped table-responsive-sm" >
    <thead>
      <tr>
        <th>#</th>
@@ -18,7 +18,7 @@
      <tr *ngFor="let u of AllUserData">
        <td>{{u.id}}</td>
        <td>{{u.firstname}} &nbsp;{{u.lastname}}</td>
-       <td><img src="{{dashboardService.imageUrl}}{{u.image}}" style="width:100px;height:100px;"  alt=""></td>
+       <td><img src="{{dashboardService.imageUrl}}{{u.image}}"   alt=""></td>
        <td>{{u.email}}</td>
        <td>{{u.type}}</td>
        <td>{{u.city}}</td>
@@ -30,3 +30,5 @@
  </table>
 </div>
 </div>
+<br>
+<mat-divider></mat-divider>

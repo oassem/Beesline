@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('firstname');
             $table->string('lastname');
             $table->string('email')->unique();
-            $table->enum('type', ['admin', 'superAdmin', 'user'])->default('user');
+            $table->enum('type', array('admin','superAdmin','user'))->default('user');
             $table->string('image');
             $table->string('mobile');
             // $table->timestamp('email_verified_at')->nullable();
