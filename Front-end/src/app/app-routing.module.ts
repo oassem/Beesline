@@ -27,6 +27,7 @@ import { AdminOffersComponent } from './modules/admin-offers/admin-offers.compon
 import { AdminProductDetailsComponent } from './shared/widgets/admin-product-details/admin-product-details.component';
 import { IsLoggedGuard } from './guards/is-logged.guard';
 import { IsnotLoggedGuard } from './guards/isnot-logged.guard';
+import { MessagesComponent } from './modules/messages/messages.component';
 
 const routes: Routes = [
   { path: 'products', component: ProductsComponent, title: 'Products', pathMatch: 'full'},
@@ -40,7 +41,7 @@ const routes: Routes = [
   { path: 'checkout', component: CheckoutComponent, title: 'CheckOut', pathMatch: 'full',canActivate:[IsnotLoggedGuard] },
   { path: 'profile', component: ProfileComponent, title: 'My Profile', pathMatch: 'full',canActivate:[IsnotLoggedGuard] },
   { path: 'edit-profile/:id', component: EditProfileComponent, title: 'Edit Profile', pathMatch: 'full' ,canActivate:[IsnotLoggedGuard]},
-  { path: 'orders', component: ordersComponent, title: 'My Orders', pathMatch: 'full',canActivate:[IsnotLoggedGuard] },
+  { path: 'orders', component: ordersComponent, title: 'My Orders', pathMatch: 'full',canActivate:[IsnotLoggedGuard]},
   { path:'dashboard',component:DefaultComponent,canActivate:[IsnotLoggedGuard],
   children:[
     {path:'home',component:DashboardComponent,loadChildren: () => import('./layouts/default/default.module').then(m => m.DefaultModule),pathMatch: 'full'},
@@ -55,6 +56,8 @@ const routes: Routes = [
     {path:'users/userDetails/:id',component:UserDetailsComponent,loadChildren:()=>import('./layouts/default/default.module').then(m=>m.DefaultModule),pathMatch:'full'},
     {path:'offers',component:AdminOffersComponent,loadChildren:()=>import('./layouts/default/default.module').then(m=>m.DefaultModule),pathMatch:'full'},
     {path:'offers/:id',component:AddofferComponent,loadChildren:()=>import('./layouts/default/default.module').then(m=>m.DefaultModule),pathMatch:'full'},
+    {path:'messages',component:MessagesComponent,loadChildren:()=>import('./layouts/default/default.module').then(m=>m.DefaultModule),pathMatch:'full'}
+   
   ]}
 ];
 

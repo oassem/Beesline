@@ -1,45 +1,27 @@
-p {
-    font-family: Lato;
+  
+ 
+
+  img{
+    width:100px;
+  }
+  @media (max-width: 575.98px) {
   }
   
-  .example-container {
-    display: flex;
-    flex-direction: column;
-    max-height: 500px;
-    min-width: 300px;
+  @media (min-width: 576px) and (max-width: 767.98px) {
   }
   
-  .mat-table {
-    overflow: auto;
-    max-height: 500px;
+  @media (min-width: 768px) and (max-width: 991.98px) {
+
   }
   
-  .hos{
-    height:100vh;
-  }
-  p {
-     font-family: Lato;
+  @media (min-width: 992px) and (max-width: 1199.98px) {
+    img{
+      width:200px;
     }
-  .example-container {
-      display: flex;
-      flex-direction: column;
-      max-height: 500px;
-      min-width: 300px;
-  }
-  .table{
-      overflow:auto;
-      max-height: 500px;
-  }
-  .tr{
-    padding-top: 50px;
-    padding-bottom: 10px;
-    color: #405065;
   }
   
-  .form-control {
-    box-shadow: 0 10px 40px 0 #B0C1D9;
+  @media (min-width: 1200px) {
+    img{
+      width:300px;
+    }
   }
-  .form-control::placeholder  {
-    font-family: FontAwesome;
-  }
-    

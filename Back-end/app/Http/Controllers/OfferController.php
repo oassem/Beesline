@@ -11,6 +11,9 @@ class OfferController extends Controller
 {
     public function store(Request $request)
     {
+        if(Offer::where('productId',$request->productId)){
+            Offer::where('productId',$request->productId)->delete();
+        }
         Offer::Create($request->all());  
     }
 

@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
 import HC_exporting from 'highcharts/modules/exporting';
+import { DashboardService } from 'src/app/modules/dashboard.service';
 
 @Component({
   selector: 'app-widget-card',
@@ -10,13 +11,75 @@ import HC_exporting from 'highcharts/modules/exporting';
 export class CardComponent implements OnInit {
   @Input() label:string='';
   @Input() total:string='';
-  @Input() percentage:string='';
-  @Input() data:number[]=[];
+  // @Input() percentage:string='';
+  // @Input() data:number[]=[];
+  data:number[]=[];
   Highcharts=Highcharts;
   chartOptions={};
-  constructor() { }
+  constructor(private dashboardService:DashboardService) { }
 
   ngOnInit(): void {
+    this.dashboardService.GetNoOfUsers().subscribe(data=>{
+      this.data=data;
+      console.log(this.data);
+      this.chartOptions= {
+        chart: {
+            type: 'area',
+            backgroundColor:null,
+            borderWidth:0,
+            margin:[2,2,2,2],
+            height:60,
+        },
+        title: {
+            text: null
+        },
+        tooltip:{
+          split:true,
+          outside:true
+        },
+        legend:{
+          enabled:false
+        },
+        subtitle: {
+            text: null 
+        },
+        credits:{
+           enabled:false
+        },
+        exporting:{
+          enabled:false
+        },
+        xAxis:{
+          labels:{
+            enabled:true
+          },
+          title:{
+            text:null
+          },
+          startOnTick:false,
+          endOnTick:false,
+          tickOptions:[]
+        },
+        yAxis:{
+          labels:{
+            enabled:true
+          },
+          title:{
+            text:null
+          },
+          startOnTick:false,
+          endOnTick:false,
+          tickOptions:[]
+        },
+        series: [{
+          data:this.data
+        }
+      ]
+    };
+    },(e)=>{console.log(e)},
+    ()=>{
+
+    });
     this.chartOptions= {
       chart: {
           type: 'area',
@@ -24,7 +87,6 @@ export class CardComponent implements OnInit {
           borderWidth:0,
           margin:[2,2,2,2],
           height:60,
-
       },
       title: {
           text: null
@@ -68,7 +130,7 @@ export class CardComponent implements OnInit {
         tickOptions:[]
       },
       series: [{
-        data:this.data
+        data:[0,0,0,0,0,0,0]
       }
     ]
   };

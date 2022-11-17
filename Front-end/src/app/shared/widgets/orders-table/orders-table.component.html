@@ -1,7 +1,7 @@
-<div class="hos">
+<div class="container mb-5 mt-2 hos">
   <mat-card>Orders Control</mat-card>
 <br>
-<div class="example-container mat-elevation-z8">
+<div class="example-container mat-elevation-z8 table-responsive">
  <table class="table table-striped" >
    <thead>
      <tr>
@@ -36,12 +36,15 @@
           </tr>
            <tr *ngFor="let oo of AllOrders">
               <td *ngIf="o.user_id==oo.user_id">{{oo['product info'].name}}</td>
-              <td *ngIf="o.user_id==oo.user_id"><img src="{{dashboardService.imageUrl}}{{oo['product info'].image}}" style="width:100px;height:80px;"  alt=""></td>
+              <td *ngIf="o.user_id==oo.user_id"><img src="{{dashboardService.imageUrl}}{{oo['product info'].image}}"  alt=""></td>
               <td *ngIf="o.user_id==oo.user_id">{{oo.quantity}}</td>
               <td *ngIf="o.user_id==oo.user_id">{{oo['product info'].price}}</td>
               <td *ngIf="o.user_id==oo.user_id">{{oo['product info'].price * oo.quantity}}</td>
            </tr>
         </table>
+      </td>
+      <td>
+
       </td>
       <td>
         <button mat-raised-button color="accent" routerLink="/dashboard/orders/changeStatus/{{o.id}}"><mat-icon>edit</mat-icon>Edit status</button>

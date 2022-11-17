@@ -1,34 +1,30 @@
+<div class="container p-2 hos">
 <div>
-    <app-widget-area [data]="bigChart"></app-widget-area>
+    <app-widget-area></app-widget-area>
 </div>
 <br>
 <mat-divider></mat-divider>
 <br>
-<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px" class="stats-cards">
+<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px" class="stats-cards">
     <mat-card fxFlex="25">
-        <app-widget-card label="New Users" total="12k" percentage="50" [data]="cards"></app-widget-card>
+        <app-widget-card label="No Of Users per years" total="{{NoOfUserstotal}}"></app-widget-card>
     </mat-card>
     <mat-card fxFlex="25">
-        <app-widget-card label="Orders Accepted" total="14k" percentage="30" [data]="cards"></app-widget-card>
+        <app-orders-accepted-card label="Orders Accepted per years" total="{{NoOfOrdersAccepted}}"></app-orders-accepted-card>
     </mat-card>
     <mat-card fxFlex="25">
-        <app-widget-card label="Users Engagement" total="8K" percentage="30" [data]="cards"></app-widget-card>
+        <app-orders-pending-card label="Orders Pending per years" total="{{NoOfOrdersPending}}"></app-orders-pending-card>
     </mat-card>
     <mat-card fxFlex="25">
-        <app-widget-card label="Orders Rejected" total="19k" percentage="30" [data]="cards"></app-widget-card>
+        <app-orders-rejected-card label="Orders Rejected per years" total="{{NoOfOrdersRejected}}"></app-orders-rejected-card>
     </mat-card>
 </div>
 <br>
-<!-- <mat-divider></mat-divider> -->
 <br>
-<!-- <mat-card>All Users</mat-card> -->
 <mat-divider></mat-divider>
 <br>
-<div fxLayout="row" fxLayoutAlign="space-around" fxLayoutGap="10px">
-    
-        <app-widget-all-users-table fxLayout="80"></app-widget-all-users-table>    
-    
-   
-        <app-widget-pie fxLayout="20" [data]="piechart"></app-widget-pie>
-   
+<div fxLayout="column">
+        <app-widget-all-users-table></app-widget-all-users-table>    
+        <app-widget-pie></app-widget-pie>
+</div>
 </div>

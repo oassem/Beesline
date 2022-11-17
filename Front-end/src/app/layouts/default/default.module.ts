@@ -48,6 +48,10 @@ import { AdminOrdersComponent } from 'src/app/modules/admin-orders/admin-orders.
 import { AdminEditProfileComponent } from 'src/app/shared/widgets/admin-edit-profile/admin-edit-profile.component';
 import { AdminOffersComponent } from 'src/app/modules/admin-offers/admin-offers.component';
 import { AdminProductDetailsComponent } from 'src/app/shared/widgets/admin-product-details/admin-product-details.component';
+import { OrdersAcceptedCardComponent } from '../../shared/widgets/orders-accepted-card/orders-accepted-card.component';
+import { OrdersRejectedCardComponent } from 'src/app/shared/widgets/orders-rejected-card/orders-rejected-card.component';
+import { OrdersPendingCardComponent } from '../../shared/widgets/orders-pending-card/orders-pending-card.component';
+import { MessagesComponent } from 'src/app/modules/messages/messages.component';
 
 
 
@@ -72,7 +76,11 @@ import { AdminProductDetailsComponent } from 'src/app/shared/widgets/admin-produ
  AdminOffersComponent,
   AddofferComponent,
   // SidebarComponent
-  AdminProductsComponent
+  AdminProductsComponent,
+  OrdersAcceptedCardComponent,
+  OrdersRejectedCardComponent,
+  OrdersPendingCardComponent,
+  MessagesComponent
  
   
     

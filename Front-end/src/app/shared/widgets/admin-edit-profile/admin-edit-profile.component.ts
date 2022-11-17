@@ -8,6 +8,7 @@ import { DashboardService } from '../../../modules/dashboard.service';
   styleUrls: ['./admin-edit-profile.component.css']
 })
 export class AdminEditProfileComponent implements OnInit {
+  emailValidation = false;
 
   
   prev:any={
@@ -62,7 +63,7 @@ export class AdminEditProfileComponent implements OnInit {
   }
   newsletter:any;
  SendData(data:any){
-  
+  if (data.valid) {
     //Add Data To DB
     var formData=new FormData();
     console.log(this.prev);
@@ -95,8 +96,13 @@ this.newsletter=1;
     }
     this.dashboardService.UpdateOneUser(1,formData).subscribe(data=>{
       console.log(data.data);
-    },(e)=>{console.log(e)}
+    },(e)=>{
+      if(e.error.errors.email[0] == 'The email has already been taken.'){
+        this.emailValidation = true;
+      }
+    }
     ,()=>{
       this.router.navigateByUrl('/dashboard/users')})
     }
+  }
 }

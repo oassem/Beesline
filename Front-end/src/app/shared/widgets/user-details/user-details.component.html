@@ -1,4 +1,4 @@
-<div class="d-flex flex-column align-items-center">
+<div class="container mt-5 mb-5">
     <mat-card class="example-card">
         <mat-card-title-group>
           <mat-card-title>
@@ -7,10 +7,10 @@
             <button mat-raised-button color="light" routerLink="/users"> <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>users Page</button>    
           </mat-card-title> 
           <mat-divider></mat-divider>
-            <img mat-card-xl-image src="{{dashboardService.imageUrl}}{{userData.image}}"> 
+            <img  src="{{dashboardService.imageUrl}}{{userData.image}}"> 
         </mat-card-title-group>
         <mat-tab-group>
-          <mat-tab label="cart Details" class="text-black"> 
+          <mat-tab label="cart Details" *ngIf="userData.type=='user'" class="text-black"> 
           <mat-card *ngFor="let card of userData['cart info']" class="d-flex flex-row">
           
           
@@ -20,7 +20,7 @@
 
           </mat-card>
           </mat-tab>
-          <mat-tab label="User Details" class="text-black"> 
+          <mat-tab label="User Details" class="text-black" > 
             <mat-card>
             <mat-card class="text-black"><h3>User Mobile No.: <span class="text-muted">{{userData.mobile}}
              </span></h3></mat-card>
@@ -28,8 +28,9 @@
               <mat-card class="text-black"><h3>User City: <span class="text-muted">{{userData.city}} </span></h3> </mat-card>
               <mat-card class="text-black"><h3>User Address: <span class="text-muted">{{userData.address}}</span></h3></mat-card>
               </mat-card>
+             
           </mat-tab>
-          <mat-tab label="Order Details" class="text-black"> 
+          <mat-tab label="Order Details" *ngIf="userData.type=='user'"  class="text-black"> 
             <mat-card *ngFor="let or of AllOrdersNotRepeated">
             <p *ngIf="or.user_id==userData.id">Order Number: {{or.id}}</p>
             <p  *ngIf="or.user_id==userData.id" [ngClass]="{
@@ -47,7 +48,7 @@
             </tr>
              <tr *ngFor="let oo of ordersData">
                 <td *ngIf="or.user_id==oo.user_id">{{oo['product info'].name}}</td>
-                <td *ngIf="or.user_id==oo.user_id"><img src="{{dashboardService.imageUrl}}{{oo['product info'].image}}" style="width:100px;height:80px;"  alt=""></td>
+                <td *ngIf="or.user_id==oo.user_id"><img src="{{dashboardService.imageUrl}}{{oo['product info'].image}}"  alt=""></td>
                 <td *ngIf="or.user_id==oo.user_id">{{oo.quantity}}</td>
                 <td *ngIf="or.user_id==oo.user_id">{{oo['product info'].price}}</td>
                 <td *ngIf="or.user_id==oo.user_id">{{oo['product info'].price * oo.quantity}}</td>

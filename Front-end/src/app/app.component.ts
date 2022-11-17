@@ -1,4 +1,4 @@
-import { LocationStrategy } from '@angular/common';
+import { JsonPipe, LocationStrategy } from '@angular/common';
 import { Component, OnInit, Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -20,9 +20,14 @@ export class AppComponent implements OnInit {
       //     }
       // }
   }
+  userData:any;
+  UserType:any;
   ngOnInit(){
-    if(localStorage.getItem('userId')=='1'){
-             this.AdminHere=1;     
+    this.userData=localStorage.getItem('userData');
+    this.userData=JSON.parse(this.userData);
+    this.UserType=this.userData.data.type;
+    if(this.UserType=='admin'){
+         this.AdminHere=1;     
     }  
 
    

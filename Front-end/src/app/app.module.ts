@@ -13,7 +13,7 @@ import { HeaderComponent } from './Components/header/header.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { SignInComponent } from './Components/sign-in/sign-in.component';
 import { SignUpComponent } from './Components/sign-up/sign-up.component';
-import { DataService } from './services/data.service';
+import { DataService } from './Services/data.service';
 import { ProductsComponent } from './Components/products/products.component';
 import { OffersComponent } from './Components/offers/offers.component';
 import { ProductDetailsComponent } from './Components/product-details/product-details.component';
@@ -63,6 +63,7 @@ import { AdminFooterComponent } from './shared/components/admin-footer/admin-foo
     SidebarComponent,
     AdminHeaderComponent,
     AdminFooterComponent,
+    
   ],
   imports: [
     BrowserModule,
