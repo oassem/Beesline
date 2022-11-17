@@ -4,7 +4,7 @@
     <form #signUpForm="ngForm" (ngSubmit)="upload(signUpForm)" enctype="multipart/form-data">
       <h1 style="font-weight: 300;">Personal Information</h1><hr>
       <div class="form-group mb-4">
-        <label class="btn btn-default p-0">Upload your image</label>
+        <label class="btn btn-default p-0">Upload your image</label><span style="color:red;">&nbsp;*</span>
         <input type="file" class="form-control"  (change)="selectFile($event)"/>
         <div>
           <img src="{{myService.IMG_URL}}{{prev.image}}" class="preview w-25">
@@ -12,18 +12,18 @@
       </div>
       <div class="form-group mb-4">
         <label>First Name</label> <span style="color:red;">&nbsp;*</span>
-        <input type="text" class="form-control" placeholder="Enter First Name" [(ngModel)]="prev.firstname" required minlength="5" [value]="prev.firstname" #firstname="ngModel" name="firstname">
+        <input type="text" class="form-control" placeholder="Enter First Name" [(ngModel)]="prev.firstname" required minlength="3" [value]="prev.firstname" #firstname="ngModel" name="firstname">
         <div *ngIf="firstname?.invalid" class="alert alert-danger valid">
           <span *ngIf="firstname?.errors?.['required']">First name is required</span>
-          <span *ngIf="firstname?.errors?.['minlength']">First name minimum length is 5</span>
+          <span *ngIf="firstname?.errors?.['minlength']">First name minimum length is 3 </span>
         </div>
       </div>
       <div class="form-group mb-4">
         <label>Last Name</label><span style="color:red;">&nbsp;*</span>
-        <input type="text" class="form-control" placeholder="Enter Last Name" [(ngModel)]="prev.lastname" required [value]="prev.lastname" #lastname="ngModel"  name="lastname" minlength="5">
+        <input type="text" class="form-control" placeholder="Enter Last Name" [(ngModel)]="prev.lastname" required [value]="prev.lastname" #lastname="ngModel"  name="lastname" minlength="3">
         <div *ngIf="lastname?.invalid" class="alert alert-danger valid">
           <span *ngIf="lastname?.errors?.['required']">Last name is required</span>
-          <span *ngIf="lastname?.errors?.['minlength']">Last name minimum length is 5</span>
+          <span *ngIf="lastname?.errors?.['minlength']">Last name minimum length is 3</span>
         </div>
       </div>
       <div class="form-group mb-4">

@@ -30,38 +30,41 @@ import { IsnotLoggedGuard } from './guards/isnot-logged.guard';
 import { ContactComponent } from './Components/contact/contact.component';
 
 const routes: Routes = [
-  { path: 'products', component: ProductsComponent, title: 'Products', pathMatch: 'full'},
-  { path: 'products/:name', component: ProductFilterComponent, title: 'Filtered Products', pathMatch: 'full'},
+  { path: '', component: OffersComponent, title: 'Home', pathMatch: 'full' },
+  { path: 'products', component: ProductsComponent, title: 'Products', pathMatch: 'full' },
+  { path: 'products/:name', component: ProductFilterComponent, title: 'Filtered Products', pathMatch: 'full' },
   { path: 'offers', component: OffersComponent, title: 'Home', pathMatch: 'full' },
-  { path: 'product/:id', component: ProductDetailsComponent, title: 'Product Details', pathMatch: 'full'},
-  { path: 'cart', component: CartComponent, title: 'My Cart', pathMatch: 'full',canActivate:[IsnotLoggedGuard] },
-  { path: 'signUp', component: SignUpComponent, title: 'Sign up', pathMatch: 'full',canActivate:[IsLoggedGuard] },
-  { path: 'login', component: SignInComponent, title: 'Sign in', pathMatch: 'full',canActivate:[IsLoggedGuard] },
-  { path: 'about', component: AboutComponent, title: 'About us' , pathMatch: 'full'},
-  { path: 'contact', component: ContactComponent, title: 'Contact us' , pathMatch: 'full'},
-  { path: 'checkout', component: CheckoutComponent, title: 'Checkout', pathMatch: 'full',canActivate:[IsnotLoggedGuard] },
-  { path: 'profile', component: ProfileComponent, title: 'My Profile', pathMatch: 'full',canActivate:[IsnotLoggedGuard] },
-  { path: 'edit-profile/:id', component: EditProfileComponent, title: 'Edit Profile', pathMatch: 'full' ,canActivate:[IsnotLoggedGuard]},
-  { path: 'orders', component: ordersComponent, title: 'My Orders', pathMatch: 'full',canActivate:[IsnotLoggedGuard] },
-  { path:'dashboard',component:DefaultComponent,canActivate:[IsnotLoggedGuard],
-  children:[
-    {path:'home',component:DashboardComponent,loadChildren: () => import('./layouts/default/default.module').then(m => m.DefaultModule),pathMatch: 'full'},
-    {path:'products',component:AdminProductsComponent,loadChildren:()=>import('./layouts/default/default.module').then(m=>m.DefaultModule),pathMatch: 'full'},
-    {path:'products/addProduct',component:AddProductComponent,loadChildren:()=>import('./layouts/default/default.module').then(m=>m.DefaultModule),pathMatch: 'full'},
-    {path:'products/productDetails/:id',component:AdminProductDetailsComponent,loadChildren:()=>import('./layouts/default/default.module').then(m=>m.DefaultModule),pathMatch: 'full'},
-    {path:'products/editProduct/:id',component:EditProductComponent,loadChildren:()=>import('./layouts/default/default.module').then(m=>m.DefaultModule),pathMatch: 'full'},
-    {path:'orders',component:AdminOrdersComponent,loadChildren:()=>import('./layouts/default/default.module').then(m=>m.DefaultModule),pathMatch: 'full'},
-    {path:'orders/changeStatus/:id',component:ChangeStatusComponent,loadChildren:()=>import('./layouts/default/default.module').then(m=>m.DefaultModule),pathMatch: 'full'},
-    {path:'editProfile',component:AdminEditProfileComponent,loadChildren:()=>import('./layouts/default/default.module').then(m=>m.DefaultModule),pathMatch:'full'},
-    {path:'users',component:UsersComponent,loadChildren:()=>import('./layouts/default/default.module').then(m=>m.DefaultModule),pathMatch:'full'},
-    {path:'users/userDetails/:id',component:UserDetailsComponent,loadChildren:()=>import('./layouts/default/default.module').then(m=>m.DefaultModule),pathMatch:'full'},
-    {path:'offers',component:AdminOffersComponent,loadChildren:()=>import('./layouts/default/default.module').then(m=>m.DefaultModule),pathMatch:'full'},
-    {path:'offers/:id',component:AddofferComponent,loadChildren:()=>import('./layouts/default/default.module').then(m=>m.DefaultModule),pathMatch:'full'},
-  ]}
+  { path: 'product/:id', component: ProductDetailsComponent, title: 'Product Details', pathMatch: 'full' },
+  { path: 'cart', component: CartComponent, title: 'My Cart', pathMatch: 'full', canActivate: [IsnotLoggedGuard] },
+  { path: 'signUp', component: SignUpComponent, title: 'Sign up', pathMatch: 'full', canActivate: [IsLoggedGuard] },
+  { path: 'login', component: SignInComponent, title: 'Sign in', pathMatch: 'full', canActivate: [IsLoggedGuard] },
+  { path: 'about', component: AboutComponent, title: 'About us', pathMatch: 'full' },
+  { path: 'contact', component: ContactComponent, title: 'Contact us', pathMatch: 'full' },
+  { path: 'checkout', component: CheckoutComponent, title: 'Checkout', pathMatch: 'full', canActivate: [IsnotLoggedGuard] },
+  { path: 'profile', component: ProfileComponent, title: 'My Profile', pathMatch: 'full', canActivate: [IsnotLoggedGuard] },
+  { path: 'edit-profile/:id', component: EditProfileComponent, title: 'Edit Profile', pathMatch: 'full', canActivate: [IsnotLoggedGuard] },
+  { path: 'orders', component: ordersComponent, title: 'My Orders', pathMatch: 'full', canActivate: [IsnotLoggedGuard] },
+  {
+    path: 'dashboard', component: DefaultComponent, canActivate: [IsnotLoggedGuard],
+    children: [
+      { path: 'home', component: DashboardComponent, loadChildren: () => import('./layouts/default/default.module').then(m => m.DefaultModule), pathMatch: 'full' },
+      { path: 'products', component: AdminProductsComponent, loadChildren: () => import('./layouts/default/default.module').then(m => m.DefaultModule), pathMatch: 'full' },
+      { path: 'products/addProduct', component: AddProductComponent, loadChildren: () => import('./layouts/default/default.module').then(m => m.DefaultModule), pathMatch: 'full' },
+      { path: 'products/productDetails/:id', component: AdminProductDetailsComponent, loadChildren: () => import('./layouts/default/default.module').then(m => m.DefaultModule), pathMatch: 'full' },
+      { path: 'products/editProduct/:id', component: EditProductComponent, loadChildren: () => import('./layouts/default/default.module').then(m => m.DefaultModule), pathMatch: 'full' },
+      { path: 'orders', component: AdminOrdersComponent, loadChildren: () => import('./layouts/default/default.module').then(m => m.DefaultModule), pathMatch: 'full' },
+      { path: 'orders/changeStatus/:id', component: ChangeStatusComponent, loadChildren: () => import('./layouts/default/default.module').then(m => m.DefaultModule), pathMatch: 'full' },
+      { path: 'editProfile', component: AdminEditProfileComponent, loadChildren: () => import('./layouts/default/default.module').then(m => m.DefaultModule), pathMatch: 'full' },
+      { path: 'users', component: UsersComponent, loadChildren: () => import('./layouts/default/default.module').then(m => m.DefaultModule), pathMatch: 'full' },
+      { path: 'users/userDetails/:id', component: UserDetailsComponent, loadChildren: () => import('./layouts/default/default.module').then(m => m.DefaultModule), pathMatch: 'full' },
+      { path: 'offers', component: AdminOffersComponent, loadChildren: () => import('./layouts/default/default.module').then(m => m.DefaultModule), pathMatch: 'full' },
+      { path: 'offers/:id', component: AddofferComponent, loadChildren: () => import('./layouts/default/default.module').then(m => m.DefaultModule), pathMatch: 'full' },
+    ]
+  }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { anchorScrolling: 'enabled'})],
+  imports: [RouterModule.forRoot(routes, { anchorScrolling: 'enabled' })],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

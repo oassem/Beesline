@@ -93,8 +93,10 @@ export class SignUpComponent implements OnInit {
           console.log(data);
         },
         (e) => {
-          this.errorArray = e.error.errors.email[0];
-          console.log(this.errorArray);
+          if (e.error.errors.email[0]) {
+            this.errorArray = e.error.errors.email[0];
+            console.log(this.errorArray);
+          }
         },
         () => {
           this.router.navigateByUrl('/login');

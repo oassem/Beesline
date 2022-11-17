@@ -8,7 +8,7 @@
       <h1 style="font-weight: 300;">Personal Information</h1>
       <hr>
       <div class="form-group mt-3">
-        <label for="exampleInputImg">Image</label>
+        <label for="exampleInputImg">Image</label><span style="color:red;">&nbsp;*</span>
         <input name="image" required type="file" class="form-control" id="exampleInputImg"
           placeholder="Enter Your Image.." (change)="onChange($event)">
       </div>
@@ -89,10 +89,15 @@
       </div>
       <div class="form-group mb-4">
         <label>Password</label><span style="color:red;">&nbsp;*</span>
-        <input type="password" class="form-control" placeholder="Enter Password" formControlName="password" minlength="6">
+        <input type="password" class="form-control" placeholder="Enter Password" formControlName="password" minlength="8" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}">
         <div *ngIf="password?.touched && password?.invalid" class="alert alert-danger">
           <div *ngIf="password?.errors?.['required']">Password is required</div>
-          <div *ngIf="password?.errors?.['minlength']">password minimum length is 6  characters</div>
+          <div *ngIf="password?.errors?.['minlength']">password minimum length is 8  characters</div>
+          <span *ngIf="password?.errors?.['pattern']">Password must be at least 8 characters in length
+            Lowercase letters
+            Uppercase letters
+            Numbers
+            Special characters</span>
         </div>
       </div>
       <div class="form-group mb-4">
