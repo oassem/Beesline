@@ -4,13 +4,13 @@
           <mat-card-title>
             <mat-card class="text-black">User Name: {{userData.firstname}}&nbsp;{{userData.lastname}}</mat-card> 
             <br>
-            <button mat-raised-button color="light" routerLink="/users"> <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>users Page</button>    
+            <button mat-raised-button color="light" routerLink="/users"> <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>Users Page</button>    
           </mat-card-title> 
           <mat-divider></mat-divider>
             <img  src="{{dashboardService.imageUrl}}{{userData.image}}"> 
         </mat-card-title-group>
         <mat-tab-group>
-          <mat-tab label="cart Details" *ngIf="userData.type=='user'" class="text-black"> 
+          <mat-tab label="Cart Details" *ngIf="userData.type=='user'" class="text-black"> 
           <mat-card *ngFor="let card of userData['cart info']" class="d-flex flex-row">
           
           
