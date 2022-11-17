@@ -12,18 +12,20 @@
       </div>
       <div class="form-group mb-4">
         <label>First Name</label> <span style="color:red;">&nbsp;*</span>
-        <input type="text" class="form-control" placeholder="Enter First Name" [(ngModel)]="prev.firstname" required minlength="3" [value]="prev.firstname" #firstname="ngModel" name="firstname">
+        <input type="text" class="form-control" placeholder="Enter First Name" [(ngModel)]="prev.firstname" required minlength="3" pattern="^[a-zA-Z \-\']+" [value]="prev.firstname" #firstname="ngModel" name="firstname">
         <div *ngIf="firstname?.invalid" class="alert alert-danger valid">
           <span *ngIf="firstname?.errors?.['required']">First name is required</span>
           <span *ngIf="firstname?.errors?.['minlength']">First name minimum length is 3 </span>
+          <span *ngIf="firstname?.errors?.['pattern']">First name can only be letters</span>
         </div>
       </div>
       <div class="form-group mb-4">
         <label>Last Name</label><span style="color:red;">&nbsp;*</span>
-        <input type="text" class="form-control" placeholder="Enter Last Name" [(ngModel)]="prev.lastname" required [value]="prev.lastname" #lastname="ngModel"  name="lastname" minlength="3">
+        <input type="text" class="form-control" placeholder="Enter Last Name" [(ngModel)]="prev.lastname" required pattern="^[a-zA-Z \-\']+" [value]="prev.lastname" #lastname="ngModel"  name="lastname" minlength="3">
         <div *ngIf="lastname?.invalid" class="alert alert-danger valid">
           <span *ngIf="lastname?.errors?.['required']">Last name is required</span>
           <span *ngIf="lastname?.errors?.['minlength']">Last name minimum length is 3</span>
+          <span *ngIf="firstname?.errors?.['pattern']">Last name can only be letters</span>
         </div>
       </div>
       <div class="form-group mb-4">
@@ -68,12 +70,12 @@
           <option value="banha">Banha</option>
           <option value="arish">Arish</option>
         </select>
-        <div *ngIf="city?.touched &&  city?.invalid" class="alert alert-danger">
+        <div *ngIf="city?.touched && city?.invalid" class="alert alert-danger">
           <div *ngIf="city?.errors?.['required']">City is required</div>
         </div>
       </div>
       <div class="form-group form-check">
-        <input type="checkbox"  name="newsletter" [value]="prev.newsletter" #newsletter="ngModel" [(ngModel)]="prev.newsletter" class="form-check-input" id="exampleCheck1">
+        <input type="checkbox" name="newsletter" [value]="prev.newsletter" #newsletter="ngModel" [(ngModel)]="prev.newsletter" class="form-check-input" id="exampleCheck1">
         <label class="form-check-label" for="exampleCheck1"><span style="color:#c59630ed; font-size: smaller;">  Sign up for Newsletter</span>
         </label>
       </div>

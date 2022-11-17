@@ -37,11 +37,13 @@ input[type="checkbox"] {
   width: 15px;
   border: 0.5px solid #b48b32;
 }
+
 .save {
   color: white;
   font-weight: bolder;
 }
 
 .valid {
+  margin-top: 1px;
   width: 39%;
 }
